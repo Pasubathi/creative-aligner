@@ -19,6 +19,7 @@
       }
       
       &:hover {
+
         // cursor: text;
         i,
         svg {
@@ -27,3 +28,62 @@
         }
       }
 }
+.card{
+  background: #FFFFFF;
+  box-shadow: 0px 10px 16px rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  .radio-form-card-inline {
+    border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+    padding: 15px 20px;
+    .form-check-inline label {
+      color:#85898D;
+    }
+  }
+  .card-body {
+    padding-top: 0;
+  }
+}
+
+.flex-card-top-inline {
+	display: flex;
+	justify-content: space-between;
+ 
+  .card-title{
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 30px;
+        color: #333333;
+        height: 40px;
+   }
+
+  .top-search-bar-item{
+    .input-group-text {
+      position: absolute;
+      right: 1px;
+      border: 0;
+      background: inherit;
+      border-radius: 0;
+      top: 1px;
+      z-index: 4;
+    }
+    .input-group{
+      input[type="text"] {
+        background: #FBFBFB;
+        border: 1px solid #E0E0E0;
+        box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.04), inset -6px -6px 4px rgba(255, 255, 255, 0.3), inset 6px 6px 20px rgba(0, 0, 0, 0.06);
+        border-radius: 6px;
+        width: 380px;
+      }
+    }
+   
+
+  }
+ }
+ .right-dashboard-options{
+
+  .navbar-nav li a {
+    color: rgba(12, 120, 167, 1);
+  }
+
+ }
+ 

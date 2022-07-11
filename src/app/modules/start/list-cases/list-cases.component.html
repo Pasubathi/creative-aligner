@@ -1,74 +1,75 @@
-<div class="card">
-  <div class="card-body">
-    <div class="row">
-      <div class="col-md-12">
-        <h4 class="card-title">
-          Cases Preview
-        </h4>
-        <hr />
-        <form (ngSubmit)="filterChanged()">
-          <div class="row">
-            <div class="col-lg-8">
-              <div class="form-check form-check-inline">
-                <input type="radio" class="form-check-input" (change)="filterChanged()" value="1"
-                  [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerAll">
-                <label class="form-check-label" for="casesFilerAll">
-                  All
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input type="radio" class="form-check-input" (change)="filterChanged()" value="2"
-                  [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerPending">
-                <label class="form-check-label" for="casesFilerPending">
-                  Pending
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input type="radio" class="form-check-input" (change)="filterChanged()" value="3"
-                  [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerActive">
-                <label class="form-check-label" for="casesFilerActive">
-                  Active
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input type="radio" class="form-check-input" (change)="filterChanged()" value="4"
-                  [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerCompleted">
-                <label class="form-check-label" for="casesFilerCompleted">
-                  Completed
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input type="radio" class="form-check-input" (change)="filterChanged()" value="5"
-                  [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerRejected">
-                <label class="form-check-label" for="casesFilerRejected">
-                  Rejected
-                </label>
-              </div>
-              <div class="form-check form-check-inline">
-                <input type="radio" class="form-check-input" (change)="filterChanged()" value="6"
-                  [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerArchived">
-                <label class="form-check-label" for="casesFilerArchived">
-                  Archived
-                </label>
-              </div>
 
-            </div>
-            <div class="col-lg-4">
-
-              <span style="float:right">
-                <div class="input-group">
-                  <input type="text" [(ngModel)]="SearchModel.SearchText" class="form-control" id="navbarForm"
-                    placeholder="Search here..." name="searchBox">
-                  <button type="submit" class="input-group-text btn-link custom_btn_icon">
-                    <i class="feather icon-search"></i>
-                  </button>
-                </div>
-              </span>
-            </div>
-          </div>
-        </form>
+  <div class="flex-card-top-inline">
+    <h4 class="card-title">
+      Cases Preview
+    </h4>
+    <div class="top-search-bar-item">
+        <div class="input-group">
+          <input type="text" [(ngModel)]="SearchModel.SearchText" class="form-control" id="navbarForm"
+            placeholder="Search here..." name="searchBox">
+          <button type="submit" class="input-group-text btn-link custom_btn_icon">
+            <i class="feather icon-search"></i>
+          </button>
+        </div>
       </div>
+  </div>
+<div class="card">
+  <div class="row">
+    <div class="col-md-12">
+     <form (ngSubmit)="filterChanged()" class="radio-form-card-inline">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="form-check form-check-inline">
+              <input type="radio" class="form-check-input" (change)="filterChanged()" value="1"
+                [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerAll">
+              <label class="form-check-label" for="casesFilerAll">
+                All
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input type="radio" class="form-check-input" (change)="filterChanged()" value="2"
+                [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerPending">
+              <label class="form-check-label" for="casesFilerPending">
+                Pending
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input type="radio" class="form-check-input" (change)="filterChanged()" value="3"
+                [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerActive">
+              <label class="form-check-label" for="casesFilerActive">
+                Active
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input type="radio" class="form-check-input" (change)="filterChanged()" value="4"
+                [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerCompleted">
+              <label class="form-check-label" for="casesFilerCompleted">
+                Completed
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input type="radio" class="form-check-input" (change)="filterChanged()" value="5"
+                [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerRejected">
+              <label class="form-check-label" for="casesFilerRejected">
+                Rejected
+              </label>
+            </div>
+            <div class="form-check form-check-inline">
+              <input type="radio" class="form-check-input" (change)="filterChanged()" value="6"
+                [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerArchived">
+              <label class="form-check-label" for="casesFilerArchived">
+                Archived
+              </label>
+            </div>
+
+          </div>
+        
+        </div>
+      </form>
     </div>
+  </div> 
+<div class="card-body">
+   
 
     <br />
     <ngb-alert [dismissible]="true" [type]="'danger'" *ngIf="errorMessage.length > 0">
@@ -157,7 +158,8 @@
           </div>
 
           <ngb-pagination [collectionSize]="TotalCount" [pageSize]="5" (pageChange)="pageChange($event)" [(page)]="Page"
-            [maxSize]="3" [boundaryLinks]="true"></ngb-pagination>
+            [maxSize]="3" [boundaryLinks]="true">
+          </ngb-pagination>
 
         </div>
       </div>

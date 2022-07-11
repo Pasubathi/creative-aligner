@@ -34,9 +34,9 @@
                 </div>
                 <div class="mb-3 col-md-6 form-field">
                   <label for="userSpecialityID" class="form-label">Speciality</label>
-                  <div class="mb-3">
+                  <div class="select-box-card">
                     <ng-select id="userSpecialityID" name="Speciality" [items]="specialities"
-                               [(ngModel)]="user.Speciality" placeholder="Speciality"
+                               [(ngModel)]="user.Speciality" placeholder="Select Speciality"
                                bindLabel="name"
                                bindValue="value"
                                #userSpecialityID="ngModel"
@@ -47,9 +47,9 @@
                 </div>
                 <div class="mb-3 col-md-6 form-field">
                   <label for="userCountryID" class="form-label">Country</label>
-                  <div class="mb-3">
+                  <div class="select-box-card">
                     <ng-select id="userCountryID" name="CountryID" [items]="countries"
-                               [(ngModel)]="user.CountryID" placeholder="Country"
+                               [(ngModel)]="user.CountryID" placeholder="Select Country"
                                bindLabel="Country"
                                bindValue="ID"
                                #userCountryID="ngModel" [clearable]="false"
@@ -85,7 +85,7 @@
                   </button>
 
                 </div>
-                <a routerLink="/auth/login" class="d-block mt-3 text-muted">Already a user? Sign in</a>
+                <a routerLink="/auth/login" class="d-block mt-3 text-muted">Already a user? <span class="provider">Sign in</span></a>
               </form>
            
             </div>

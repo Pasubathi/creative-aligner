@@ -1,10 +1,6 @@
 {
   "name": "creativealigner-angular",
   "version": "2.0.0",
-  "engines": {
-    "node": "18.5.0",
-    "npm": "8.12.1"
-  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",

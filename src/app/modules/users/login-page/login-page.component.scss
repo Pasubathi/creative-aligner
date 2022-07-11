@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: center;
   background: linear-gradient(55.82deg, #026E9D 0%, #ACD6EA 69.39%);
-  padding: 26px;
+  
 
   @media (max-width:767px){
     height:100vh;
@@ -33,6 +33,18 @@
       border-radius: 20px;
       padding: 50px 107px;
       height: calc(100vh - 26px);
+
+     
+     
+      @media (max-width:1199px){
+        padding: 30px 40px;
+      }
+      @media (max-width:1024px){
+        padding: 30px 30px;
+      }
+      @media (max-width:991px){
+        padding: 30px 30px;
+      }
       @media (max-width:767px){
 
         height: auto;
@@ -40,15 +52,7 @@
         margin-top: 2rem;
       }
         
-      @media (max-width:991px){
-        padding: 30px 30px;
-      }
-      @media (max-width:1024px){
-        padding: 30px 30px;
-      }
-      @media (max-width:1199px){
-        padding: 30px 40px;
-      }
+    
 
       .center-grid {
         height: calc(100vh - 100px);
@@ -85,6 +89,11 @@
             top: 52%;
             left: 13px;
           }
+          span.password-icon {
+            position: absolute;
+            top: 39px;
+            right: 12px;
+        }
 
             input[type="email"], input[type="password"]{
             background: #FBFBFB;
@@ -125,5 +134,8 @@
 
     
     }
+  }
+  form.forms-sample.ng-submitted .form-field input[type="email"], form.forms-sample.ng-submitted .form-field input[type="password"]  {
+    border-color: red !important;
   }
 }
