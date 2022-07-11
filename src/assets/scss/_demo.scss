@@ -184,9 +184,11 @@
 }
 
 .creativealigner-logo {
-  font-weight: 700;
-  font-size: 25px;
-  color: darken($primary, 50%);
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 25px;
+  color: #FF7878;
+  //color: darken($primary, 50%);
   span {
     color: $primary;
     font-weight: 300;

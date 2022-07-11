@@ -1,37 +1,38 @@
-<div class="row w-100 auth-page">
-  <div class="col-md-8 col-xl-6 mx-auto" style="margin-top: 200px">
-    <div class="card">
+<div class="row w-100 auth-page login-page-bg">
+  <div class="col-md-12 col-xl-12">
+    <div class="card  bg-inherit">
         <div class="row">
-          <div class="col-md-4 pe-md-0">
-            <div class="auth-side-wrapper" [ngStyle]="{ 'background-image': 'url(assets/images/img6.jpg)' }">
-
+          <div class="col-md-6 pe-md-0">
+            <div class="auth-side-wrapper">
+              <img src="assets/images/frame-logo.png" alt="" />
             </div>
           </div>
-          <div class="col-md-8 ps-md-0">
-            <div class="auth-form-wrapper px-4 py-5">
+          <div class="col-md-6 ps-md-0">
+            <div class="auth-form-wrapper">
+              <div class="center-grid"> 
               <a routerLink="." class="creativealigner-logo d-block mb-2">Creative Aligner</a>
-              <h5 class="text-muted fw-normal mb-4">Join our team</h5>
-              <form class="forms-sample" (ngSubmit)="registerClick()" #registerForm="ngForm">
-                <div class="mb-3">
+              <h5 class="sub-heading-text">Join our team</h5>
+              <form class="forms-sample row" (ngSubmit)="registerClick()" #registerForm="ngForm">
+                <div class="mb-3 col-md-6 form-field">
                   <label for="exampleInputUsername1" class="form-label">First Name</label>
                   <input type="text" class="form-control" id="exampleInputUsername1" name="Name" #userName="ngModel" [(ngModel)]="user.Name" placeholder="First Name" minlength="3" required>
                   <p class="text-danger mt-1" *ngIf="userName.invalid && isSubmitted">Your name is required to register</p>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 col-md-6 form-field">
                   <label for="userLastNameId" class="form-label">Last Name</label>
                   <input type="text" class="form-control" id="userLastNameId" name="LastName" #userLastNameId="ngModel" [(ngModel)]="user.LastName" placeholder="Last Name">
                 </div>
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <div class="mb-3 col-md-6 form-field">
+                  <label for="exampleInputEmail1" class="form-label">Email ID</label>
                   <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" #userEmail="ngModel" name="Email" 
                     [(ngModel)]="user.Email" [pattern]="emailRegExp" email required>
                   <p class="text-danger mt-1" *ngIf="userEmail.invalid && isSubmitted">A valid email is required to register</p>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 col-md-6 form-field">
                   <label for="userTelephoneID" class="form-label">Telephone</label>
                   <input type="text" class="form-control" NumbersOnly name="Telephone" [(ngModel)]="user.Telephone" id="userTelephoneID" placeholder="Telephone number">
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 col-md-6 form-field">
                   <label for="userSpecialityID" class="form-label">Speciality</label>
                   <div class="mb-3">
                     <ng-select id="userSpecialityID" name="Speciality" [items]="specialities"
@@ -44,7 +45,7 @@
                     <p class="text-danger mt-1" *ngIf="userSpecialityID.invalid && isSubmitted">Speciality is required</p>
                   </div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 col-md-6 form-field">
                   <label for="userCountryID" class="form-label">Country</label>
                   <div class="mb-3">
                     <ng-select id="userCountryID" name="CountryID" [items]="countries"
@@ -57,17 +58,17 @@
                     <p class="text-danger mt-1" *ngIf="userCountryID.invalid && isSubmitted">Country is required</p>
                   </div>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 col-md-6 form-field">
                   <label for="exampleInputPassword1" class="form-label">Password</label>
                   <input type="password" class="form-control" id="exampleInputPassword1" autocomplete="current-password" placeholder="Password" #userPassword="ngModel" name="Password" [(ngModel)]="user.Password" minlength="6" required>
                   <p class="text-danger mt-1" *ngIf="userPassword.invalid && isSubmitted">Password must be 6 character at least</p>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 col-md-6 form-field">
                   <label for="exampleInputPassword1" class="form-label">Confirm Password</label>
                   <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Confirm Password" #passwordConfirm="ngModel" name="ConfirmPassword" [(ngModel)]="user.ConfirmPassword">
                   <p class="text-danger mt-1" *ngIf="passwordConfirm.value != userPassword.value && isSubmitted">Confirm your password here, it must match the password</p>
                 </div>
-                <div class="mb-3">
+                <div class="mb-3 col-md-12 form-field">
                   <p class="text-danger mt-1" *ngIf="message">{{message}}.
                     <br/>
                     <span *ngIf="alreadyRegistered">
@@ -86,6 +87,8 @@
                 </div>
                 <a routerLink="/auth/login" class="d-block mt-3 text-muted">Already a user? Sign in</a>
               </form>
+           
+            </div>
             </div>
           </div>
         </div>
