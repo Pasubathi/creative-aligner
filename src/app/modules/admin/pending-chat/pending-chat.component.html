@@ -1,0 +1,40 @@
+<div class="row">
+    <div class="col-md-12 stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Pending Messages</h6>
+  
+          <form class="row" #searchForm (ngSubmit)="doSearch()">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4">
+              <label for="exampleInputEmail1" class="form-label">Searching</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="searchTextID" placeholder="Search" #searchTextID="ngModel" name="searchText" [(ngModel)]="SearchModel.SearchText">
+                <button type="submit" class="input-group-text btn-link custom_btn_icon">
+                  <i class="feather icon-search"></i>
+                </button>
+              </div>
+            </div>
+          </form>
+  
+  
+          <div class="table-responsive">
+            <ngx-datatable class="bootstrap" [rows]="caseList" [loadingIndicator]="loadingIndicator"
+                           [columnMode]="ColumnMode.force" [scrollbarH]="true" [footerHeight]="50" [limit]="10" [externalPaging]="true"
+                           [externalSorting]="true" [count]="TotalCount" [offset]="pageNumber" (page)="setPage($event)"
+                           rowHeight="auto" (sort)="onSort($event)"
+                           [selectionType]="SelectionType.single" (select)="reviewCase($event)">
+              <ngx-datatable-column [width]="60" name="Number" prop="CaseNumber"></ngx-datatable-column>
+              <ngx-datatable-column name="Patient" prop="Patient"></ngx-datatable-column>
+              <ngx-datatable-column name="Doctor" prop="Doctor"></ngx-datatable-column>
+              <ngx-datatable-column name="Message" prop="Message"></ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

@@ -1,0 +1,103 @@
+<nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li *ngIf="auth.isDoctor()" class="breadcrumb-item"><a routerLink="/dashboard/cases">Cases</a></li>
+        <li *ngIf="auth.isDoctor()" class="breadcrumb-item"><a [href]="'/case/case-review;id='+api.case.Data.ID">Case Review</a></li>
+        <li *ngIf="!auth.isDoctor()" class="breadcrumb-item"><a routerLink="/admin/home">Cases</a></li>
+        <li *ngIf="!auth.isDoctor()" class="breadcrumb-item"><a [href]="'/admin/admin-case-review;id='+api.case.Data.ID">Case Review</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Case Invoice</li>
+    </ol>
+</nav>
+<div class="row">
+    <div class="col-md-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="container-fluid d-flex justify-content-between">
+                    <div class="col-lg-3 ps-0">
+                        <a routerLink="." class="creativealigner-logo d-block mt-3">Creative Aligner</a>
+                        <p class="mt-1 mb-1"><b>www.CreativeAligner.com</b></p>
+                        <p>11561,<br> Industrial Area,<br> Riyadh, Kingdom of Saudi Arabia.</p>
+                        <h5 class="mt-5 mb-2 text-muted">Invoice to :</h5>
+                        <p>{{auth.user.Name}}</p>
+                        <p>{{api.case.Address.ClinicName}}</p>
+                        <p>{{api.case.Address.Building}} {{api.case.Address.Street}}</p>
+                        <p>{{api.case.Address.City}}-{{api.case.Country}}</p>
+                        <p>{{api.case.Address.Phone}}</p>
+                    </div>
+                    <div class="col-lg-3 pe-0">
+                        <h4 class="fw-bold text-uppercase text-end mt-4 mb-2">invoice</h4>
+                        <h6 class="text-end mb-5 pb-4"># INV-{{api.case.Data.CaseNumber }}</h6>
+                    </div>
+                </div>
+                <div class="container-fluid mt-5 d-flex justify-content-center w-100">
+                    <div class="table-responsive w-100">
+                        <table class="table table-bordered">
+                            <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>Description</th>
+                                    <th class="text-end">Quantity</th>
+                                    <th class="text-end">Unit cost</th>
+                                    <th class="text-end">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr class="text-end">
+                                    <td class="text-start">1</td>
+                                    <td class="text-start">Orthodontist Treatment Aligners, <span class="text-muted"><b>Package:  {{api.case.Package.Package}}</b></span>  </td>
+                                    <td>01</td>
+                                    <td>{{api.case.Data.CasePrice}}</td>
+                                    <td>{{api.case.Data.CasePrice}}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="container-fluid mt-5 w-100">
+                    <div class="row">
+                        <div class="col-md-6 ms-auto">
+                            <div class="table-responsive">
+                                <table class="table">
+                                    <tbody>
+                                        <tr>
+                                            <td>Sub Total</td>
+                                            <td class="text-end">{{api.case.Data.CasePrice}}</td>
+                                        </tr>
+                                        <!-- <tr>
+                                            <td>TAX (12%)</td>
+                                            <td class="text-end">$ 1,788.00</td>
+                                        </tr> -->
+                                        <tr>
+                                            <td class="text-bold-800">Total</td>
+                                            <td class="text-bold-800 text-end"> {{api.case.Data.CasePrice}}</td>
+                                        </tr>
+                                        <!-- <tr>
+                                            <td>Payment Made</td>
+                                            <td class="text-danger text-end">(-) $ 4,688.00</td>
+                                        </tr>
+                                        <tr class="bg-light">
+                                            <td class="text-bold-800">Balance Due</td>
+                                            <td class="text-bold-800 text-end">$ 12,000.00</td>
+                                        </tr> -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-fluid d-flex justify-content-between">
+                    <div class="col-lg-3 ps-0">
+                        <p><span class="text-muted">Patient :</span> {{api.case.Data.FirstName}} {{api.case.Data.LastName}}</p>
+                        <!-- <h5 class="mt-5 mb-2 text-muted">Patient :</h5>
+                        <p>{{api.case.Data.FirstName}} {{api.case.Data.LastName}}</p> -->
+                    </div>
+                </div>
+                <!-- <div class="container-fluid w-100">
+                    <a routerLink="." class="btn btn-primary float-end mt-4 ms-2"><i data-feather="send" appFeatherIcon
+                            class="me-2 icon-md"></i>Send Invoice</a>
+                    <a routerLink="." class="btn btn-outline-primary float-end mt-4"><i data-feather="printer"
+                            appFeatherIcon class="me-2 icon-md"></i>Print</a>
+                </div> -->
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,176 @@
+<div class="card">
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-12">
+        <h4 class="card-title">
+          Cases Preview
+        </h4>
+        <hr />
+        <form (ngSubmit)="filterChanged()">
+          <div class="row">
+            <div class="col-lg-8">
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" (change)="filterChanged()" value="1"
+                  [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerAll">
+                <label class="form-check-label" for="casesFilerAll">
+                  All
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" (change)="filterChanged()" value="2"
+                  [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerPending">
+                <label class="form-check-label" for="casesFilerPending">
+                  Pending
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" (change)="filterChanged()" value="3"
+                  [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerActive">
+                <label class="form-check-label" for="casesFilerActive">
+                  Active
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" (change)="filterChanged()" value="4"
+                  [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerCompleted">
+                <label class="form-check-label" for="casesFilerCompleted">
+                  Completed
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" (change)="filterChanged()" value="5"
+                  [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerRejected">
+                <label class="form-check-label" for="casesFilerRejected">
+                  Rejected
+                </label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" (change)="filterChanged()" value="6"
+                  [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerArchived">
+                <label class="form-check-label" for="casesFilerArchived">
+                  Archived
+                </label>
+              </div>
+
+            </div>
+            <div class="col-lg-4">
+
+              <span style="float:right">
+                <div class="input-group">
+                  <input type="text" [(ngModel)]="SearchModel.SearchText" class="form-control" id="navbarForm"
+                    placeholder="Search here..." name="searchBox">
+                  <button type="submit" class="input-group-text btn-link custom_btn_icon">
+                    <i class="feather icon-search"></i>
+                  </button>
+                </div>
+              </span>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <br />
+    <ngb-alert [dismissible]="true" [type]="'danger'" *ngIf="errorMessage.length > 0">
+      <p>{{errorMessage}}</p>
+    </ngb-alert>
+    <br />
+
+
+    <div *ngIf="!isLoading" class="row">
+      <div class="col-md-12">
+        <div class="table-responsive">
+          <table *ngIf="!isLoading" class="table table-hover mb-0">
+            <thead>
+              <tr>
+                <th class="pt-0">Name</th>
+                <th class="pt-0">Case No</th>
+                <th class="pt-0">Last Activity</th>
+                <th class="pt-0">Status</th>
+                <th class="pt-0">Package</th>
+                <th class="pt-0">Actions</th>
+                <th class="pt-0"> </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of Cases" ng-click="openActionsModal(item)">
+                <td>
+                  {{ item.Name }}
+                </td>
+                <td>#{{ item.CaseNumber }}</td>
+                <td>{{item.StageDate | date: 'yyyy-MM-dd' }}</td>
+                <td>
+                  <span *ngIf="item.Case.CaseStage == 'Incomplete'
+                          || item.Case.CaseStage == 'Returned'
+                          || item.Case.CaseStage == 'PendingTSApproval'
+                          || item.Case.CaseStage == 'ReadyForImpressionsCollection'"
+                    class="badge bg-danger text-white">{{ item.CaseStage
+                    }}</span>
+                  <span *ngIf="item.Case.CaseStage == 'Accepted'
+                          || item.Case.CaseStage == 'ImpressionsReceived'
+                          || item.Case.CaseStage == 'Manufacturing'" class="badge bg-primary">{{ item.CaseStage
+                    }}</span>
+                  <span *ngIf="item.Case.CaseStage == 'PendingCaseApproval'
+                          || item.Case.CaseStage == 'ImpressionsShipped'
+                          || item.Case.CaseStage == 'RequestNewRevision'
+                          || item.Case.CaseStage == 'RequestNextShipment'
+                          || item.Case.CaseStage == 'ReplaceMissing'
+                          || item.Case.CaseStage == 'RequestRetainer'
+                          || item.Case.CaseStage == 'RequestRefinments'
+                          || item.Case.CaseStage == 'RequestMidcourseAdjusment'
+                          || item.Case.CaseStage == 'Approved'" class="badge bg-warning text-white">{{
+                    item.CaseStage }}</span>
+                  <span
+                    *ngIf="item.Case.CaseStage == 'PendingOrthodontistApproval' || item.Case.CaseStage == 'AmendRevision'"
+                    class="badge bg-primary text-white">In Process</span>
+                  <span *ngIf="item.Case.CaseStage == 'ReadyForShipping'"
+                    class="badge bg-primary text-white">Manufacturing</span>
+                  <span *ngIf="item.Case.CaseStage == 'Active'" class="badge bg-success text-white">{{ item.CaseStage
+                    }}</span>
+                  <span *ngIf="item.Case.CaseStage == 'Archived'" class="badge bg-info text-white">{{ item.CaseStage
+                    }}</span>
+                </td>
+                <td>
+                  {{item.PackageName()}}
+                </td>
+                <td>
+                  <app-actions-menu [caseData]="item" [api]="api"></app-actions-menu>
+                </td>
+                <td>
+                  <!-- <button type="button" class="btn btn-icon btn-link custom_btn_icon">
+                    <i class="mdi mdi-file-pdf-box" style="font-size: 20pt;" alt="Download PDF"></i>
+                  </button> -->
+                </td>
+                <!-- <td>
+                  <button type="button" class="btn btn-icon btn-link custom_btn_icon">
+                    <i class="feather icon-archive"></i>
+                  </button>
+                </td> -->
+              </tr>
+            </tbody>
+          </table>
+
+          <div *ngIf="SearchResultEmpty" class="mb-3">
+            <div class="alert alert-primary">
+              <div class="text-center">Search Result Empty</div>
+            </div>
+          </div>
+
+          <ngb-pagination [collectionSize]="TotalCount" [pageSize]="5" (pageChange)="pageChange($event)" [(page)]="Page"
+            [maxSize]="3" [boundaryLinks]="true"></ngb-pagination>
+
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="isLoading">
+      <div class="text-center">
+        <div class="spinner-wrapper">
+          <div class="spinner">Loading...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <app-case-actions [caseData]="currentCase" #caseActions ></app-case-actions> -->

@@ -1,0 +1,81 @@
+<ng-template #lgModal let-modal>
+  <div class="modal-header">
+    <h5 class="modal-title" id="exampleModalLabel"><span class="text-muted">Doctor:</span> {{Current.Name}} {{Current.LastName}}</h5>
+    <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <div *ngIf="!loading">
+      
+      <div class="row">
+        <div class="col-sm-12">
+          <label for="dlg_country_id" class="col-sm-4 text-muted">Country:</label>
+          <label for="dlg_country_id" class="col-sm-7  mb-3">{{Current.Country}}</label>
+        </div>
+      </div> <!-- row-->
+      <div class="row">
+        <div class="col-sm-12">
+          <label for="dlg_country_id" class="col-sm-4 text-muted">Speciality:</label>
+          <label for="dlg_country_id" class="col-sm-7  mb-3">{{Current.User.Speciality}}</label>
+        </div>
+      </div> <!-- row-->
+      <div class="row">
+        <div class="col-sm-12">
+          <label for="dlg_country_id" class="col-sm-4 text-muted">Join Date:</label>
+          <label for="dlg_country_id" class="col-sm-7  mb-3">{{Current.Stamp | date: 'yyyy-MM-dd'}}</label>
+        </div>
+      </div> <!-- row-->
+      <div class="row">
+        <label for="activeStatus" class="col-sm-4 text-muted">Active Status:</label>
+        <div class="col-sm-7  mb-3">
+          <ng-select id="activeStatus" name="activeStatus" [items]="activeStatuses" [(ngModel)]="Current.User.IsActive"
+                     placeholder="activeStatus" bindLabel="name" bindValue="value" #activeStatus="ngModel" required
+                     [searchable]="false">
+          </ng-select>
+          <p class="text-danger mt-1" *ngIf="activeStatus.invalid">Status is required</p>
+        </div>
+      </div>
+      <div class="row">
+        <label for="medicalRep" class="col-sm-4 text-muted">Medical Representative:</label>
+        <div class="col-sm-7  mb-3">
+          <ng-select id="medicalRep" name="medicalRep" [items]="medicalReps" [(ngModel)]="Current.User.MedicalRepID"
+                     placeholder="Medical Representative" bindLabel="FullName" bindValue="ID" #medicalRep="ngModel" required
+                     [searchable]="false">
+          </ng-select>
+          <p class="text-danger mt-1" *ngIf="medicalRep.invalid">Medical Representative is required</p>
+        </div>
+      </div>
+      <div class="row" *ngIf="errorMessage">
+        <label class="col-sm-4 text-muted"></label>
+        <div class="col-sm-7  mb-3">
+          <p class="text-danger mt-1">{{errorMessage}}</p>
+        </div>
+      </div>
+    </div>
+    <div *ngIf="loading">
+      <div class="text-center">
+        <div class="spinner-border" role="status">
+          <span class="visually-hidden">Loading...</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer" *ngIf="!loading">
+    <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
+    
+    <button type="button" class="btn btn-danger" (click)="removeUser(modal)" [disabled]="savingUser || removingUser">
+      <span style="white-space:nowrap">
+        <span [style.visibility]="removingUser  ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm"
+          role="status" aria-hidden="true"></span>
+        Delete Doctor
+      </span>
+    </button>
+
+    <button type="button" class="btn btn-primary" [disabled]="savingUser || removingUser" (click)="edit_User(modal)">
+      <span style="white-space:nowrap">
+        <span [style.visibility]="savingUser  ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm"
+              role="status" aria-hidden="true"></span>
+        Save
+      </span>
+    </button>
+  </div>
+</ng-template>

@@ -1,0 +1,145 @@
+<table *ngIf="Data">
+
+  <tr>
+    <td></td>
+    <td class="teeth-direction-label">R</td>
+    <td class="teeth-direction-label">
+      <table>
+        <tr>
+          <ng-container *ngFor="let item of Data.UpperIprAmount; let i=index;">
+            <td *ngIf="i != 15 && !IsReadOnly" class="tooth-top-style">
+
+              <p style="float:right;margin-right:-10px" (click)="showIpr(true, i)" class="btn-link custom_btn_icon">
+                <span [style.visibility]="Data.HasIpr(true, i) ? 'visible' : 'hidden'" class="chart-teeth-label text-muted">
+                  {{Data.getIpr(true, 0, i)}}<br />
+                  <!--mm <br/>-->
+                  {{Data.getIpr(true, 1, i)}}<br />
+                  <!--mm <br/>-->
+                </span>
+
+                <i *ngIf="!Data.HasIpr(true, i)" class="feather icon-plus-circle"></i>
+                <i *ngIf="Data.HasIpr(true, i)" class="feather icon-edit-3 text-success"></i>
+              </p>
+            </td>
+            <td *ngIf="i != 15 && IsReadOnly" class="tooth-top-style">
+              <p style="float:right;margin-right:-10px" class="btn-link custom_btn_icon">
+                <span [style.visibility]="Data.HasIpr(true, i) ? 'visible' : 'hidden'" class="chart-teeth-label text-muted">
+                  {{Data.getIpr(true, 0, i)}}<br />
+                  <!--mm <br/>-->
+                  {{Data.getIpr(true, 1, i)}}<br />
+                  <!--mm <br/>-->
+                </span>
+                <i *ngIf="Data.HasIpr(true, i)" class="feather icon-check-circle text-success"></i>
+              </p>
+            </td>
+          </ng-container>
+        </tr>
+        <tr>
+          <ng-container *ngFor="let item of Data.UpperIprAmount; let i=index;">
+            <td [class]="i == 7 ? 'tooth-top-style-center' : (i == 15 ? 'tooth-top-style' : 'tooth-top-style-border')">
+              <app-tooth-item-only [Tooth]="item.ToothID"></app-tooth-item-only>
+            </td>
+          </ng-container>
+        </tr>
+        <tr>
+          <ng-container *ngFor="let item of Data.UpperIprAmount; let i=index;">
+            <td [class]="i == 7 ? 'tooth-bottom-style-center' : (i == 15 ? 'tooth-bottom-style' : 'tooth-bottom-style-border')">
+              <span>{{item.LabelUp}}</span>
+            </td>
+          </ng-container>
+        </tr>
+        <tr *ngIf="Data.HasBothLabel" style="padding:0;margin:0">
+          <td colspan="17">
+            <hr style="padding:0;margin:0" />
+          </td>
+        </tr>
+        <tr *ngIf="Data.HasBothLabel">
+          <ng-container *ngFor="let item of Data.UpperIprAmount; let i=index;">
+            <td [class]="i == 7 ? 'tooth-top-style-center' : (i == 15 ? 'tooth-top-style' : 'tooth-top-style-border')">
+              <span>{{item.LabelDown}}</span>
+            </td>
+          </ng-container>
+        </tr>
+        <tr>
+          <ng-container *ngFor="let item of Data.LowerIprAmount; let i=index;">
+            <td [class]="i == 7 ? 'tooth-bottom-style-center' : (i == 15 ? 'tooth-bottom-style' : 'tooth-bottom-style-border')">
+              <app-tooth-item-only [Tooth]="item.ToothID"></app-tooth-item-only>
+            </td>
+          </ng-container>
+        </tr>
+        <tr>
+          <ng-container *ngFor="let item of Data.LowerIprAmount; let i=index;">
+            <td *ngIf="i != 15 && IsReadOnly" class="tooth-top-style">
+              <p style="float:right;margin-right:-10px" class="btn-link custom_btn_icon">
+                <i *ngIf="Data.HasIpr(false, i)" class="feather icon-check-circle text-success"></i>
+                <span [style.visibility]="Data.HasIpr(false, i) ? 'visible' : 'hidden'" class="chart-teeth-label text-muted">
+                  <br />
+                  {{Data.getIpr(false, 1, i)}}<br />
+                  <!--mm <br/>-->
+                  {{Data.getIpr(false, 0, i)}}
+                  <!--<br/>
+                  mm-->
+                </span>
+              </p>
+            </td>
+
+
+            <td *ngIf="i != 15 && !IsReadOnly" class="tooth-top-style">
+              <p style="float:right;margin-right:-10px" (click)="showIpr(false, i)" class="btn-link custom_btn_icon">
+                <i *ngIf="!Data.HasIpr(false, i)" class="feather icon-plus-circle"></i>
+                <i *ngIf="Data.HasIpr(false, i)" class="feather icon-edit-3 text-success"></i>
+                <span [style.visibility]="Data.HasIpr(false, i) ? 'visible' : 'hidden'" class="chart-teeth-label text-muted">
+                  <br />
+                  {{Data.getIpr(false, 1, i)}}<br />
+                  <!--mm <br/>-->
+                  {{Data.getIpr(false, 0, i)}}
+                  <!--<br/>
+                  mm--> 
+                </span>
+              </p>
+            </td>
+          </ng-container>
+        </tr>
+      </table>
+    </td>
+    <td class="teeth-direction-label">L</td>
+    <td></td>
+  </tr>
+</table>
+
+<div *ngIf="IprAmount && IprStep" [style.visibility]="showInputs ? 'visible' : 'hidden'">
+
+  <div class="card">
+    <div class="card-body">
+      <h6 class="card-title">
+        {{EditIptTitle}}
+      </h6>
+
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label class="form-label">IPR Amount</label>
+                <!--<input type="text" name="IPRAmount" class="form-control" placeholder="Amount"
+                       [(ngModel)]="IprAmount.RowValue">-->
+                <input type="range" class="form-range" id="IprAmountID" min="0" max="1" value="0" step="0.1"
+                       #iprAmount (input)="iprAmount.value" [(ngModel)]="IprAmount.RowValue">
+              </div>
+            </div><!-- Col -->
+            <div class="col-sm-6">
+              <div class="mb-3">
+                <label class="form-label">Add step before IPR</label>
+                <!--<input type="text" name="IPRStep" class="form-control" placeholder="Step"
+                       [(ngModel)]="IprStep.RowValue">-->
+                <input type="range" class="form-range" id="IprStepID" min="0" max="10" value="0" step="1"
+                       #iprStep (input)="iprStep.value" [(ngModel)]="IprStep.RowValue">
+              </div>
+            </div><!-- Col -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

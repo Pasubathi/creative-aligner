@@ -1,0 +1,63 @@
+<ng-template #lgModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Price Package</h5>
+      <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+  
+      <div class="row">
+        <label for="dlg_country_id" class="col-sm-2">Country</label>
+        <div class="col-sm-4  mb-3">
+          <ng-select id="dlg_country_id" [items]="countries" name="Country" [(ngModel)]="Current.CountryID" placeholder="Country"
+                     bindLabel="Country"
+                     bindValue="ID"
+                     [searchable]="false">
+          </ng-select>
+        </div>
+  
+        
+      </div>
+      <div class="row mb-3">
+        <label for="package_id" class="col-sm-2">Package</label>
+        <div class="col-sm-4  mb-3">
+          <ng-select id="packageType" name="package" [items]="packageTypes"
+                     [(ngModel)]="Current.Package" placeholder="Package"
+                     bindLabel="name"
+                     bindValue="value"
+                     #packageType="ngModel"
+                     required
+                     [searchable]="false">
+          </ng-select>
+          <p class="text-danger mt-1" *ngIf="packageType.invalid">Package is required</p>
+        </div>
+      </div>
+      <div class="row mb-3">
+        <label for="price_id" class="col-sm-2 col-form-label">Price</label>
+        <div class="col-sm-6">
+          <input type="number" class="form-control" id="price_id" name="Price" [(ngModel)]="Current.PackagePrice" placeholder="Price">
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
+      <button type="button" class="btn btn-primary" *ngIf="IsNew" [disabled]="savingPackage" (click)="add_Package(modal)">
+        <span style="white-space:nowrap">
+          <span [style.visibility]="savingPackage ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Add
+        </span>
+      </button>
+      <button type="button" class="btn btn-danger" *ngIf="!IsNew" [disabled]="savingPackage" (click)="delete_Package(modal)">
+        <span style="white-space:nowrap">
+          <span [style.visibility]="savingPackage && isDelete ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Delete
+        </span>
+      </button>
+      <button type="button" class="btn btn-primary" *ngIf="!IsNew" [disabled]="savingPackage" (click)="edit_Package(modal)">
+        <span style="white-space:nowrap">
+          <span [style.visibility]="savingPackage && !isDelete ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Save
+        </span>
+      </button>
+    </div>
+  </ng-template>
+  

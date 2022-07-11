@@ -1,0 +1,4 @@
+<span class="tooth-style-md-0" (click)="OnSelect()" (mouseover)="isMoseOver = true" (mouseleave)="isMoseOver = false">
+  <img *ngIf="!Selected" [src]="isMoseOver ? IconStr(2) : IconStr(1)" />
+  <img *ngIf="Selected" [src]="IconStr(3)" />
+</span>

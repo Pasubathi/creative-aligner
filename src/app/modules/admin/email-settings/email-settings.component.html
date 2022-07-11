@@ -1,0 +1,106 @@
+
+
+<div class="row">
+  <div class="col-md-12 stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h6 class="card-title">Emails Server Settings</h6>
+        <div *ngIf="!loading" style="padding-bottom: 30px;">
+
+          <form (ngSubmit)="saveContent()" #mailForm="ngForm">
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="mb-3">
+                  <label class="form-label">Smtp Server</label>
+                  <input type="text" name="Smtp" class="form-control" placeholder="Smtp"
+                         [(ngModel)]="Settings.Smtp" #Smtp="ngModel" minlength="3" required>
+                  <p class="text-danger mt-1" *ngIf="Smtp.invalid && formSubmited">
+                    Smtp is required
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-3">
+                <div class="mb-3">
+                  <label class="form-label">Smtp Port</label>
+                  <input type="text" name="Port" class="form-control" placeholder="Port"
+                         [(ngModel)]="Settings.Port" #Port="ngModel" required>
+                  <p class="text-danger mt-1" *ngIf="Port.invalid && formSubmited">
+                    Port is required
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="mb-3">
+                  <label class="form-label">Login Email</label>
+                  <input type="email" name="Email" class="form-control" placeholder="Email"
+                         [(ngModel)]="Settings.Email" #Email="ngModel" email required>
+                  <p class="text-danger mt-1" *ngIf="Email.invalid && formSubmited">
+                    Email is required
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="mb-3">
+                  <label class="form-label">Login Password</label>
+                  <input type="password" name="Password" class="form-control" placeholder="Password"
+                         [(ngModel)]="Settings.Password" #Password="ngModel" required>
+                  <p class="text-danger mt-1" *ngIf="Password.invalid && formSubmited">
+                    Password is required
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="col-sm-6">
+                <div class="mb-3">
+
+                  <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" id="UseSslID" name="UseSsl" [(ngModel)]="Settings.UseSsl">
+                    <label class="form-check-label" for="UseSslID">
+                      Use SSL
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center mt-2">
+              <button class="btn btn-primary" type="submit">
+                <span [style.visibility]="isSaving ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Save
+              </button>
+              <button class="btn btn-default" type="button" (click)="doTestEmail()">
+                <span [style.visibility]="emailTesting ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Email Test
+              </button>
+              
+            </div>
+
+            <div class="d-flex justify-content-center mt-2">
+              <p class="text-success" *ngIf="savedSuccess == 1">You information submitted successfully</p>
+              <p class="text-danger" *ngIf="savedSuccess == 2">Submitting your information failed</p>
+              <p class="text-danger" *ngIf="savedSuccess == 3">{{TestMessage}}</p>
+            </div>
+          </form>
+        </div>
+
+        <div *ngIf="loading">
+          loading ....
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<ng-template #lgModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Price Package</h5>
+      <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div class="row mb-3">
+        <label for="price_id" class="col-sm-4 col-form-label">New Revision Name</label>
+        <div class="col-sm-6">
+          <input type="text" class="form-control" id="RevisionNameid" name="RevisionName" [(ngModel)]="Current.RevisionName" placeholder="Revision">
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="col-sm-6">
+          <span class="text-danger">{{errorMessage}}</span>
+        </div>
+      </div>
+
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
+      
+      <button type="button" class="btn btn-danger" [disabled]="isDeleting" (click)="deleteRevision(modal)">
+        <span style="white-space:nowrap">
+          <span [style.visibility]="isDeleting ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Delete
+        </span>
+      </button>
+      <button type="button" class="btn btn-primary" [disabled]="isSaving" (click)="editRevision(modal)">
+        <span style="white-space:nowrap">
+          <span [style.visibility]="isSaving ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          Save Revision Name
+        </span>
+      </button>
+    </div>
+  </ng-template>
+  

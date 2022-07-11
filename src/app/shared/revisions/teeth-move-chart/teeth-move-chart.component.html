@@ -1,0 +1,224 @@
+<div *ngIf="Data">
+  <br />
+  <h6 class="card-title">
+    Lower Teeth
+  </h6>
+  <br />
+  <div style="overflow-x:auto">
+    <table class="table table-bordered">
+
+      <tr>
+        <ng-container *ngFor="let item of Data.UpperIprAmount; let i=index;">
+          <th class="move-chart-revision-col" *ngIf="i == 0"></th>
+          <th class="move-chart-revision-col">
+            <p>{{item.LabelUp}}</p>
+          </th>
+        </ng-container>
+      </tr>
+
+
+      <tr>
+        <ng-container *ngFor="let item of Data.UStripMesial; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.UStripDistal; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.UInclination; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.UInclinationStep; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.UAngulation; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.UAngulationStep; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.URotationStep; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.UMesialStep; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.UVestibularStep; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.UOcclusalStep; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+    </table>
+  </div>
+
+  <br />
+  <br />
+
+  <h6 class="card-title">
+    Upper Teeth
+  </h6>
+  <br />
+  <div style="overflow-x:auto">
+    <table class="table table-bordered">
+
+      <tr>
+        <ng-container *ngFor="let item of Data.UpperIprAmount; let i=index;">
+          <th class="move-chart-revision-col" *ngIf="i == 0"></th>
+          <th class="move-chart-revision-col">
+            <p>{{(Data.HasBothLabel ? item.LabelDown : item.LabelUp)}}</p>
+          </th>
+        </ng-container>
+      </tr>
+
+
+      <tr>
+        <ng-container *ngFor="let item of Data.LStripMesial; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.LStripDistal; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.LInclination; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.LInclinationStep; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.LAngulation; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.LAngulationStep; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.LRotationStep; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.LMesialStep; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.LVestibularStep; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+      <tr>
+        <ng-container *ngFor="let item of Data.LOcclusalStep; let i=index;">
+          <td class="move-chart-revision-col" *ngIf="i == 0">{{item.LabelUp}}</td>
+          <td class="move-chart-revision-col">
+            <input type="text" NumbersOnly class="form-control" [(ngModel)]="item.RowValue" />
+          </td>
+        </ng-container>
+      </tr>
+
+    </table>
+  </div>
+</div>

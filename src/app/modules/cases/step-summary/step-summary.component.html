@@ -1,0 +1,23 @@
+<br />
+<div class="row">
+  <h4 class="card-title">Terms & Agreement</h4>
+  <hr />
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-body">
+        <div class="form-control" style="min-height: 300px;max-height:400px;overflow-y:auto">
+          <p [innerHtml]="TermsAgreement.ContentData"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-12">
+    <p class="text-info">Version: {{TermsAgreement.Version}}, Date: {{TermsAgreement.VersionDate | date:'yyyy-MM-dd'}}</p>
+    <p class="text-primary">*. By clicking submit, you are agreed to our terms and agreement</p>
+  </div>
+</div>
+

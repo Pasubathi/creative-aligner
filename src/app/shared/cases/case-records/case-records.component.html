@@ -1,0 +1,131 @@
+<div>
+  <br />
+  <div class="row">
+    <h4 class="card-title text-muted">Impressions</h4>
+    <hr />
+  </div>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div id="digital" [ngbCollapse]="case.ImpressionType != 'Digital'">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">
+              3D Scans Files
+            </h4>
+            <hr />
+            <div class="row">
+              <div class="col-lg-2">
+                <a class="btn btn-outline-primary" target="_blank" [href]="downloadArch(1)">
+                  <i class="feather icon-download-cloud"></i>
+                  Lower Impression
+                </a>
+              </div>
+              <div class="col-lg-2">
+                <a class="btn btn-outline-primary" target="_blank" [href]="downloadArch(2)">
+                  <i class="feather icon-download-cloud"></i>
+                  Upper Impression
+                </a>
+              </div>
+            </div><!-- Row -->
+          </div>
+        </div>
+      </div>
+      <div id="physical" [ngbCollapse]="case.ImpressionType == 'Digital'">
+        <div class="card">
+          <div class="card-body">
+            <h4 class="card-title">
+              Impression Pickup
+            </h4>
+            <hr />
+            <p class="mb-0 mt-3 text-muted fw-normal">A courier service will contact you to arrange for the date and
+              time of the impression pick-up.</p>
+            <p class="mb-0 mt-3 text-muted fw-normal">Please keep in mind that impression trays won't be returned.</p>
+            <h5 class="mt-5 mb-2 text-muted">Requirements:</h5>
+            <ul>
+              <li class="mb-0 mt-3 text-muted fw-normal">Clean, clear and sterilized impressions</li>
+              <li class="mb-0 mt-3 text-muted fw-normal">Silicone impressions (Alginate impressions are not accepted)
+              </li>
+              <li class="mb-0 mt-3 text-muted fw-normal">ID and doctor name to be printed on the impression box .</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br />
+  <br />
+  <div class="row">
+    <h4 class="card-title text-muted">Images</h4>
+    <hr />
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3 grid-margin stretch-card">
+      <app-case-record-image [case]="case" ImageID="ImageFrontal"
+        dropZoneStyle="background:url(assets/images/placeholderimages/frontal.svg); background-size:cover;overflow:hidden;height:150px;width:190px;"
+        ImageTitle="Full Face Relaxed"></app-case-record-image>
+    </div> <!-- col -->
+    <div class="col-lg-3 grid-margin stretch-card">
+      <app-case-record-image [case]="case" ImageID="ImageFrontSmiling"
+        dropZoneStyle="background:url(assets/images/placeholderimages/front_smiling.svg); background-size:cover;overflow:hidden;height:150px;width:190px;"
+        ImageTitle="Full Face Smiling"></app-case-record-image>
+    </div> <!-- col -->
+    <div class="col-lg-3 grid-margin stretch-card">
+      <app-case-record-image [case]="case" ImageID="ImageSide"
+        dropZoneStyle="background:url(assets/images/placeholderimages/side.svg); background-size:cover;overflow:hidden;height:150px;width:190px;"
+        ImageTitle="Profile Relaxed"></app-case-record-image>
+    </div> <!-- col -->
+    <div class="col-lg-3 grid-margin stretch-card">
+      <app-case-record-image [case]="case" ImageID="ImageFrontNonSmiling"
+        dropZoneStyle="background:url(assets/images/placeholderimages/front_pose.svg); background-size:cover;overflow:hidden;height:150px;width:190px;"
+        ImageTitle="Profile Smiling"></app-case-record-image>
+    </div> <!-- col -->
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3 grid-margin stretch-card">
+      <app-case-record-image [case]="case" ImageID="ImageRight"
+        dropZoneStyle="background:url(assets/images/placeholderimages/right_buccal.svg); background-size:cover;overflow:hidden;height:150px;width:190px;"
+        ImageTitle="Right buccal"></app-case-record-image>
+    </div> <!-- col -->
+    <div class="col-lg-3 grid-margin stretch-card">
+      <app-case-record-image [case]="case" ImageID="ImageAdditional2"
+        dropZoneStyle="background:url(assets/images/placeholderimages/placeholder.jpg); background-size:cover;overflow:hidden;height:150px;width:190px;"
+        ImageTitle="Occlusion"></app-case-record-image>
+    </div> <!-- col -->
+    <div class="col-lg-3 grid-margin stretch-card">
+      <app-case-record-image [case]="case" ImageID="ImageLeft"
+        dropZoneStyle="background:url(assets/images/placeholderimages/left_buccal.svg); background-size:cover;overflow:hidden;height:150px;width:190px;"
+        ImageTitle="Left buccal"></app-case-record-image>
+    </div> <!-- col -->
+    <div class="col-lg-3 grid-margin stretch-card">
+      <app-case-record-image [case]="case" ImageID="ImagePanoramic"
+        dropZoneStyle="background:url(assets/images/placeholderimages/panoramic_xray.svg); background-size:cover;overflow:hidden;height:150px;width:190px;"
+        ImageTitle="Panoramic x-ray"></app-case-record-image>
+    </div> <!-- col -->
+  </div>
+
+  <div class="row">
+    <div class="col-lg-3 grid-margin stretch-card">
+      <app-case-record-image [case]="case" ImageID="ImageUpper"
+        dropZoneStyle="background:url(assets/images/placeholderimages/upper_occlusal.svg); background-size:cover;overflow:hidden;height:150px;width:190px;"
+        ImageTitle="Upper occlusal"></app-case-record-image>
+    </div> <!-- col -->
+    <div class="col-lg-3 grid-margin stretch-card">
+      <app-case-record-image [case]="case" ImageID="ImageLower"
+        dropZoneStyle="background:url(assets/images/placeholderimages/lower_occlusal.svg); background-size:cover;overflow:hidden;height:150px;width:190px;"
+        ImageTitle="Lower occlusal"></app-case-record-image>
+    </div> <!-- col -->
+    <div class="col-lg-3 grid-margin stretch-card">
+      <app-case-record-image [case]="case" ImageID="ImageAdditional1"
+        dropZoneStyle="background:url(assets/images/placeholderimages/placeholder.jpg); background-size:cover;overflow:hidden;height:150px;width:190px;"
+        ImageTitle="Extras"></app-case-record-image>
+    </div> <!-- col -->
+    <div class="col-lg-3 grid-margin stretch-card">
+      <app-case-record-image [case]="case" ImageID="ImageCephalometric"
+        dropZoneStyle="background:url(assets/images/placeholderimages/cephalometric_xray.svg); background-size:cover;overflow:hidden;height:150px;width:190px;"
+        ImageTitle="Cephalometric x-ray"></app-case-record-image>
+    </div> <!-- col -->
+  </div>
+</div>

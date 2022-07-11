@@ -1,0 +1,41 @@
+
+
+aw-wizard-navigation-bar ul.steps-indicator li a .label {
+  color: $text-muted;
+  @media (max-width: 576px) {
+    font-size: 0pt;
+  }
+}
+
+aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li .step-indicator {
+  background-color: $border-color
+}
+
+aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.current .step-indicator {
+  background-color: $primary;
+}
+
+aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li.done .step-indicator {
+  background-color: $success;
+}
+
+aw-wizard-navigation-bar.horizontal.small ul.steps-indicator li:not(:last-child):after {
+  background-color: $border-color;
+}
+
+///
+w-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li .step-indicator {
+  background-color: $border-color
+}
+
+aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.current .step-indicator {
+  background-color: $primary;
+}
+
+aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.done .step-indicator {
+  background-color: $success;
+}
+
+aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li:not(:last-child):after {
+  background-color: $border-color;
+}

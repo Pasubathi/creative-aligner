@@ -1,0 +1,102 @@
+<ng-template #lgModal let-modal>
+  <form #userForm="ngForm" (ngSubmit)="save_User(modal, userForm)">
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">User Form</h5>
+      <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>
+    </div>
+    <div class="modal-body">
+      <div class="row">
+        <label for="activeStatus" class="col-sm-3">First Name:</label>
+        <div class="col-sm-5  mb-3">
+          <input type="text" name="FirstName" class="form-control" placeholder="First Name"
+            [(ngModel)]="Current.User.Name" #FirstName="ngModel" minlength="3" required>
+          <p class="text-danger mt-1" *ngIf="FirstName.invalid && formSubmited">First name is required</p>
+        </div>
+      </div>
+      <div class="row">
+        <label for="activeStatus" class="col-sm-3">Last Name:</label>
+        <div class="col-sm-5  mb-3">
+          <input type="text" name="LastName" class="form-control" placeholder="Last Name"
+            [(ngModel)]="Current.User.LastName" #LastName="ngModel" minlength="3" required>
+          <p class="text-danger mt-1" *ngIf="LastName.invalid && formSubmited">Last name is required</p>
+        </div>
+      </div>
+      <div class="row">
+        <label for="activeStatus" class="col-sm-3">Email:</label>
+        <div class="col-sm-5  mb-3">
+          <input type="email" name="UserEmail" class="form-control" placeholder="Email" [(ngModel)]="Current.User.Email"
+            #UserEmail="ngModel" email required>
+          <p class="text-danger mt-1" *ngIf="UserEmail.invalid && formSubmited">Valid Email is required</p>
+        </div>
+      </div>
+      <div class="row">
+        <label for="activeStatus" class="col-sm-3">Password:</label>
+        <div class="col-sm-5  mb-3">
+          <input type="password" name="UserPassword" class="form-control" placeholder="Password"
+            [(ngModel)]="Current.User.Password" #UserPassword="ngModel">
+          <p class="text-danger mt-1"
+            *ngIf="(!UserPassword.value || UserPassword.value.length < 6) && IsNew && formSubmited">Password is required
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="activeStatus" class="col-sm-3">Active Status:</label>
+        <div class="col-sm-5  mb-3">
+          <ng-select id="activeStatus" name="activeStatus" [items]="activeStatuses" [(ngModel)]="Current.User.IsActive"
+            placeholder="activeStatus" bindLabel="name" bindValue="value" #activeStatus="ngModel" required
+            [searchable]="false">
+          </ng-select>
+          <p class="text-danger mt-1" *ngIf="activeStatus.invalid && formSubmited">Status is required</p>
+        </div>
+      </div>
+      <div class="row">
+        <label for="PermissionGroupID" class="col-sm-3">Role:</label>
+        <div class="col-sm-5  mb-3">
+          <ng-select id="PermissionGroupID" name="PermissionGroupID" [items]="currentRoles"
+            [(ngModel)]="Current.User.PermissionGroupID" placeholder="Role" bindLabel="Name" bindValue="ID"
+            #permissionGroup="ngModel" [searchable]="false" required>
+          </ng-select>
+          <p class="text-danger mt-1" *ngIf="permissionGroup.invalid && formSubmited">User role is required</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="searchCountryID" class="col-sm-3">Country:</label>
+        <div class="col-sm-5  mb-3">
+          <ng-select id="searchCountryID" name="CountryID" [items]="countries"
+            [(ngModel)]="Current.User.CountryID" placeholder="Country" bindLabel="Country" bindValue="ID"
+            #countryID="ngModel" [searchable]="false">
+          </ng-select>
+          <p class="text-danger mt-1" *ngIf="countryID.invalid && formSubmited">Country is required</p>
+        </div>
+      </div>
+
+      <div class="row" *ngIf="errorMessage">
+        <label class="col-sm-4 text-muted"></label>
+        <div class="col-sm-7  mb-3">
+          <p class="text-danger mt-1">{{errorMessage}}</p>
+        </div>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
+
+      <button type="button" class="btn btn-danger" (click)="removeUser(modal)" [disabled]="savingUser || removingUser">
+        <span style="white-space:nowrap">
+          <span [style.visibility]="removingUser  ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm"
+            role="status" aria-hidden="true"></span>
+          Delete User
+        </span>
+      </button>
+
+      <button type="submit" class="btn btn-primary" [disabled]="savingUser || removingUser">
+        <span style="white-space:nowrap">
+          <span [style.visibility]="savingUser  ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm"
+            role="status" aria-hidden="true"></span>
+          Save
+        </span>
+      </button>
+    </div>
+  </form>
+</ng-template>

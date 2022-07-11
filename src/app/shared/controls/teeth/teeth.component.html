@@ -1,0 +1,55 @@
+<table>
+  <tr>
+    <td></td>
+    <td class="teeth-direction-label text-muted">R</td>
+    <td class="teeth-direction-label">
+      <table>
+        <tr>
+          <ng-container *ngFor="let item of UpperItems; let i=index;">
+            <td class="tooth-top-style">
+              <app-tooth-item [IsReadOnly]="IsReadOnly" [CtrKind]="ControlKind" [Tooth]="item"></app-tooth-item>
+            </td>
+            <td *ngIf="i==7" class="vert-container">
+              <div class="verticalLine-t"></div>
+            </td>
+          </ng-container>
+        </tr>
+        <tr>
+          <ng-container *ngFor="let item of UpperItems; let i=index;">
+            <td style="text-align: center;">
+              <span class="text-muted">{{item.LabelUp}}</span>
+            </td>
+            <td *ngIf="i==7" class="vert-container">
+            </td>
+          </ng-container>
+        </tr>
+        <tr *ngIf="HasBothLabel" style="padding:0;margin:0">
+          <td colspan="17" style="padding:0;margin:0">
+            <hr class="teeth-horz-line"/>
+          </td>
+        </tr>
+        <tr *ngIf="HasBothLabel">
+          <ng-container *ngFor="let item of UpperItems; let i=index;">
+            <td style="text-align: center;">
+              <span class="text-muted">{{item.LabelDown}}</span>
+            </td>
+            <td *ngIf="i==7" class="vert-container">
+            </td>
+          </ng-container>
+        </tr>
+        <tr>
+          <ng-container *ngFor="let item of LowerItems; let i=index;">
+            <td class="tooth-bottom-style">
+              <app-tooth-item [IsReadOnly]="IsReadOnly" [CtrKind]="ControlKind" [Tooth]="item"></app-tooth-item>
+            </td>
+            <td *ngIf="i==7" class="vert-container">
+              <div class="verticalLine-bb"></div>
+            </td>
+          </ng-container>
+        </tr>
+      </table>
+    </td>
+    <td class="teeth-direction-label text-muted">L</td>
+    <td></td>
+  </tr>
+</table>

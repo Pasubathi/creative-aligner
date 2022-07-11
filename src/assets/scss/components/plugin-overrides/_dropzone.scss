@@ -1,0 +1,35 @@
+// Plugin: Angular Dropzone Wrapper
+// github: https://github.com/zefoy/ngx-dropzone-wrapper
+
+.dropzone {
+  overflow: auto;
+  @extend .border;
+
+  @media (min-width: 1400px) {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: unset;
+  }
+
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: unset;
+
+  &.dz-clickable {
+    .dz-message {
+      height: 100%;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+
+
+      * {
+        @extend .text-muted;
+      }
+    }
+  }
+}

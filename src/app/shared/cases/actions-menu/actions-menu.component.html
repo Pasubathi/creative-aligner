@@ -1,0 +1,40 @@
+<div class="dropdown" ngbDropdown>
+    <button ngbDropdownToggle type="button" class="btn btn-icon btn-link custom_btn_icon no-dropdown-toggle-icon">
+        <i class="feather icon-more-horizontal" style="font-size: 20pt;" ngbTooltip="Actions"></i>
+    </button>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" ngbDropdownMenu>
+        <a *ngIf="caseData.Case.CaseStage == 'Accepted' 
+        || caseData.Case.CaseStage == 'PendingCaseApproval'
+        || caseData.Case.CaseStage == 'ImpressionsShipped'
+        || caseData.Case.CaseStage == 'ImpressionsReceived'
+        || caseData.Case.CaseStage == 'RequestNewRevision'
+        || caseData.Case.CaseStage == 'Approved'
+        || caseData.Case.CaseStage == 'Manufacturing'
+        || caseData.Case.CaseStage == 'ReadyForShipping'
+        || caseData.Case.CaseStage == 'RequestNextShipment'
+        || caseData.Case.CaseStage == 'ReplaceMissing'
+        || caseData.Case.CaseStage == 'RequestRefinments'
+        || caseData.Case.CaseStage == 'RequestMidcourseAdjusment'
+        || caseData.Case.CaseStage == 'Active'
+        || caseData.Case.CaseStage == 'Archived'
+        || caseData.Case.CaseStage == 'RequestRetainer'" class="dropdown-item d-flex align-items-center"
+            (click)="reviewCase()"><i class="feather icon-eye icon-xs me-2"></i> <span class="">View Case</span></a>
+        <a *ngIf="caseData.Case.CaseStage == 'PendingTSApproval'" class="dropdown-item d-flex align-items-center"
+            (click)="reviewCase()"><i class="feather icon-eye icon-xs me-2"></i> <span class="">Review TS</span></a>
+        <a *ngIf="caseData.Case.CaseStage == 'ReadyForImpressionsCollection'"
+            class="dropdown-item d-flex align-items-center" (click)="reviewCase()"><i
+                class="feather icon-eye icon-xs me-2"></i> <span class="">View Shipping Policy</span></a>
+        <a *ngIf="caseData.Case.CaseStage == 'Incomplete'" class="dropdown-item d-flex align-items-center"
+            (click)="editCase()"><i class="feather icon-play icon-xs me-2"></i> <span class="">Continue</span></a>
+        <a *ngIf="caseData.Case.CaseStage == 'Returned'" class="dropdown-item d-flex align-items-center"
+            (click)="editCase()"><i class="feather icon-edit-2 icon-xs me-2"></i> <span class="">Edit Case</span></a>
+        <a *ngIf="caseData.Case.CaseStage == 'Active' 
+        || caseData.Case.CaseStage == 'Manufacturing'
+        || caseData.Case.CaseStage == 'Approved'
+        || caseData.Case.CaseStage == 'ReadyForShipping'
+        || caseData.Case.CaseStage == 'Archived'" class="dropdown-item d-flex align-items-center"
+            (click)="caseInvoice()"><i class="feather icon-file-text icon-xs me-2"></i> <span class="">Case Invoice</span></a>
+        <a class="dropdown-item d-flex align-items-center" (click)="false"><i
+                class="mdi mdi-file-pdf-box icon-lg me-2"></i> <span class="">Download PDF</span></a>
+    </div>
+</div>

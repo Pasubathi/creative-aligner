@@ -1,0 +1,706 @@
+<br />
+<div class="row">
+  <h4 class="card-title">PRESENT CLINICAL CONDITION</h4>
+  <hr />
+</div>
+
+<div class="row">
+  <div class="col-sm-6">
+    <label class="form-label">Cheif Complaint</label>
+    <textarea class="form-control" [(ngModel)]="api.case.Data.ChiefComplaint" id="chiefComplaint" style="height:100%"></textarea>
+  </div>
+  <div class="col-sm-6">
+    <div class="row">
+      <div class="col-sm-12"><label class="form-label">Canine Class Relationship</label></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <!--<input type="text" class="form-control" [(ngModel)]="api.case.Data.CanineClassRelationshipRight" id="canineClassRelationshipRight" placeholder="Right">-->
+        <table>
+          <tr>
+            <td>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="CanineClassRelationshipRight" id="CanineClassRelationshipRight1" [(ngModel)]="api.case.Data.CanineClassRelationshipRight" value="1">
+                <label class="form-check-label" for="CanineClassRelationshipRight1">
+                  I
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="CanineClassRelationshipRight" id="CanineClassRelationshipRight2" checked [(ngModel)]="api.case.Data.CanineClassRelationshipRight" value="2">
+                <label class="form-check-label" for="CanineClassRelationshipRight2">
+                  II
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="CanineClassRelationshipRight" id="CanineClassRelationshipRight3" [(ngModel)]="api.case.Data.CanineClassRelationshipRight" value="3">
+                <label class="form-check-label" for="CanineClassRelationshipRight3">
+                  III
+                </label>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <label class="form-label text-muted">Right</label>
+      </div>
+      <div class="col-sm-6">
+        <!--<input type="text" class="form-control" [(ngModel)]="api.case.Data.CanineClassRelationshipLeft" id="canineClassRelationshipLeft" placeholder="Left">-->
+        <table>
+          <tr>
+            <td>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="CanineClassRelationshipLeft" id="CanineClassRelationshipLeft1" [(ngModel)]="api.case.Data.CanineClassRelationshipLeft" value="1">
+                <label class="form-check-label" for="CanineClassRelationshipLeft1">
+                  I
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="CanineClassRelationshipLeft" id="CanineClassRelationshipLeft2" checked [(ngModel)]="api.case.Data.CanineClassRelationshipLeft" value="2">
+                <label class="form-check-label" for="CanineClassRelationshipLeft2">
+                  II
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="CanineClassRelationshipLeft" id="CanineClassRelationshipLeft3" [(ngModel)]="api.case.Data.CanineClassRelationshipLeft" value="3">
+                <label class="form-check-label" for="CanineClassRelationshipLeft3">
+                  III
+                </label>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <label class="form-label text-muted">Left</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-sm-12"><label class="form-label">Molar Class Relationship</label></div>
+    </div>
+    <div class="row">
+      <div class="col-sm-6">
+        <!--<input type="text" class="form-control" [(ngModel)]="api.case.Data.MolarClassRelationshipRight" id="molarClassRelationshipRight" placeholder="Right">-->
+        <table>
+          <tr>
+            <td>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="MolarClassRelationshipRight" id="MolarClassRelationshipRight1" [(ngModel)]="api.case.Data.MolarClassRelationshipRight" value="1">
+                <label class="form-check-label" for="MolarClassRelationshipRight1">
+                  I
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="MolarClassRelationshipRight" id="MolarClassRelationshipRight2" checked [(ngModel)]="api.case.Data.MolarClassRelationshipRight" value="2">
+                <label class="form-check-label" for="MolarClassRelationshipRight2">
+                  II
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="MolarClassRelationshipRight" id="MolarClassRelationshipRight3" [(ngModel)]="api.case.Data.MolarClassRelationshipRight" value="3">
+                <label class="form-check-label" for="MolarClassRelationshipRight3">
+                  III
+                </label>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <label class="form-label mb-3 text-muted">Right</label>
+      </div>
+      <div class="col-sm-6">
+        <!--<input type="text" class="form-control" [(ngModel)]="api.case.Data.MolarClassRelationshipLeft" id="molarClassRelationshipLeft" placeholder="Left">-->
+        <table>
+          <tr>
+            <td>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="MolarClassRelationshipLeft" id="MolarClassRelationshipLeft1" [(ngModel)]="api.case.Data.MolarClassRelationshipLeft" value="1">
+                <label class="form-check-label" for="MolarClassRelationshipLeft1">
+                  I
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="MolarClassRelationshipLeft" id="MolarClassRelationshipLeft2" checked [(ngModel)]="api.case.Data.MolarClassRelationshipLeft" value="2">
+                <label class="form-check-label" for="MolarClassRelationshipLeft2">
+                  II
+                </label>
+              </div>
+            </td>
+            <td>
+              <div class="form-check form-check-inline">
+                <input type="radio" class="form-check-input" name="MolarClassRelationshipLeft" id="MolarClassRelationshipLeft3" [(ngModel)]="api.case.Data.MolarClassRelationshipLeft" value="3">
+                <label class="form-check-label" for="MolarClassRelationshipLeft3">
+                  III
+                </label>
+              </div>
+            </td>
+          </tr>
+        </table>
+        <label class="form-label mb-3 text-muted">Left</label>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-sm-10">
+        <div class="mb-3">
+          <label class="form-label">Upper Midline</label>
+          <input type="range" class="form-range" id="upperRange" min="-3" max="3" value="0" step="0.1" #upperRange (input)="upperRange.value" [(ngModel)]="api.case.Data.CondUpperMidlineShift">
+        </div>
+
+        <div class="row">
+          <div class="col-sm-3 text-center text-muted">
+            <label>Right</label>
+          </div>
+          <div class="col-sm-6 text-center">
+            <label>{{rangeValue(upperRange.value)}}</label>
+          </div>
+          <div class="col-sm-3 text-center text-muted">
+            <label>Left</label>
+          </div>
+        </div>
+      </div><!-- Col -->
+    
+    </div>
+    <div class="row">
+      <div class="col-sm-10">
+        <div class="mb-3">
+          <label class="form-label">Lower Midline</label>
+          <input type="range" class="form-range" id="lowerRange" min="-3" max="3" value="0" step="0.1" #lowerRange (input)="lowerRange.value" [(ngModel)]="api.case.Data.CondLowerMidlineShift">
+        </div>
+        <div class="row">
+          <div class="col-sm-3 text-center text-muted">
+            <label>Right</label>
+          </div>
+          <div class="col-sm-6 text-center">
+            <label>{{rangeValue(lowerRange.value)}}</label>
+          </div>
+          <div class="col-sm-3 text-center text-muted">
+            <label>Left</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br />
+<br />
+
+<!-- <div class="row">
+  <div class="col-md-6">
+    <div>
+      <p class="form-label">Incisors Class Relationship</p>
+      <input type="text" class="form-control" [(ngModel)]="api.case.Data.IncisorsClassRelationship" id="incisors">
+    </div>
+  </div>
+  <div class="col-md-6">
+
+    <table class="table table-borderless">
+      <tr>
+        <td><label class="form-label">Profile: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radioProfile" id="radioProfileStraight" [(ngModel)]="api.case.Data.Profile" value="Straight">
+            <label class="form-check-label" for="radioProfileStraight">
+              Straight
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radioProfile" id="radioProfileConvex" [(ngModel)]="api.case.Data.Profile" value="Convex">
+            <label class="form-check-label" for="radioProfileConvex">
+              Convex
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radioProfile" id="radioProfileConcave" [(ngModel)]="api.case.Data.Profile" value="Concave">
+            <label class="form-check-label" for="radioProfileConcave">
+              Concave
+            </label>
+          </div>
+        </td>
+
+      </tr>
+      <tr>
+        <td><label class="form-label">Facial Height: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radioFacial" id="radioFacialHigh" [(ngModel)]="api.case.Data.FacialHeight" value="High">
+            <label class="form-check-label" for="radioFacialHigh">
+              High
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radioFacial" id="radioFacialAverage" [(ngModel)]="api.case.Data.FacialHeight" value="Average">
+            <label class="form-check-label" for="radioFacialAverage">
+              Average
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radioFacial" id="radioFacialLow" [(ngModel)]="api.case.Data.FacialHeight" value="Low">
+            <label class="form-check-label" for="radioFacialLow">
+              Low
+            </label>
+          </div>
+        </td>
+      </tr>
+    </table>
+
+
+  </div>
+</div> -->
+
+<br />
+
+<div class="row">
+  <h4 class="card-title">INSTRUCTIONS</h4>
+  <hr />
+</div><!-- Row -->
+
+<div class="row">
+  <div class="col-md-6">
+    <table class="table table-borderless">
+      <tr>
+        <td></td>
+        <td>
+          <button type="button" class="btn" (click)="maintainAll()">
+            <i class="feather icon-check-circle"></i>
+            Maintain
+          </button>
+        </td>
+        <td></td>
+        <td>
+          <button type="button" class="btn" (click)="idealizeAll()">
+            <i class="feather icon-check-circle"></i>
+            Idealize
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td> <label class="form-label">Upper Midline: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="upper" id="upperMaintain" [(ngModel)]="api.case.Data.InstUpperMidline" value="Maintain">
+            <label class="form-check-label" for="upperMaintain">
+              Maintain
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="upper" id="upperImprove" checked [(ngModel)]="api.case.Data.InstUpperMidline" value="Improve">
+            <label class="form-check-label" for="upperImprove">
+              Improve
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="upper" id="uppeIdealize" checked [(ngModel)]="api.case.Data.InstUpperMidline" value="Idealize">
+            <label class="form-check-label" for="upperIdealize">
+              Idealize
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label class="form-label">Lower Midline: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="lower" id="lowerMaintain" [(ngModel)]="api.case.Data.InstLowerMidline" value="Maintain">
+            <label class="form-check-label" for="lowerMaintain">
+              Maintain
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="lower" id="lowerImprove" checked [(ngModel)]="api.case.Data.InstLowerMidline" value="Improve">
+            <label class="form-check-label" for="lowerImprove">
+              Improve
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="lower" id="lowerIdealize" [(ngModel)]="api.case.Data.InstLowerMidline" value="Idealize">
+            <label class="form-check-label" for="lowerIdealize">
+              Idealize
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td> <label class="form-label">Overjet: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="overjit" id="overjitMaintain" [(ngModel)]="api.case.Data.Overjet" value="Maintain">
+            <label class="form-check-label" for="overjitMaintain">
+              Maintain
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="overjit" id="overjitImprove" checked [(ngModel)]="api.case.Data.Overjet" value="Improve">
+            <label class="form-check-label" for="overjitImprove">
+              Improve
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="overjit" id="overjitIdealize" [(ngModel)]="api.case.Data.Overjet" value="Idealize">
+            <label class="form-check-label" for="overjitIdealize">
+              Idealize
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label class="form-label">Overbite: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="overbite" id="overbiteMaintain" [(ngModel)]="api.case.Data.Overbite" value="Maintain">
+            <label class="form-check-label" for="overbiteMaintain">
+              Maintain
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="overbite" id="overbiteImprove" checked [(ngModel)]="api.case.Data.Overbite" value="Improve">
+            <label class="form-check-label" for="overbiteImprove">
+              Improve
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="overbite" id="overbiteIdealize" [(ngModel)]="api.case.Data.Overbite" value="Idealize">
+            <label class="form-check-label" for="overbiteIdealize">
+              Idealize
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label class="form-label">Canine Relationship: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="canine" id="canineMaintain" [(ngModel)]="api.case.Data.CanineRelationship" value="Maintain">
+            <label class="form-check-label" for="canineMaintain">
+              Maintain
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="canine" id="canineImprove" checked [(ngModel)]="api.case.Data.CanineRelationship" value="Improve">
+            <label class="form-check-label" for="canineImprove">
+              Improve
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="canine" id="canineIdealize" [(ngModel)]="api.case.Data.CanineRelationship" value="Idealize">
+            <label class="form-check-label" for="canineIdealize">
+              Idealize
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label class="form-label">Molar Relationship: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="molar" id="molarMaintain" [(ngModel)]="api.case.Data.MolarRelationship" value="Maintain">
+            <label class="form-check-label" for="molarMaintain">
+              Maintain
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="molar" id="molarImprove" checked [(ngModel)]="api.case.Data.MolarRelationship" value="Improve">
+            <label class="form-check-label" for="molarImprove">
+              Improve
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="molar" id="molarIdealize" [(ngModel)]="api.case.Data.MolarRelationship" value="Idealize">
+            <label class="form-check-label" for="molarIdealize">
+              Idealize
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label class="form-label">Posterior Crossbite: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="posterior" id="posteriorMaintain" [(ngModel)]="api.case.Data.PosteriorCrossbite" value="Maintain">
+            <label class="form-check-label" for="posteriorMaintain">
+              Maintain
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="posterior" id="posteriorImprove" checked [(ngModel)]="api.case.Data.PosteriorCrossbite" value="Improve">
+            <label class="form-check-label" for="posteriorImprove">
+              Improve
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="posterior" id="posteriorIdealize" [(ngModel)]="api.case.Data.PosteriorCrossbite" value="Idealize">
+            <label class="form-check-label" for="posteriorIdealize">
+              Idealize
+            </label>
+          </div>
+        </td>
+      </tr>
+
+    </table>
+  </div>
+  <div class="col-md-6">
+    <table class="table table-borderless">
+      <tr><td><br /><br /></td></tr>
+      <tr>
+        <td><label class="form-label">Treat Arches: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radioArces" id="radioArcesStraight" [(ngModel)]="api.case.Data.TreatArches" value="Upper">
+            <label class="form-check-label" for="radioArcesStraight">
+              Upper
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radioArces" id="radioArcesConcave" [(ngModel)]="api.case.Data.TreatArches" value="Lower">
+            <label class="form-check-label" for="radioArcesConcave">
+              Lower
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radioArces" id="radioArcesConvex" [(ngModel)]="api.case.Data.TreatArches" value="Both">
+            <label class="form-check-label" for="radioArcesConvex">
+              Both
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td> <label class="form-label">IPR: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="ipr" id="iprYes" [(ngModel)]="api.case.Data.Ipr" value="Yes">
+            <label class="form-check-label" for="iprYes">
+              Yes
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="ipr" id="iprNo" [(ngModel)]="api.case.Data.Ipr" value="No">
+            <label class="form-check-label" for="iprNo">
+              No
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="ipr" id="iprIfNeeded" checked [(ngModel)]="api.case.Data.Ipr" value="IfNeeded">
+            <label class="form-check-label" for="iprIfNeeded">
+              If Needed
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label class="form-label">Attachments: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="attachments" id="attachmentsYes" [(ngModel)]="api.case.Data.Attachments" value="Yes">
+            <label class="form-check-label" for="attachmentsYes">
+              Yes
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="attachments" id="attachmentsNo" [(ngModel)]="api.case.Data.Attachments" value="No">
+            <label class="form-check-label" for="attachmentsNo">
+              No
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="attachments" id="attachmentsIfNeeded" checked [(ngModel)]="api.case.Data.Attachments" value="IfNeeded">
+            <label class="form-check-label" for="attachmentsIfNeeded">
+              If Needed
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label class="form-label">Procline: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="procline" id="proclineYes" [(ngModel)]="api.case.Data.Procline" value="Yes">
+            <label class="form-check-label" for="proclineYes">
+              Yes
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="procline" id="proclineNo" [(ngModel)]="api.case.Data.Procline" value="No">
+            <label class="form-check-label" for="proclineNo">
+              No
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="procline" id="proclineIfNeeded" checked [(ngModel)]="api.case.Data.Procline" value="IfNeeded">
+            <label class="form-check-label" for="proclineIfNeeded">
+              If Needed
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td> <label class="form-label">Expand: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="expand" id="expandYes" [(ngModel)]="api.case.Data.Expand" value="Yes">
+            <label class="form-check-label" for="expandYes">
+              Yes
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="expand" id="expandNo" [(ngModel)]="api.case.Data.Expand" value="No">
+            <label class="form-check-label" for="expandNo">
+              No
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="expand" id="expandIfNeeded" checked [(ngModel)]="api.case.Data.Expand" value="IfNeeded">
+            <label class="form-check-label" for="expandIfNeeded">
+              If Needed
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label class="form-label">Distalize: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="distalize" id="distalizeYes" [(ngModel)]="api.case.Data.Distalize" value="yes">
+            <label class="form-check-label" for="distalizeYes">
+              Yes
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="distalize" id="distalizeNo" [(ngModel)]="api.case.Data.Distalize" value="No">
+            <label class="form-check-label" for="distalizeNo">
+              No
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="distalize" id="distalizeIfNeeded" checked [(ngModel)]="api.case.Data.Distalize" value="IfNeeded">
+            <label class="form-check-label" for="distalizeIfNeeded">
+              If Needed
+            </label>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+<div>
+  <ngb-accordion [closeOthers]="true">
+    <ngb-panel id="movements" title="Do you have movement restrictions?">
+      <ng-template ngbPanelContent>
+        <div class="row">
+          <div class="col-md-12">
+            <!--<p>Do not Move these Teeth</p>-->
+            <app-teeth [ControlKind]="'Move'" [HasBothLabel]="api.case.HasBothLabel" [UpperItems]="api.case.UpperItems" [LowerItems]="api.case.LowerItems"></app-teeth>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="attachments" title="Do you want to avoid attachments on specific teeth?">
+      <ng-template ngbPanelContent>
+        <div class="row">
+          <div class="col-md-12">
+            <!--<p>Avoid Attachments Teeth</p>-->
+            <app-teeth [ControlKind]="'Attachments'" [HasBothLabel]="api.case.HasBothLabel" [UpperItems]="api.case.UpperItems" [LowerItems]="api.case.LowerItems"></app-teeth>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="extracts" title="Are you planning to extract any teeth?">
+      <ng-template ngbPanelContent>
+        <div class="row">
+          <div class="col-md-12">
+            <!--<p>Extract Teeth</p>-->
+            <app-teeth [ControlKind]="'Extract'" [HasBothLabel]="api.case.HasBothLabel" [UpperItems]="api.case.UpperItems" [LowerItems]="api.case.LowerItems"></app-teeth>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-panel>
+    <ngb-panel id="spaces" title="Do you want to keep any spaces?">
+      <ng-template ngbPanelContent>
+        <div class="row">
+          <div class="col-md-12">
+            <!--<p class="mb-3">Keep spaces for these teeth</p>-->
+            <app-spaces-teeth [HasBothLabel]="api.case.HasBothLabel" [UpperItems]="api.case.UpperItems" [LowerItems]="api.case.LowerItems"></app-spaces-teeth>
+          </div>
+        </div>
+      </ng-template>
+    </ngb-panel>
+  </ngb-accordion>
+</div>
+<div class="row">
+  <br />
+  <p></p>
+  <div class="mb-3">
+    <label for="additionaNotes" class="form-label">Additional Notes:</label>
+    <textarea class="form-control" [(ngModel)]="api.case.Data.AdditionalInformation" id="additionaNotes" rows="2"></textarea>
+  </div>
+</div>

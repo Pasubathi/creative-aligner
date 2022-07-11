@@ -1,0 +1,30 @@
+<div id="content">
+    <ul class="timeline" *ngFor="let item of historyRecords">
+        <li class="event" attr.data-date="{{item.ChangeDate | date: 'yyyy-MM-dd h:mm a' }}">
+            <h3 class="title">{{ item.Stage }}</h3>
+            <p *ngIf="item.Stage == 'Created'">Case has been created by Doctor</p>
+            <p *ngIf="item.Stage == 'Updated'">Case has been updated by Doctor</p>
+            <p *ngIf="item.Stage == 'PendingCaseApproval'">Case has been submitted by Doctor</p>
+            <p *ngIf="item.Stage == 'Accepted'">Case has been Accepted</p>
+            <p *ngIf="item.Stage == 'Approved'">Digital setup has been approved by Doctor</p>
+            <p *ngIf="item.Stage == 'Returned'">Case has been returned to Doctor for adjustments</p>
+            <p *ngIf="item.Stage == 'PendingTSApproval'">Doctor approval has been requested for treatment setup</p>
+            <p *ngIf="item.Stage == 'ReadyForImpressionsCollection'">Physical Impressions are ready for shipping</p>
+            <p *ngIf="item.Stage == 'ImpressionsShipped'">Doctor shipped physical impressions</p>
+            <p *ngIf="item.Stage == 'ImpressionsReceived'">Case Impressions received</p>
+            <p *ngIf="item.Stage == 'PendingOrthodontistApproval'">Digital Setup forwarded to Orthodontist for review</p>
+            <p *ngIf="item.Stage == 'AmendRevision'">Orthodontist requested Digital Setup amendment</p>
+            <p *ngIf="item.Stage == 'RequestNewRevision'">Doctor requested a new revision</p>
+            <p *ngIf="item.Stage == 'Manufacturing'">Aligner manufacturing started</p>
+            <p *ngIf="item.Stage == 'ReadyForShipping'">Aligner manufacturing completed</p>
+            <p *ngIf="item.Stage == 'Active'">Treatment has been shipped to Doctor</p>
+            <p *ngIf="item.Stage == 'RequestNextShipment'">Doctor requested the next shipment</p>
+            <p *ngIf="item.Stage == 'ReplaceMissing'">Doctor requested to replace the missing Aligner</p>
+            <p *ngIf="item.Stage == 'RequestRefinments'">Doctor requested Aligner refinements</p>
+            <p *ngIf="item.Stage == 'RequestMidcourseAdjusment'">Doctor requested Midcourse Adjustment</p>
+            <p *ngIf="item.Stage == 'RequestRetainer'">Doctor requested Retainer</p>
+            <p *ngIf="item.Stage == 'Archived'">Case has been archived</p>
+            
+        </li>
+    </ul>
+</div>

@@ -1,0 +1,71 @@
+<ng-template #lgModal let-modal>
+    <div class="modal-header">
+      <h5 class="modal-title" id="exampleModalLabel">Case Action Details</h5>
+      <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>
+    </div>
+    <form #currentForm="ngForm" (ngSubmit)="postCase(modal)">
+      <div class="modal-body">
+        <div class="row mb-3">
+          <label class="col-sm-4 col-form-label">Notes</label>
+          <div class="col-sm-5">
+            <textarea name="Notes" class="form-control" [(ngModel)]="Data.Notes" id="reviseNotes" rows="2"></textarea>
+          </div>
+        </div>
+        <div class="row mb-3" *ngIf="statusList.length > 1">
+            <label class="col-sm-4 col-form-label">Next Stage</label>
+            <div class="col-sm-5">
+                <ng-select [items]="statusList" name="Status" placeholder="Status" #StatusID="ngModel"
+                bindLabel="name" bindValue="value" [searchable]="false" [(ngModel)]="Data.Status">
+              </ng-select>
+            </div>
+          </div>
+
+        <div class="row mb-3" *ngIf="needUpload">
+          <div class="col-sm-4">
+            <input type='file' name="file" #selectfile (change)="uploadFile(selectfile)" style="display: none;" multiple="true">
+            <button (click)="selectfile.click()" type="button" class="btn border btn-icon rounded-circle me-2"
+              ngbTooltip="Attatch files">
+              <i class="feather icon-paperclip text-muted"></i>
+            </button>
+            Upload Files
+          </div>
+          <div class="col-sm-5">
+            <div *ngIf="isLoading">
+              <progress [value]=progress.loaded [max]=progress.total>
+              </progress>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12">
+            <table *ngIf="uploadedFiles.length > 0">
+              <tr *ngFor="let item of uploadedFiles">
+                <td>
+                  <button type="button" style="width: 22px;height:22px;margin:15px;"
+                    class="btn btn-primary btn-icon rounded-circle" (click)="removeAttachment(item)">
+                    <i class="feather icon-x-circle"></i>
+                  </button>
+                </td>
+                <td>{{item.file}}</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div *ngIf="isError" class="row mb-3">
+          <label class="col-sm-9 col-form-label">
+            <p class="text-danger">{{errorMessage}}</p>
+          </label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
+        <button type="submit" class="btn btn-primary" [disabled]="isSaving">
+          <span style="white-space:nowrap">
+            <span [style.visibility]="isSaving ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm"
+              role="status" aria-hidden="true"></span>
+            Send Case
+          </span>
+        </button>
+      </div>
+    </form>
+  </ng-template>

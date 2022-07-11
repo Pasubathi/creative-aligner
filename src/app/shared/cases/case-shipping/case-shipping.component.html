@@ -1,0 +1,79 @@
+<div class="row" *ngIf="case.CaseTreatmentShipments.length > 0">
+  <div class="col-lg-12">
+    <h4 class="fw-bold mt-4 mb-2"><span class="text-muted">Treatment Shipments</span></h4>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th style="width: 20%">#</th>
+            <th style="width: 20%">Date</th>
+            <th style="width: 30%"></th>
+            <th style="width: 20%"></th>
+            <th style="width: 10%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let shipment of case.CaseTreatmentShipments">
+            <th style="width: 20%"><span class="mb-2 text-muted"><b>Shipment #{{shipment.ShipmnetNumber}}</b></span>
+            </th>
+            <td style="width: 20%">
+              <span class="mb-2">{{shipment.UploadDate | date: 'yyyy-MM-dd'}}</span>
+            </td>
+            <td style="width: 30%">
+              <div *ngIf="shipment.ShipmnetType == 'Treatment'">
+                <p>Upper Aligners: {{shipment.UpperFrom}} - {{shipment.UpperTo}} of {{shipment.UpperOf}}</p>
+                <p>Lower Aligners: {{shipment.LowerFrom}} - {{shipment.LowerTo}} of {{shipment.LowerOf}}</p>
+              </div>
+            </td>
+            <td style="width: 20%">
+              <a *ngIf="shipment.ShipmentPolicy" class="btn btn-outline-primary" target="_blank"
+                [href]="downloadFile(shipment.ShipmentPolicy)">
+                <i class="feather icon-download-cloud"></i>
+                Download
+              </a>
+            </td>
+            <td style="width: 10%"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="row" *ngIf="case.CaseImpressionsShipments.length > 0">
+  <div class="col-lg-12">
+    <h4 class="fw-bold mt-4 mb-2"><span class="text-muted">Impressions Shipments</span></h4>
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th style="width: 20%">#</th>
+            <th style="width: 20%">Date</th>
+            <th style="width: 30%"></th>
+            <th style="width: 20%"></th>
+            <th style="width: 10%"></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let shipment of case.CaseImpressionsShipments">
+            <th style="width: 20%"><span class="mb-2 text-muted"><b>Shipment #{{shipment.ShipmnetNumber}}</b></span>
+            </th>
+            <td style="width: 20%">
+              <span class="mb-2">{{shipment.UploadDate | date: 'yyyy-MM-dd'}}</span>
+            </td>
+            <td style="width: 30%">
+            </td>
+            <td style="width: 20%">
+              <a *ngIf="shipment.ShipmentPolicy" class="btn btn-outline-primary" target="_blank"
+                [href]="downloadFile(shipment.ShipmentPolicy)">
+                <i class="feather icon-download-cloud"></i>
+                Download
+              </a>
+            </td>
+            <td style="width: 10%"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+@import './../../../../assets/scss/variables';
+
+$table-border-width: 1px;
+
+table td, table th {
+  border: 1px solid $gray-200;
+  text-align: center;
+  padding: 5px 0px 3px 0px;
+}

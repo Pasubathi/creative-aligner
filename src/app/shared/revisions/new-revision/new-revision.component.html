@@ -1,0 +1,114 @@
+<div class="row" *ngIf="(api.case.Data.ImpressionType=='Digital' && (api.case.Data.CaseStage=='Accepted' || api.case.Data.CaseStage=='RequestRetainer'))
+    || (api.case.Data.ImpressionType=='Physical' && api.case.Data.CaseStage=='ImpressionsReceived')
+    || (api.case.Data.CaseStage=='RequestNewRevision')
+    || (api.case.Data.CaseStage=='AmendRevision')
+    || (api.case.Data.CaseStage=='RequestRefinments')
+    || (api.case.Data.CaseStage=='RequestMidcourseAdjusment')">
+
+  <div class="col-sm-12">
+    <div *ngIf="!addNewRevision">
+      <div class="d-flex justify-content-center mt-2">
+        <button type="button" class="btn btn-primary" (click)="startNewRevision()">
+          <span [style.visibility]="isLoading ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+          {{(api.case.Data.CaseStage=='AmendRevision' ? 'Update Revision' :  'New Revision')}}
+        </button>
+      </div>
+    </div>
+
+    <div *ngIf="addNewRevision">
+      <aw-wizard *ngIf="!isLoading" #wizardForm [disableNavigationBar]="true" navBarLayout="large-filled">
+        <aw-wizard-step stepTitle="Notes">
+          <ng-template awWizardStepSymbol><i class="mdi mdi-account-plus" style="font-size: 16pt;"></i></ng-template>
+          <form  #newRevisionInfo="ngForm" (ngSubmit)="noteStep()">
+            <div class="row">
+              <div class="mb-3">
+                <label for="RevionNameID" class="form-label">Revision name:</label>
+                <input class="form-control" id="RevionNameID" #RevionNameID="ngModel" name="RevisionName" [(ngModel)]="Data.Revision.RevisionName" rows="2" required />
+                <p class="text-danger mt-1" *ngIf="RevionNameID.invalid && newRevisionInfoSub">Revision name is required</p>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="mb-3">
+                <label for="DesignEmbededURLID" class="form-label">Design Embeded URL:</label>
+                <input class="form-control" id="DesignEmbededURLID" name="DesignEmbededURL" [(ngModel)]="Data.Revision.DesignEmbededURL" rows="2" />
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="mb-3">
+                <label for="packageID" class="form-label">Package:</label>
+                <div class="col-sm-9 mb-3">
+                  <ng-select id="packageID" name="Package" [items]="Data.Packages"
+                             [(ngModel)]="Data.Revision.PackageID" placeholder="Package"
+                             bindLabel="Package"
+                             bindValue="ID"
+                             [searchable]="false">
+                  </ng-select>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="mb-3">
+                <label for="additionaNotes" class="form-label">Notes:</label>
+                <textarea class="form-control" id="designerNotes" name="Notes" [(ngModel)]="Data.Revision.DesignerNotes" rows="2"></textarea>
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-center mt-2">
+              <button class="btn btn-primary" type="submit">Next</button>
+            </div>
+          </form>
+        </aw-wizard-step>
+        <aw-wizard-step stepTitle="IPR Report">
+          <ng-template awWizardStepSymbol><i class="mdi mdi-camera-front" style="font-size: 16pt;"></i></ng-template>
+          <form (ngSubmit)="iprStep()">
+            <app-ipr-teeth #ipr_teeth></app-ipr-teeth>
+
+            <div class="d-flex justify-content-center mt-2">
+              <button class="btn btn-secondary me-2" type="button" awPreviousStep>Back</button>
+              <button class="btn btn-primary" type="submit">Next</button>
+            </div>
+          </form>
+        </aw-wizard-step>
+        <aw-wizard-step stepTitle="Tooth Move Chart">
+          <ng-template awWizardStepSymbol><i class="mdi mdi-clipboard-text" style="font-size: 16pt;"></i></ng-template>
+          <form (ngSubmit)="toothMoveStep()">
+            <app-teeth-move-chart #chart_move_teeth></app-teeth-move-chart>
+
+            <div class="d-flex justify-content-center mt-2">
+              <button class="btn btn-secondary me-2" type="button" awPreviousStep>Back</button>
+              <button class="btn btn-primary" type="submit">
+                <span [style.visibility]="saving_revision ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                Submit
+              </button>
+            </div>
+          </form>
+        </aw-wizard-step>
+
+        <aw-wizard-step stepTitle="Submission Completed">
+          <ng-template awWizardStepSymbol><i class="mdi mdi-check-circle" style="font-size: 16pt;"></i></ng-template>
+          <div class="text-center">
+            <i data-feather="check-circle" appFeatherIcon class="text-success mt-4 mb-2 icon-xxl"></i>
+            <h3 class="text-muted mb-3">Revision Completed</h3>
+            <p class="w-75 mx-auto mb-4 text-muted">Revision submiting has been completed</p>
+          </div>
+          <div class="d-flex justify-content-center mt-2">
+            <button class="btn btn-success" type="button" (click)="stepDone()">Finish</button>
+          </div>
+        </aw-wizard-step>
+
+      </aw-wizard>
+
+      <div *ngIf="isLoading">Loading ......</div>
+    </div>
+
+    <br />
+    <br />
+    <hr />
+    <br />
+    <br />
+  </div>
+  
+</div>

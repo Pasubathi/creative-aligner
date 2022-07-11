@@ -1,0 +1,46 @@
+<div class="row w-100 mx-0 auth-page">
+  <div class="col-md-8 col-xl-6 mx-auto">
+    <div class="card">
+      <div class="row">
+        <div class="col-md-4 pe-md-0">
+          <div class="auth-side-wrapper" [ngStyle]="{ 'background-image': 'url(assets/images/img6.jpg)' }">
+          </div>
+        </div>
+        <div class="col-md-8 ps-md-0">
+          <div class="auth-form-wrapper px-4 py-5">
+            <a routerLink="." class="creativealigner-logo d-block mb-2">Creative Aligner</a>
+            <h5 class="text-muted fw-normal mb-4">Welcome back! Log in to your account.</h5>
+            <form class="forms-sample" (ngSubmit)="loginClick()" [formGroup]="loginForm">
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Email" formControlName="userName">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" autocomplete="current-password" placeholder="Password" formControlName="userPassword">
+              </div>
+              <div class="mb-3">
+                <p *ngIf="loginFailed"><span class="text-danger mt-1">{{errorMessage}}</span><br/>
+                  <span *ngIf="invalidPassword">
+                    If you forgot your password click
+                    <a routerLink="/auth/forgot" class="mt-3 text-muted">here</a>
+                  </span>
+                </p>
+              </div>
+              <div>
+                <button class="btn btn-primary" type="submit" [disabled]="loginForm.invalid || loading">
+                  <span style="white-space:nowrap">
+                    <span [style.visibility]="loading ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                    Login
+                  </span>
+                </button>
+              </div>
+              <a routerLink="/auth/forgot" class="d-block mt-3 text-muted">Forgot Your Password?</a>
+              <a routerLink="/auth/register" class="d-block mt-3 text-muted">Not a user? Become a Provider</a>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

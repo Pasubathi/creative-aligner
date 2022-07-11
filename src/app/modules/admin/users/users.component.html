@@ -1,0 +1,78 @@
+
+
+<div class="row">
+    <div class="col-md-12 stretch-card">
+      <div class="card">
+        <div class="card-body">
+          <h6 class="card-title">Users List</h6>
+
+          <form class="row" #searchForm (ngSubmit)="doSearch()">
+            <div class="col-sm-4">
+              <label for="exampleInputUsername1" class="form-label">Country</label>
+              <ng-select id="searchCountryID" (change)="doSearch()" name="CountryID" [items]="countries"
+                         [(ngModel)]="SearchModel.CountryID" placeholder="Country"
+                         bindLabel="Country"
+                         bindValue="ID"
+                         #searchCountryID="ngModel"
+                         [searchable]="false">
+              </ng-select>
+            </div>
+            <div class="col-sm-4">
+              <label for="exampleInputUsername1" class="form-label">Roles</label>
+              <ng-select id="PermissionGroupID" (change)="doSearch()" name="PermissionGroup" [items]="currentRoles"
+                         [(ngModel)]="SearchModel.RoleID" placeholder="Role" bindLabel="Name" bindValue="ID"
+                         #permissionGroupID="ngModel" [searchable]="false">
+              </ng-select>
+            </div>
+            <div class="col-sm-4">
+              <label for="exampleInputEmail1" class="form-label">Searching</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="searchTextID" placeholder="Search" #searchTextID="ngModel" name="searchText" [(ngModel)]="SearchModel.SearchText">
+                <button type="submit" class="input-group-text btn-link custom_btn_icon">
+                  <i class="feather icon-search"></i>
+                </button>
+                <button type="button" (click)="addUser()" class="input-group-text btn-link custom_btn_icon">
+                  <i class="feather icon-plus"></i> Add User
+                </button>
+              </div>
+            </div>
+          </form>
+
+
+          <div class="table-responsive">
+            <ngx-datatable class="bootstrap" [rows]="usersList" [loadingIndicator]="loadingIndicator"
+                           [columnMode]="ColumnMode.force" [scrollbarH]="true" [footerHeight]="50" [limit]="10" [externalPaging]="true"
+                           [externalSorting]="true" [count]="TotalCount" [offset]="pageNumber" (page)="setPage($event)"
+                           rowHeight="auto" (sort)="onSort($event)">
+              <ngx-datatable-column name="Full Name" prop="FullName"></ngx-datatable-column>
+              <ngx-datatable-column name="Email" prop="Email"></ngx-datatable-column>
+              <ngx-datatable-column name="Country" prop="Country"></ngx-datatable-column>
+              <ngx-datatable-column name="Role" prop="RoleName"></ngx-datatable-column>
+              <ngx-datatable-column name="Status" prop="ActiveStatus"></ngx-datatable-column>
+              
+              <ngx-datatable-column name="Edit">
+                <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                             let-row="row">
+                  <button class="btn btn-outline-primary" (click)="editItem(row)">
+                    <i class="feather icon-edit"></i>
+                    Edit
+                  </button>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+          </div>
+
+          <div *ngIf="loadingIndicator">
+            <div class="text-center">
+              <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <app-user-modal #userCtr (UserChanged)="onUserChanged($event)" [Current]="Current">
+  </app-user-modal>

@@ -1,0 +1,479 @@
+<!-- <nav class="page-breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/dashboard/cases">Submit Case</a></li>
+        <li class="breadcrumb-item active" aria-current="page">Case Review</li>
+    </ol>
+</nav> -->
+<div class="card">
+  <div class="card-body">
+
+    <ngb-alert [dismissible]="true" [type]="'warning'" *ngIf="!alert1closed && api.case.Data.CaseStage=='AmendRevision'"
+      (close)="alert1closed=true">
+      <h4 class="alert-heading">Orthodontist Notes:</h4>
+      <p>{{api.case.Revisions[0].OrthodontistNotes}}</p>
+    </ngb-alert>
+
+    <ngb-alert [dismissible]="true" [type]="'warning'"
+      *ngIf="!alert1closed && api.case.Data.CaseStage=='RequestNewRevision'" (close)="alert1closed=true">
+      <h4 class="alert-heading">Doctor Notes:</h4>
+      <p>{{api.case.Revisions[0].DoctorNotes}}</p>
+    </ngb-alert>
+
+    <ngb-alert [dismissible]="true" [type]="'danger'" *ngIf="errorMessage.length > 0">
+      <p>{{errorMessage}}</p>
+    </ngb-alert>
+
+
+    <ul ngbNav #defaultNav="ngbNav" class="nav-tabs mt-3">
+      <li [ngbNavItem]="1">
+        <a ngbNavLink>Digital Setups</a>
+        <ng-template ngbNavContent>
+          <div class="row" style="padding: 10px">
+            <div class="col-sm-4">
+              <div class="mb-3" style="display:flex">
+                <!-- <img width="150" height="150" [src]="imgUrl" style="background: url(assets/images/placeholderimages/front_smiling.svg); margin-right: 20px" /> -->
+                <table>
+                  <tr>
+                    <td><span class="mb-3 text-muted">Patient Name: </span></td>
+                    <td style="width: 20px;"></td>
+                    <td> <span class="mb-3">{{api.case.Data.FirstName}} {{api.case.Data.LastName}}</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="mb-3 text-muted">Gender: </span></td>
+                    <td style="width: 20px;"></td>
+                    <td> <span class="mb-3">{{api.case.Data.Gender}}</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="mb-3 text-muted">Date of Birth: </span></td>
+                    <td style="width: 20px;"></td>
+                    <td> <span class="mb-3">{{api.case.Data.DateOfBirth | date: 'yyyy-MM-dd'}}</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="mb-3 text-muted">Case No.: </span></td>
+                    <td style="width: 20px;"></td>
+                    <td> <span class="mb-3">{{api.case.Data.CaseNumber}}</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="mb-3 text-muted">Case Status: </span></td>
+                    <td style="width: 20px;"></td>
+                    <td> <span class="mb-3">{{api.case.Data.getCaseStage}}</span></td>
+                  </tr>
+                  <tr>
+                    <td><span class="mb-3 text-muted">Package: </span></td>
+                    <td style="width: 20px;"></td>
+                    <td> <span class="mb-3">{{api.case.PackageName()}}</span></td>
+                  </tr>
+                </table>
+              </div>
+            </div>
+            <div class="col-sm-4">
+              <div class="mb-3" style="display:flex">
+                <div class="mb-3"><span class="text-muted">Shipping Address: </span></div>
+                <div style="width: 10px;"></div>
+                <div class="mb-3">
+                  <p>{{api.case.Address.ClinicName}}</p>
+                  <p>{{api.case.Address.Building}} {{api.case.Address.Street}}</p>
+                  <p>{{api.case.Address.City}}-{{auth.getCountry(api.case.Address.CountryID)}}</p>
+                  <p>{{api.case.Address.Phone}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <app-new-revision *ngIf="auth.isDesigner()"></app-new-revision>
+          <app-case-revisions-list [case]="api.case" [isOrthodontist]="auth.isOrthodontist()"></app-case-revisions-list>
+          <app-case-shipping [case]="api.case"></app-case-shipping>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="2">
+        <a ngbNavLink>Details</a>
+        <ng-template ngbNavContent>
+          <app-case-review-details [caseData]="api.case"></app-case-review-details>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="3">
+        <a ngbNavLink>Records</a>
+        <ng-template ngbNavContent>
+          <app-case-records [case]="api.case.Data"></app-case-records>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="4">
+        <a ngbNavLink>Chat</a>
+        <ng-template ngbNavContent>
+          <app-chat></app-chat>
+        </ng-template>
+      </li>
+      <li [ngbNavItem]="5">
+        <a ngbNavLink>History</a>
+        <ng-template ngbNavContent>
+          <app-case-history [historyRecords]="api.case.HistoryRecords"></app-case-history>
+        </ng-template>
+      </li>
+    </ul>
+
+    <div *ngIf="isLoading == 1">
+      <div [ngbNavOutlet]="defaultNav" class="mt-3"></div>
+      <div class="row">
+        <hr />
+        <br />
+      </div>
+      <div *ngIf="auth.isAccountant() && (api.case.Data.CaseStage=='Active'
+                  || api.case.Data.CaseStage=='Manufacturing'
+                  || api.case.Data.CaseStage=='ReadyForShipping'
+                  || api.case.Data.CaseStage=='Approved')">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="d-flex justify-content-center mt-2">
+              <button type="button" class="btn btn-outline-primary me-2"
+                (click)="isUpdatePriceCollapsed = !isUpdatePriceCollapsed " [attr.aria-expanded]="!isReturnCollapsed"
+                aria-controls="updatePrice">
+                <span style="white-space:nowrap">
+                  Edit Price
+                </span>
+              </button>
+              <button type="button" class="btn btn-outline-primary me-2" (click)="caseInvoice()">
+                <span style="white-space:nowrap">
+                  Case Invoice
+                </span>
+              </button>
+            </div>
+          </div>
+        </div><!-- Row-->
+        <div id="updatePrice" [ngbCollapse]="isUpdatePriceCollapsed">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-3">
+                  <label for="casePrice" class="form-label">Edit Price:</label>
+                  <input class="form-control" id="casePrice" name="casePrice" [(ngModel)]="api.case.Data.CasePrice" />
+                </div>
+              </div><!-- Row-->
+              <div class="row">
+                <div class="d-flex justify-content-center mt-2">
+                  <button type="button" class="btn btn-outline-primary me-2" [disabled]="savingCase"
+                    (click)="updatePrice()">
+                    <span style="white-space:nowrap">
+                      <span [style.visibility]="savingCase ? 'visible' : 'hidden'"
+                        class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                      Save New Price
+                    </span>
+                  </button>
+                </div>
+              </div> <!-- Row-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="auth.isDesigner() && (api.case.Data.CaseStage=='PendingCaseApproval')">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="d-flex justify-content-center mt-2">
+              <button type="button" class="btn btn-danger me-2"
+                (click)="isReturnCollapsed = !isReturnCollapsed ; api.case.Data.ReturnNotes=''"
+                [attr.aria-expanded]="!isReturnCollapsed" aria-controls="returnCase">
+                <span style="white-space:nowrap">
+                  Return To Doctor
+                </span>
+              </button>
+              <button type="button" class="btn btn-primary me-2" [disabled]="savingCase" (click)="approve_case()">
+                <span style="white-space:nowrap">
+                  <span [style.visibility]="savingCase && isApprove ? 'visible' : 'hidden'"
+                    class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                  Approve Case
+                </span>
+              </button>
+            </div>
+          </div>
+        </div><!-- Row-->
+        <div id="returnCase" [ngbCollapse]="isReturnCollapsed">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-sm-12">
+                  <label for="returnNotes" class="form-label">Return Notes:</label>
+                  <textarea class="form-control" [(ngModel)]="api.case.Data.ReturnNotes" id="returnNotes"
+                    rows="2"></textarea>
+                </div>
+              </div><!-- Row-->
+              <div class="row">
+                <div class="d-flex justify-content-center mt-2">
+                  <button type="button" class="btn btn-danger me-2" [disabled]="savingCase" (click)="return_case()">
+                    <span style="white-space:nowrap">
+                      <span [style.visibility]="savingCase && isReturn ? 'visible' : 'hidden'"
+                        class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                      Return To Doctor
+                    </span>
+                  </button>
+                </div>
+              </div> <!-- Row-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div
+        *ngIf="auth.isLogistics() && ((api.case.Data.CaseStage=='Accepted' || api.case.Data.CaseStage=='RequestRetainer') && api.case.Data.ImpressionType=='Physical')">
+        <div class="row">
+          <div class="d-flex justify-content-center mt-2">
+            <button type="button" class="btn btn-primary"
+              (click)="isImpressionShippingCollapsed = !isImpressionShippingCollapsed"
+              [attr.aria-expanded]="!isImpressionShippingCollapsed" aria-controls="impressionShipping">
+              <span style="white-space:nowrap">
+                Ready for Impressions Collection
+              </span>
+            </button>
+          </div>
+        </div> <!-- Row-->
+        <div class="row">
+          <div id="impressionShipping" [ngbCollapse]="isImpressionShippingCollapsed">
+            <div class="card">
+              <div class="card-body">
+                <div class="row">
+                  <!-- <div class="d-flex justify-content-center mt-2"> -->
+                  <div class="d-none d-md-block">
+                    <button (click)="selectfile.click()" type="button" class="btn border btn-icon rounded-circle me-2"
+                      ngbTooltip="Attatch shipping policy">
+                      <i class="feather icon-paperclip text-muted"></i>
+                    </button>
+                    <input type='file' name="file" (change)="uploadShipmentPolicy()" style="display: none;" #selectfile>
+                  </div>
+                  <div class="row" *ngIf="isUploading">
+                    <div class="col-sm-12">
+                      <progress [value]=progress.loaded [max]=progress.total>
+                      </progress>
+                    </div>
+                  </div>
+                  <div class="row" *ngIf="isLoaded">
+                    <div class="col-sm-12">
+                      {{fileName}}
+                    </div>
+                  </div>
+                  <!-- </div> -->
+                </div>
+                <div class="row">
+                  <div class="d-flex justify-content-center mt-2">
+                    <button type="button" class="btn btn-primary" [disabled]="savingCase"
+                      (click)="addCaseShipment('Impressions')">
+                      <span style="white-space:nowrap">
+                        <span [style.visibility]="savingCase ? 'visible' : 'hidden'"
+                          class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                        Ready for Impressions Collection
+                      </span>
+                    </button>
+                  </div>
+                </div><!-- Row-->
+              </div>
+            </div>
+          </div>
+        </div><!-- Row-->
+      </div>
+      <div
+        *ngIf="auth.isLogistics() && (api.case.Data.CaseStage=='ImpressionsShipped' || api.case.Data.CaseStage=='ReadyForImpressionsCollection')">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="d-flex justify-content-center mt-2">
+              <button type="button" class="btn btn-primary me-2"
+                (click)="isImpressionCollapsed = !isImpressionCollapsed" [attr.aria-expanded]="!isImpressionCollapsed"
+                aria-controls="impressionsReceived">
+                <span style="white-space:nowrap">
+                  Impressions Received
+                </span>
+              </button>
+            </div>
+          </div>
+        </div><!-- Row-->
+        <div id="impressionsReceived" [ngbCollapse]="isImpressionCollapsed">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="d-flex justify-content-center mt-2">
+                  <button type="button" class="btn btn-primary me-2" [disabled]="savingCase"
+                    (click)="impressions_received()">
+                    <span style="white-space:nowrap">
+                      <span [style.visibility]="savingCase ? 'visible' : 'hidden'"
+                        class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                      Confirm
+                    </span>
+                  </button>
+                </div>
+              </div> <!-- Row-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="auth.isOperationManager() && api.case.Data.CaseStage=='Approved'">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="d-flex justify-content-center mt-2">
+              <button type="button" class="btn btn-primary me-2"
+                (click)="isManufacturingCollapsed = !isManufacturingCollapsed"
+                [attr.aria-expanded]="!isManufacturingCollapsed" aria-controls="startManufacturing">
+                <span style="white-space:nowrap">
+                  Start Manufacturing
+                </span>
+              </button>
+            </div>
+          </div>
+        </div><!-- Row-->
+        <div id="startManufacturing" [ngbCollapse]="isManufacturingCollapsed">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="d-flex justify-content-center mt-2">
+                  <button type="button" class="btn btn-primary me-2" [disabled]="savingCase"
+                    (click)="updateCaseStatus('noValue', 'Manufacturing')">
+                    <span style="white-space:nowrap">
+                      <span [style.visibility]="savingCase ? 'visible' : 'hidden'"
+                        class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                      Confirm
+                    </span>
+                  </button>
+                </div>
+              </div> <!-- Row-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="auth.isOperationManager() && api.case.Data.CaseStage=='Manufacturing'">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="d-flex justify-content-center mt-2">
+              <button type="button" class="btn btn-primary me-2"
+                (click)="isReadyForShippingCollapsed = !isReadyForShippingCollapsed"
+                [attr.aria-expanded]="!isReadyForShippingCollapsed" aria-controls="readyForShipping">
+                <span style="white-space:nowrap">
+                  Ready For Shipping
+                </span>
+              </button>
+            </div>
+          </div>
+        </div><!-- Row-->
+        <div id="readyForShipping" [ngbCollapse]="isReadyForShippingCollapsed">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="d-flex justify-content-center mt-2">
+                  <button type="button" class="btn btn-primary me-2" [disabled]="savingCase"
+                    (click)="readyForShipping()">
+                    <span style="white-space:nowrap">
+                      <span [style.visibility]="savingCase ? 'visible' : 'hidden'"
+                        class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                      Confirm
+                    </span>
+                  </button>
+                </div>
+              </div> <!-- Row-->
+            </div>
+          </div>
+        </div>
+      </div>
+      <div *ngIf="auth.isLogistics() && (api.case.Data.CaseStage=='ReadyForShipping'
+            || api.case.Data.CaseStage=='ReplaceMissing' || api.case.Data.CaseStage=='RequestNextShipment')">
+        <div class="row">
+          <div class="d-flex justify-content-center mt-2">
+            <button type="button" class="btn btn-primary" (click)="shippingCollapsable()"
+              [attr.aria-expanded]="!isTreatmentShippedCollapsed" aria-controls="treatmentShipping">
+              <span style="white-space:nowrap">
+                {{
+                api.case.Data.CaseStage =='ReadyForShipping' ? 'Aligner Shipped'
+                : api.case.Data.CaseStage =='RequestNextShipment' ? 'Next Aligner Shipped'
+                : 'Replacement Aligner Shipped'
+                }}
+              </span>
+            </button>
+          </div>
+        </div> <!-- Row-->
+        <div class="row">
+          <div id="treatmentShipping" [ngbCollapse]="isTreatmentShippedCollapsed">
+            <div class="card">
+              <div class="card-body">
+                <div class="row mb-3">
+                  <div class="col-sm-2">
+                    <label>Upper Aligners:</label>
+                  </div>
+                  <div class="col-sm-1">
+                    <label>From</label>
+                    <input type="number" class="form-control" id="upperFrom" name="upperFrom"
+                      [(ngModel)]="newShipment.UpperFrom" placeholder="Upper From">
+                  </div>
+                  <div class="col-sm-1">
+                    <label>To</label>
+                    <input type="number" class="form-control" id="upperTo" name="upperTo"
+                      [(ngModel)]="newShipment.UpperTo" placeholder="Upper To">
+                  </div>
+                  <div class="col-sm-1">
+                    <label>Of</label>
+                    <input type="number" class="form-control" id="upperOf" name="upperOf"
+                      [(ngModel)]="newShipment.UpperOf" placeholder="Upper Of">
+                  </div>
+                </div><!-- Row -->
+                <div class="row mb-3">
+                  <div class="col-sm-2">
+                    <label>Lower Aligners:</label>
+                  </div>
+                  <div class="col-sm-1">
+                    <label>From</label>
+                    <input type="number" class="form-control" id="lowerFrom" name="lowerFrom"
+                      [(ngModel)]="newShipment.LowerFrom" placeholder="Lower From">
+                  </div>
+                  <div class="col-sm-1">
+                    <label>To</label>
+                    <input type="number" class="form-control" id="lowerTo" name="lowerTo"
+                      [(ngModel)]="newShipment.LowerTo" placeholder="Lower To">
+                  </div>
+                  <div class="col-sm-1">
+                    <label>Of</label>
+                    <input type="number" class="form-control" id="lowerOf" name="lowerOf"
+                      [(ngModel)]="newShipment.LowerOf" placeholder="Lower Of">
+                  </div>
+                </div><!-- Row -->
+                <div class="d-none d-md-block">
+                  <button (click)="selectfile.click()" type="button" class="btn border btn-icon rounded-circle me-2"
+                    ngbTooltip="Attatch shipping policy">
+                    <i class="feather icon-paperclip text-muted"></i>
+                  </button>
+                  <input type='file' name="file" (change)="uploadShipmentPolicy()" style="display: none;" #selectfile>
+                </div>
+                <div class="row" *ngIf="isUploading">
+                  <div class="col-sm-12">
+                    <progress [value]=progress.loaded [max]=progress.total>
+                    </progress>
+                  </div>
+                </div>
+                <div class="row" *ngIf="isLoaded">
+                  <div class="col-sm-12">
+                    {{fileName}}
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="d-flex justify-content-center mt-2">
+                    <button type="button" class="btn btn-primary" [disabled]="savingCase"
+                      (click)="addCaseShipment('Treatment')">
+                      <span [style.visibility]="savingCase ? 'visible' : 'hidden'"
+                        class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                      <span style="white-space:nowrap">
+                        {{
+                        api.case.Data.CaseStage =='ReadyForShipping' ? 'Aligner Shipped'
+                        : api.case.Data.CaseStage =='RequestNextShipment' ? 'Next Aligner Shipped'
+                        : 'Replacement Aligner Shipped'
+                        }}
+                      </span>
+                    </button>
+                  </div>
+                </div> <!-- Row-->
+              </div>
+            </div>
+
+
+          </div>
+        </div><!-- Row-->
+      </div>
+    </div>
+
+    <div *ngIf="isLoading == 0">
+      <div class="text-center">
+        <div class="spinner-wrapper">
+          <div class="spinner">Loading...</div>
+        </div>
+      </div>
+    </div>
+
+  </div>

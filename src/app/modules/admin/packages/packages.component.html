@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-12 stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title">Price Packages List</h6>
+
+                <!-- <form class="row" #searchForm (ngSubmit)="doSearch()"> -->
+                <div class="row">
+                    <div class="col-sm-4">
+                        <label for="searchCountryID" class="form-label">Country</label>
+                        <ng-select id="searchCountryID" (change)="doSearch()" name="CountryID" [items]="countries"
+                            [(ngModel)]="SearchModel.CountryID" placeholder="Country" bindLabel="Country" bindValue="ID"
+                            #searchCountryID="ngModel" [searchable]="false">
+                        </ng-select>
+                    </div>
+                    <div class="col-sm-4">
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="mb-3">
+                            <label for="newPackage" class="form-label"> </label>
+                            <button type="button" class="btn btn-primary" (click)="newPackage()" id="newPackage">
+                                New Package
+                            </button>
+                        </div>
+                    </div>
+                </div> <!-- Row -->
+                <!-- </form> -->
+
+
+                <div class="table-responsive">
+                    <ngx-datatable class="bootstrap" [rows]="packageList" [loadingIndicator]="loadingIndicator"
+                        [columnMode]="ColumnMode.force" [scrollbarH]="true" [footerHeight]="50" [limit]="10"
+                        rowHeight="auto">
+                        <ngx-datatable-column name="Country" prop="Country"></ngx-datatable-column>
+                        <ngx-datatable-column name="Package" prop="Package"></ngx-datatable-column>
+                        <ngx-datatable-column name="Package Price" prop="PackagePrice"></ngx-datatable-column>
+                        <ngx-datatable-column name="Edit Package">
+                            <ng-template ngx-datatable-cell-template let-rowIndex="rowIndex" let-value="value"
+                                let-row="row">
+                                <button class="btn btn-outline-primary" (click)="editPackage(row)">
+                                    <i class="feather icon-edit"></i>
+                                    Edit
+                                </button>
+                            </ng-template>
+                        </ngx-datatable-column>
+                    </ngx-datatable>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<app-package-modal #packageCtr (PackageChanged)="onPackageChanged($event)" [IsNew]="isNew" [Current]="Current">
+</app-package-modal>
