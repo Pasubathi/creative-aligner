@@ -1,13 +1,15 @@
-<div class="row w-100 mx-0 auth-page">
-  <div class="col-md-8 col-xl-6 mx-auto">
-    <div class="card">
+<div class="row w-100 mx-0 auth-page login-page-bg">
+  <div class="col-md-12 col-xl-12 mx-auto">
+    <div class="card bg-inherit">
       <div class="row">
-        <div class="col-md-4 pe-md-0">
-          <div class="auth-side-wrapper" [ngStyle]="{ 'background-image': 'url(assets/images/img6.jpg)' }">
+        <div class="col-md-6 pe-md-0 pl-0">
+          <div class="auth-side-wrapper">
+            <img src="assets/images/frame-logo.png" alt="" />
           </div>
         </div>
-        <div class="col-md-8 ps-md-0">
-          <div class="auth-form-wrapper px-4 py-5">
+        <div class="col-md-6 ps-md-0">
+          <div class="auth-form-wrapper">
+            <div class="center-grid"> 
             <div class="text-center">
               <i data-feather="check-circle" appFeatherIcon class="text-success mt-4 mb-2 icon-xxl"></i>
               <a routerLink="." class="creativealigner-logo d-block mb-2">Reset Password</a>
@@ -21,7 +23,7 @@
             <div class="d-flex justify-content-center mt-2">
               <button class="btn btn-success" type="button" (click)="continueClick()">Continue</button>
             </div>
-
+            </div>
           </div>
         </div>
       </div>
