@@ -1,0 +1,37 @@
+.Perscription-tba-data{
+
+    textarea{
+        background: #FBFBFB;
+        border: 1px solid #E0E0E0;
+        box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.04), inset -6px -6px 4px rgba(255, 255, 255, 0.3), inset 6px 6px 20px rgba(0, 0, 0, 0.06);
+        border-radius: 6px;
+    }
+    .form-check-inline {
+        padding-left: 0;
+        padding-right: 10px;
+        .form-check-label {
+            display: inline-block;
+            width: 70px;
+            text-align: center;
+            height: 34px;
+            border-radius: 30px;
+            line-height: 34px;
+            font-weight: 500;
+            font-size: 14px;
+            color: #0C78A7;
+            background: rgba(12, 120, 167, 0.06);
+            border-radius: 30px;
+	
+         }
+         input[type="radio"]{
+          display: none;
+         }:checked +  .form-check-label {
+            background: #0c78a7;
+            color: #fff;
+        }
+      
+       
+
+    }
+
+}

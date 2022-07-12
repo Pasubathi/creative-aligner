@@ -1,11 +1,12 @@
 <br />
 <div class="row">
-  <h4 class="card-title">PRESENT CLINICAL CONDITION</h4>
+  <h4 class="card-title impression-text">Perscription</h4>
   <hr />
+  <h4 class="card-title card-text">Present clinical condition</h4>
 </div>
 
-<div class="row">
-  <div class="col-sm-6">
+<div class="row Perscription-tba-data">
+  <div class="col-sm-6 ">
     <label class="form-label">Cheif Complaint</label>
     <textarea class="form-control" [(ngModel)]="api.case.Data.ChiefComplaint" id="chiefComplaint" style="height:100%"></textarea>
   </div>
@@ -150,7 +151,7 @@
     </div>
 
     <div class="row">
-      <div class="col-sm-10">
+      <div class="col-md-6 p-r-one">
         <div class="mb-3">
           <label class="form-label">Upper Midline</label>
           <input type="range" class="form-range" id="upperRange" min="-3" max="3" value="0" step="0.1" #upperRange (input)="upperRange.value" [(ngModel)]="api.case.Data.CondUpperMidlineShift">
@@ -168,10 +169,7 @@
           </div>
         </div>
       </div><!-- Col -->
-    
-    </div>
-    <div class="row">
-      <div class="col-sm-10">
+      <div class="col-md-6 p-l-one">
         <div class="mb-3">
           <label class="form-label">Lower Midline</label>
           <input type="range" class="form-range" id="lowerRange" min="-3" max="3" value="0" step="0.1" #lowerRange (input)="lowerRange.value" [(ngModel)]="api.case.Data.CondLowerMidlineShift">
@@ -189,6 +187,7 @@
         </div>
       </div>
     </div>
+   
   </div>
 </div>
 <br />
@@ -699,7 +698,7 @@
 <div class="row">
   <br />
   <p></p>
-  <div class="mb-3">
+  <div class="mb-3 mt-3">
     <label for="additionaNotes" class="form-label">Additional Notes:</label>
     <textarea class="form-control" [(ngModel)]="api.case.Data.AdditionalInformation" id="additionaNotes" rows="2"></textarea>
   </div>

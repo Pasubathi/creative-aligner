@@ -1,11 +1,8 @@
 <div class="card dropzzone-container">
   <div class="card-body">
-    <h6 class="card-title">
-      {{ ImageTitle }}
-      <i class="feather icon-upload-cloud" style="font-size: 16pt; float: right;"></i>
-    </h6>
+    
     <ngx-dropzone [accept]="fileType" #dropzonectr [style]="dropZoneStyle" [multiple]="false" (change)="onSelect($event)">
-      <ngx-dropzone-label *ngIf="!uploading">Upload File</ngx-dropzone-label>
+      <ngx-dropzone-label *ngIf="!uploading"><img src="assets/images/upload-image-icon.png" alt=""></ngx-dropzone-label>
       <ngx-dropzone-label style="color: #6571ff;background-color:lightgray;padding:10px" *ngIf="uploading">
         <!-- <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
         Uploading File ... -->
@@ -19,6 +16,9 @@
         <ngx-dropzone-label>{{ f.name }} </ngx-dropzone-label>
       </ngx-dropzone-preview>
     </ngx-dropzone>
+    <h6 class="card-title">
+      {{ ImageTitle }}
+    </h6>
     <!--<button type="button" class="btn btn-link mt-2 d-block ms-auto"
             (click)="onRemove(dropzonectr)">
       Reset

@@ -1,0 +1,47 @@
+.dropzzone-container {
+	background: #FAFAFA;
+	border: 1px solid rgba(51, 51, 51, 0.1);
+	border-radius: 12px;
+
+  ngx-dropzone {
+    border: 0;
+    width: 100% !important;
+    position: relative;
+    height: 165px !important;
+    border-radius: 12px !important;
+  }
+  ngx-dropzone::after {
+    content: "";
+    position: absolute;
+    background: rgba(0,0,0,0.4);
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+  }
+  .card-body  {
+    padding:15px;
+    h6.card-title {
+      margin: 15px 0 0;
+    }
+    .card-title{
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20px;
+    color: #333333;
+    text-transform: inherit;
+    }
+   
+    
+  }
+  .grid-margin.stretch-card app-image-loader {
+    width: 100%;
+  }
+ 
+}
+.form-check-input:checked, .ng-dropdown-panel input[type="checkbox"]:checked {
+	background-color: rgba(12, 120, 167, 1);
+	border-color: rgba(12, 120, 167, 1);
+}
+
+

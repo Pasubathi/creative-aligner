@@ -10,7 +10,7 @@
   <div class="card">
     <div class="card-body">
       <h6 class="card-title">
-        Case Submission - <span *ngIf="api.case.Data.Number" class="text-muted"> No.
+        Case Submission - <span *ngIf="api.case.Data.Number" class="small-text"> No.
           #{{api.case.Data.CaseNumber}}</span>
       </h6>
       <ngb-alert [dismissible]="true" [type]="'warning'"
@@ -20,7 +20,7 @@
       </ngb-alert>
       <aw-wizard *ngIf="!isLoading" #wizardForm [disableNavigationBar]="true" navBarLayout="large-filled">
         <aw-wizard-step stepTitle="Patient Information">
-          <ng-template awWizardStepSymbol><i class="mdi mdi-account-plus" style="font-size: 16pt;"></i></ng-template>
+          <ng-template awWizardStepSymbol>01</ng-template>
           <form (ngSubmit)="saveCaseInformation()" #caseInfoForm="ngForm">
             <br />
 
@@ -47,49 +47,53 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="mb-3">
-                  <label class="form-label">Gender</label>
-                  <ng-select [items]="genderSource" name="Gender" placeholder="Gender" #GenderKind="ngModel"
-                    bindLabel="name" bindValue="value" [searchable]="false" [(ngModel)]="api.case.Data.Gender" required>
-                  </ng-select>
-                  <p class="text-danger mt-1" *ngIf="GenderKind.invalid && caseFormSubmited">Select patient gender</p>
-                </div>
-              </div><!-- Col -->
-              <div class="col-sm-6">
-                <div class="mb-3">
-                  <label class="form-label">Date Of Birth</label>
-                  <div class="input-group">
-                    <input class="form-control" placeholder="yyyy-mm-dd" name="DateOfBirth"
-                      [(ngModel)]="api.case.Data.DateOfBirth" #DateOfBirth="ngModel" ngbDatepicker #d="ngbDatepicker"
-                      [maxDate]="maxDate" [startDate]="startDate" required>
-                    <button class="input-group-text" type="button" (click)="d.toggle()">
-                      <i class="feather icon-calendar icon-md text-muted"></i>
-                    </button>
-                  </div>
-                  <p class="text-danger mt-1" style="clear:both" *ngIf="DateOfBirth.invalid && caseFormSubmited">Date of
-                    birth is not valid, example: 2010-11-20</p>
-                </div>
-              </div><!-- Col -->
-            </div><!-- Row -->
-            <div class="row">
-              <div class="col-sm-6">
-                <div class="mb-3">
                   <label class="form-label">Shipping Address</label>
-                  <button type="button" class="btn btn-link" (click)="openAddressModal()">+ Add New Address</button>
+                 
                   <ng-select [items]="addressesSource" name="ShippingAddressID" placeholder="Shipping Address"
                     bindLabel="display" bindValue="ID" [searchable]="false"
                     [(ngModel)]="api.case.Data.ShippingAddressID" #ShippingAddressID="ngModel" required>
                   </ng-select>
                   <p class="text-danger mt-1" *ngIf="ShippingAddressID.invalid && caseFormSubmited">Enter shipping
                     address</p>
+                    <button type="button" class="btn btn-link" (click)="openAddressModal()"><img src="assets/images/add-shipping.png" alt=""> Add New Address</button>
                 </div>
+                
               </div><!-- Col -->
               <div class="col-sm-6">
-
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="mb-3">
+                      <label class="form-label">Gender</label>
+                      <ng-select [items]="genderSource" name="Gender" placeholder="Gender" #GenderKind="ngModel"
+                        bindLabel="name" bindValue="value" [searchable]="false" [(ngModel)]="api.case.Data.Gender" required>
+                      </ng-select>
+                      <p class="text-danger mt-1" *ngIf="GenderKind.invalid && caseFormSubmited">Select patient gender</p>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="mb-3">
+                      <label class="form-label">Date Of Birth</label>
+                      <div class="input-group">
+                        <input class="form-control" placeholder="yyyy-mm-dd" name="DateOfBirth"
+                          [(ngModel)]="api.case.Data.DateOfBirth" #DateOfBirth="ngModel" ngbDatepicker #d="ngbDatepicker"
+                          [maxDate]="maxDate" [startDate]="startDate" required>
+                        <button class="input-group-text" type="button" (click)="d.toggle()">
+                          <i class="feather icon-calendar icon-md text-muted"></i>
+                        </button>
+                      </div>
+                      <p class="text-danger mt-1" style="clear:both" *ngIf="DateOfBirth.invalid && caseFormSubmited">Date of
+                        birth is not valid, example: 2010-11-20</p>
+                    </div>
+                  </div>
+                </div>
+                
+                
               </div><!-- Col -->
             </div><!-- Row -->
+           
             <div class="row">
               <div class="col-sm-12">
-                <div class="d-flex justify-content-center mt-2">
+                <div class="d-flex justify-content-end mt-2">
                   <button class="btn btn-primary" type="submit" [disabled]="saving">
                     <span style="white-space:nowrap">
                       <span [style.visibility]="saving ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm"
@@ -104,11 +108,11 @@
 
         </aw-wizard-step>
         <aw-wizard-step stepTitle="Images & Impressions">
-          <ng-template awWizardStepSymbol><i class="mdi mdi-camera-front" style="font-size: 16pt;"></i></ng-template>
+          <ng-template awWizardStepSymbol>02</ng-template>
           <form (ngSubmit)="saveCase(1)">
             <app-step-images [errorMessageUploadArch]="errorMessageUploadArch"></app-step-images>
-            <div class="d-flex justify-content-center mt-2">
-              <button class="btn btn-secondary me-2" type="button" awPreviousStep>Back</button>
+            <div class="d-flex justify-content-end mt-2">
+              <button class="btn btn-secondary me-2 border-button" type="button" awPreviousStep>Back</button>
               <button class="btn btn-primary" type="submit" [disabled]="saving">
                 <span style="white-space:nowrap">
                   <span [style.visibility]="saving ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm"
@@ -120,14 +124,14 @@
           </form>
         </aw-wizard-step>
         <aw-wizard-step stepTitle="Perscription">
-          <ng-template awWizardStepSymbol><i class="mdi mdi-clipboard-text" style="font-size: 16pt;"></i></ng-template>
+          <ng-template awWizardStepSymbol>03</ng-template>
           <form (ngSubmit)="saveCase(2)">
 
             <app-step-perscription>
             </app-step-perscription>
 
-            <div class="d-flex justify-content-center mt-2">
-              <button class="btn btn-secondary me-2" type="button" awPreviousStep>Back</button>
+            <div class="d-flex justify-content-end mt-2">
+              <button class="btn btn-secondary me-2 border-button" type="button" awPreviousStep>Back</button>
               <button class="btn btn-primary" type="submit" [disabled]="saving">
                 <span style="white-space:nowrap">
                   <span [style.visibility]="saving ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm"
@@ -138,12 +142,12 @@
           </form>
         </aw-wizard-step>
         <aw-wizard-step stepTitle="Terms & Agreement">
-          <ng-template awWizardStepSymbol><i class="mdi mdi-library" style="font-size: 16pt;"></i></ng-template>
+          <ng-template awWizardStepSymbol>04</ng-template>
           <form (ngSubmit)="submitCase()">
             <app-step-summary [TermsAgreement]="TermsAgreement">
             </app-step-summary>
-            <div class="d-flex justify-content-center mt-2">
-              <button class="btn btn-secondary me-2" type="button" awPreviousStep>Back</button>
+            <div class="d-flex justify-content-end mt-2">
+              <button class="btn btn-secondary me-2 border-button" type="button" awPreviousStep>Back</button>
               <button class="btn btn-primary" type="submit" [disabled]="saving">
                 <span style="white-space:nowrap">
                   <span [style.visibility]="saving ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm"
@@ -155,20 +159,20 @@
         </aw-wizard-step>
 
         <aw-wizard-step stepTitle="Submission Completed">
-          <ng-template awWizardStepSymbol><i class="mdi mdi-check-circle" style="font-size: 16pt;"></i></ng-template>
+          <ng-template awWizardStepSymbol>05</ng-template>
           <div class="text-center">
-            <i data-feather="check-circle" appFeatherIcon class="text-success mt-4 mb-2 icon-xxl"></i>
-            <h3 class="text-muted mb-3">Thank you !</h3>
+            <img src="assets/images/thank-you.png" alt="">
+            <h3 class="text-color mb-3">Thank you !</h3>
             <div *ngIf="api.case.Data.ImpressionType == 'Digital'">
-              We’ve received your case, our team will revise the case & start preparing the digital setup,<br />
-              kindly check your account within a couple of days.
+             <p class="des-text"> We’ve received your case, our team will revise the case & start preparing the digital setup,<br />
+              kindly check your account within a couple of days.</p>
             </div>
             <div *ngIf="api.case.Data.ImpressionType == 'Physical'">
-              We’ve received your case, our team will contact you shortly to arrange for impression pick up
+              <p class="des-text">  We’ve received your case, our team will contact you shortly to arrange for impression pick up</p>
             </div>
           </div>
           <div class="d-flex justify-content-center mt-2">
-            <button class="btn btn-success" type="button" (click)="finishFunction()">Finish</button>
+            <button class="btn btn-primary" type="button" (click)="finishFunction()">Finish</button>
           </div>
         </aw-wizard-step>
 

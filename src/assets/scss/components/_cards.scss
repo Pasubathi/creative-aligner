@@ -25,7 +25,25 @@
     text-transform: uppercase;
     font-size: .875rem;
     font-weight: 500;
+  
+  
   }
+  .impression-text {
+    font-weight: 700;
+    font-size: 22px !important;
+    line-height: 30px;
+    color: #333333 !important;
+    text-transform: inherit !important;
+  }
+  .card-text {
+    font-weight: 600;
+    font-size: 18px !important;;
+    line-height: 25px;
+    color: #0C78A7 !important;
+    text-transform: inherit !important;
+    margin: 10px 0 ;
+  }
+  
 }
 
 .card-group {

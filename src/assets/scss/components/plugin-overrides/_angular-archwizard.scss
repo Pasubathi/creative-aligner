@@ -1,4 +1,4 @@
-
+@import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
 aw-wizard-navigation-bar ul.steps-indicator li a .label {
   color: $text-muted;
@@ -39,3 +39,213 @@ aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li.done .ste
 aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li:not(:last-child):after {
   background-color: $border-color;
 }
+
+.step-indicator {
+	font-weight: 900;
+	font-size: 22px;
+	line-height: 24px;
+	color: rgba(170, 170, 170, 1);
+	background-color: inherit !important;
+	left: calc(23% - 25px);
+  position:static !important;
+
+  @media only screen and (min-width:992px) and (max-width:1400px) {
+    font-size: 18px;
+  }
+  @media only screen and (min-width:992px) and (max-width:1200px) {
+    font-size: 15px;
+}
+}
+ ul.steps-indicator li a .label {
+
+	font-weight: bold;
+	transition: 0.25s;
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 18px;
+	text-transform: uppercase;
+	color: #AAAAAA;
+}
+.steps-5.steps-indicator li a {
+	display: flex;
+	flex-direction: column-reverse;
+}
+.card-body .horizontal.large-filled ul.steps-indicator li:not(:last-child)::after {
+	display: none;
+}
+.card .card-body .steps-5.steps-indicator {
+	padding: 10px 0 0px 0;
+  border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+  @media  (max-width:991px){
+    border: 0;
+  }
+
+
+}
+.card-body .steps-5.steps-indicator li a .label {
+	font-weight: 700;
+	font-size: 14px;
+	line-height: 16px;
+	text-transform: uppercase;
+	color: #AAAAAA;
+	padding-top: 0;
+  text-align: left;
+  @media  (max-width:1400px){
+    font-size: 12px;
+  }
+  @media only screen and (min-width:992px) and (max-width:1200px) {
+    font-size: 12px;
+  }
+@media  (max-width:991px){
+  display: none;
+}
+
+}
+aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li .step-indicator {
+	position: static !important;
+	width: auto;
+	height: auto;
+	text-align: left;
+	vertical-align: middle;
+	line-height: normal;
+}
+
+.steps-5.steps-indicator li:last-child {
+	background-image: none;
+}
+.steps-5.steps-indicator li {
+	padding: 7px 0px 10px 35px !important;
+	background-image: url("/assets/images/white-triangle.png");
+	background-repeat: no-repeat;
+	background-position: right;
+  @media only screen and (min-width:992px) and (max-width:1200px) {
+    padding: 7px 0px 10px 19px !important;
+}
+  @media (max-width:991px) {
+    padding: 6px 0px 10px 23px !important;
+    background-image: none;
+    
+  }
+  
+}
+.steps-5.steps-indicator li.current {
+	background-image: url('/assets/images/blue-triangle.png');
+	background-repeat: no-repeat;
+	background-size: 100%;
+  @media (max-width:991px) {
+    background-image: none;
+  }
+	/* height: auto; */
+}
+
+.card-body .steps-5.steps-indicator li.current a .label, .card-body .steps-5.steps-indicator li.current a .step-indicator{color: #fff;
+  @media (max-width:991px) {
+
+    color: #0C78A7;
+  }
+}
+.steps-5.steps-indicator li.done a .label, .steps-5.steps-indicator li.done a .step-indicator  {
+	color: #0C78A7;
+}
+
+.card{
+  
+  background: #FFFFFF;
+  box-shadow: 0px 10px 16px rgba(0, 0, 0, 0.06);
+  border-radius: 20px;
+  .card-title {
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight: 700;
+    .small-text {
+  font-size: 14px !important;
+  color: rgba(170, 170, 170, 1);
+  font-weight: normal;
+}
+
+  }
+
+
+
+}
+
+  .ng-untouched.ng-pristine.ng-invalid input {
+    background: #FBFBFB;
+    border: 1px solid #E0E0E0;
+    box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.04), inset -6px -6px 4px rgba(255, 255, 255, 0.3), inset 6px 6px 20px rgba(0, 0, 0, 0.06);
+    border-radius: 6px;
+    height: 40px;
+  }
+  .btn.btn-link {
+    font-weight: 600;
+    font-size: 12px;
+    color: #FF7878;
+    padding: 0;
+    margin: 20px 0;
+    img{
+      margin-right:5px;    }
+  }
+.border-button {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 100%;
+    text-align: center;
+    color: #0C78A7;
+    background: #fff;
+    border: 1px #0C78A7 solid;
+    width: 138px;
+  }
+  .card-body {
+    .form-label {
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+      font-size: 14px;
+      line-height: 100%;
+      color: #333333;
+    }
+    .input-group-text {
+      position: absolute;
+      right: 1px;
+      border: 0;
+      top: 2px;
+      background-color: inherit;
+    }
+    .btn.btn-primary {
+      background: #FF7878;
+      border-color: #FF7878;
+      border-radius: 6px;
+      width: 140px;
+      text-align: center;
+      .spinner-border.spinner-border-sm {
+        display: none;
+      }
+    }
+    .card-body-internal{
+
+      h4.card-title {
+        text-transform: inherit !important;
+        font-weight: 500 !important;
+        font-size: 14px !important;
+      }
+    }
+  }
+ 
+  .form-check-input:checked, .ng-dropdown-panel input[type="checkbox"]:checked {
+    background: #0C78A7 ;
+    border:0;
+  }
+  .text-color.mb-3 {
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 38px;
+    color: #FF7878;
+  }
+  .des-text {
+    max-width: 35%;
+    margin: 0 auto 20px;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 19px;
+    text-align: center;
+    color: #555555;
+  }
