@@ -25,6 +25,48 @@
   th,
   td {
     white-space: nowrap;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 14px;
+    color: #333;
+    .item-number, .item-date {
+      font-weight: 400;
+      font-size: 14px;
+      color: #85898D;
+    }
+    .st-badge{
+      padding: 4px 12px;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 13px;
+    }
+    .status-incomplete {
+      background: rgba(255, 89, 89, 0.16);
+      border-radius: 34px; 
+      color: #FF5959;
+     
+    }
+    .status-pending {
+      background: rgba(255, 164, 56, 0.16);
+      border-radius: 34px;
+      color: rgba(255, 164, 56, 1);
+     
+    }
+    .status-inprocess{
+      background: rgba(56, 136, 255, 0.16);
+      border-radius: 34px;
+      color: #3888FF;
+      .status-active{
+        background: rgba(28, 193, 24, 0.16);
+         border-radius: 34px;
+         color: #1CC118;
+      }
+      .status-archived{
+        background: rgba(255, 89, 89, 0.16);
+        border-radius: 34px;
+        color: #FF5959;
+      }
+    }
   }
   
   td {

@@ -41,6 +41,21 @@
   }
   .card-body {
     padding-top: 0;
+    .flex-button  {
+
+      .download-pdf{
+        background-color: inherit;
+        border: 0;
+        padding: 0;
+        margin: 0 4px;
+
+        img{
+          width: auto;
+          height: auto;
+        }
+      }
+    
+    }
   }
 }
 

@@ -96,20 +96,20 @@
             <tbody>
               <tr *ngFor="let item of Cases" ng-click="openActionsModal(item)">
                 <td>
-                  {{ item.Name }}
+                  <span class="item-name">{{ item.Name }}</span>
                 </td>
-                <td>#{{ item.CaseNumber }}</td>
-                <td>{{item.StageDate | date: 'yyyy-MM-dd' }}</td>
+                <td><span class="item-number">#{{ item.CaseNumber }}</span></td>
+                <td><span class="item-date">{{item.StageDate | date: 'yyyy-MM-dd' }}</span></td>
                 <td>
-                  <span *ngIf="item.Case.CaseStage == 'Incomplete'
+                  <span  *ngIf="item.Case.CaseStage == 'Incomplete'
                           || item.Case.CaseStage == 'Returned'
                           || item.Case.CaseStage == 'PendingTSApproval'
                           || item.Case.CaseStage == 'ReadyForImpressionsCollection'"
-                    class="badge bg-danger text-white">{{ item.CaseStage
+                    class="st-badge status-incomplete">{{ item.CaseStage
                     }}</span>
                   <span *ngIf="item.Case.CaseStage == 'Accepted'
                           || item.Case.CaseStage == 'ImpressionsReceived'
-                          || item.Case.CaseStage == 'Manufacturing'" class="badge bg-primary">{{ item.CaseStage
+                          || item.Case.CaseStage == 'Manufacturing'" class="st-badge status-accepted">{{ item.CaseStage
                     }}</span>
                   <span *ngIf="item.Case.CaseStage == 'PendingCaseApproval'
                           || item.Case.CaseStage == 'ImpressionsShipped'
@@ -119,23 +119,28 @@
                           || item.Case.CaseStage == 'RequestRetainer'
                           || item.Case.CaseStage == 'RequestRefinments'
                           || item.Case.CaseStage == 'RequestMidcourseAdjusment'
-                          || item.Case.CaseStage == 'Approved'" class="badge bg-warning text-white">{{
+                          || item.Case.CaseStage == 'Approved'" class="st-badge status-pending">{{
                     item.CaseStage }}</span>
                   <span
                     *ngIf="item.Case.CaseStage == 'PendingOrthodontistApproval' || item.Case.CaseStage == 'AmendRevision'"
-                    class="badge bg-primary text-white">In Process</span>
+                    class="st-badge status-inprocess">In Process</span>
                   <span *ngIf="item.Case.CaseStage == 'ReadyForShipping'"
-                    class="badge bg-primary text-white">Manufacturing</span>
-                  <span *ngIf="item.Case.CaseStage == 'Active'" class="badge bg-success text-white">{{ item.CaseStage
+                    class="st-badge badge bg-primary text-white">Manufacturing</span>
+                  <span *ngIf="item.Case.CaseStage == 'Active'" class="st-badge status-active">{{ item.CaseStage
                     }}</span>
-                  <span *ngIf="item.Case.CaseStage == 'Archived'" class="badge bg-info text-white">{{ item.CaseStage
+                  <span *ngIf="item.Case.CaseStage == 'Archived'" class="st-badge status-incomplete">{{ item.CaseStage
                     }}</span>
                 </td>
                 <td>
                   {{item.PackageName()}}
                 </td>
                 <td>
-                  <app-actions-menu [caseData]="item" [api]="api"></app-actions-menu>
+                  <!-- <app-actions-menu [caseData]="item" [api]="api"></app-actions-menu> -->
+                  <div class="flex-button">
+                  <button class="download-pdf"><img src="assets/images/pdf.png" alt=""></button>
+                  <button class="download-pdf"><img src="assets/images/view.png" alt=""></button>
+                  <button class="download-pdf"><img src="assets/images/videoicon.png" alt=""></button>
+                  </div>
                 </td>
                 <td>
                   <!-- <button type="button" class="btn btn-icon btn-link custom_btn_icon">
