@@ -73,9 +73,9 @@
           opacity: 1;
           font-size: 15px;
           font-weight: 700;
-          .spinner-border.spinner-border-sm {
+          /* .spinner-border.spinner-border-sm {
             display: none;
-          }
+          } */
          
         }
       }
@@ -135,7 +135,7 @@
     
     }
   }
-  form.forms-sample.ng-submitted .form-field input[type="email"], form.forms-sample.ng-submitted .form-field input[type="password"]  {
+  /* form.forms-sample.ng-submitted .form-field input[type="email"], form.forms-sample.ng-submitted .form-field input[type="password"]  {
     border-color: red !important;
-  }
+  } */
 }
