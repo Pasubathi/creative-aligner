@@ -274,7 +274,7 @@
 <div class="row">
   <div class="col-md-6">
     <table class="table table-borderless">
-      <tr>
+     <!--  <tr>
         <td></td>
         <td>
           <button type="button" class="btn" (click)="maintainAll()">
@@ -288,6 +288,33 @@
             <i class="feather icon-check-circle"></i>
             Idealize
           </button>
+        </td>
+      </tr> -->
+      <tr>
+        <td><label class="form-label">Treat Arches: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radioArces" id="radioArcesStraight" [(ngModel)]="api.case.Data.TreatArches" value="Upper">
+            <label class="form-check-label" for="radioArcesStraight">
+              Upper
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radioArces" id="radioArcesConcave" [(ngModel)]="api.case.Data.TreatArches" value="Lower">
+            <label class="form-check-label" for="radioArcesConcave">
+              Lower
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="radioArces" id="radioArcesConvex" [(ngModel)]="api.case.Data.TreatArches" value="Both">
+            <label class="form-check-label" for="radioArcesConvex">
+              Both
+            </label>
+          </div>
         </td>
       </tr>
       <tr>
@@ -485,33 +512,7 @@
   <div class="col-md-6">
     <table class="table table-borderless">
       <tr><td><br /><br /></td></tr>
-      <tr>
-        <td><label class="form-label">Treat Arches: </label></td>
-        <td>
-          <div class="form-check form-check-inline">
-            <input type="radio" class="form-check-input" name="radioArces" id="radioArcesStraight" [(ngModel)]="api.case.Data.TreatArches" value="Upper">
-            <label class="form-check-label" for="radioArcesStraight">
-              Upper
-            </label>
-          </div>
-        </td>
-        <td>
-          <div class="form-check form-check-inline">
-            <input type="radio" class="form-check-input" name="radioArces" id="radioArcesConcave" [(ngModel)]="api.case.Data.TreatArches" value="Lower">
-            <label class="form-check-label" for="radioArcesConcave">
-              Lower
-            </label>
-          </div>
-        </td>
-        <td>
-          <div class="form-check form-check-inline">
-            <input type="radio" class="form-check-input" name="radioArces" id="radioArcesConvex" [(ngModel)]="api.case.Data.TreatArches" value="Both">
-            <label class="form-check-label" for="radioArcesConvex">
-              Both
-            </label>
-          </div>
-        </td>
-      </tr>
+      <tr><td><br /><br /></td></tr>
       <tr>
         <td> <label class="form-label">IPR: </label></td>
         <td>
@@ -622,6 +623,33 @@
       </tr>
       <tr>
         <td><label class="form-label">Distalize: </label></td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="distalize" id="distalizeYes" [(ngModel)]="api.case.Data.Distalize" value="yes">
+            <label class="form-check-label" for="distalizeYes">
+              Yes
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="distalize" id="distalizeNo" [(ngModel)]="api.case.Data.Distalize" value="No">
+            <label class="form-check-label" for="distalizeNo">
+              No
+            </label>
+          </div>
+        </td>
+        <td>
+          <div class="form-check form-check-inline">
+            <input type="radio" class="form-check-input" name="distalize" id="distalizeIfNeeded" checked [(ngModel)]="api.case.Data.Distalize" value="IfNeeded">
+            <label class="form-check-label" for="distalizeIfNeeded">
+              If Needed
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><label class="form-label">Attachment: </label></td>
         <td>
           <div class="form-check form-check-inline">
             <input type="radio" class="form-check-input" name="distalize" id="distalizeYes" [(ngModel)]="api.case.Data.Distalize" value="yes">

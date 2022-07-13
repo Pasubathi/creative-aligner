@@ -129,18 +129,32 @@
                     class="st-badge badge bg-primary text-white">Manufacturing</span>
                   <span *ngIf="item.Case.CaseStage == 'Active'" class="st-badge status-active">{{ item.CaseStage
                     }}</span>
-                  <span *ngIf="item.Case.CaseStage == 'Archived'" class="st-badge status-incomplete">{{ item.CaseStage
+                  <span *ngIf="item.Case.CaseStage == 'Archived'" style="background-color:#66d1d1;color: #ffff;border-radius: 34px;" class="st-badge status-archived">{{ item.CaseStage
                     }}</span>
                 </td>
                 <td>
                   {{item.PackageName()}}
                 </td>
                 <td>
-                  <!-- <app-actions-menu [caseData]="item" [api]="api"></app-actions-menu> -->
+                  <!-- <app-actions-menu [item]="item" [api]="api"></app-actions-menu> -->
                   <div class="flex-button">
-                  <button class="download-pdf"><img src="assets/images/pdf.png" alt=""></button>
-                  <button class="download-pdf"><img src="assets/images/view.png" alt=""></button>
-                  <button class="download-pdf"><img src="assets/images/videoicon.png" alt=""></button>
+                  <button (click)="false" class="download-pdf"><img src="assets/images/pdf.png" alt=""></button>
+                  <button *ngIf="item.Case.CaseStage == 'Accepted' 
+                  || item.Case.CaseStage == 'PendingCaseApproval'
+                  || item.Case.CaseStage == 'ImpressionsShipped'
+                  || item.Case.CaseStage == 'ImpressionsReceived'
+                  || item.Case.CaseStage == 'RequestNewRevision'
+                  || item.Case.CaseStage == 'Approved'
+                  || item.Case.CaseStage == 'Manufacturing'
+                  || item.Case.CaseStage == 'ReadyForShipping'
+                  || item.Case.CaseStage == 'RequestNextShipment'
+                  || item.Case.CaseStage == 'ReplaceMissing'
+                  || item.Case.CaseStage == 'RequestRefinments'
+                  || item.Case.CaseStage == 'RequestMidcourseAdjusment'
+                  || item.Case.CaseStage == 'Active'
+                  || item.Case.CaseStage == 'Archived'
+                  || item.Case.CaseStage == 'RequestRetainer'" (click)="reviewCase(item.Case.ID)" class="download-pdf"><img src="assets/images/view.png" alt=""></button>
+                  <button (click)="editCase(item.Case.ID)" *ngIf="item.Case.CaseStage == 'Incomplete'" class="download-pdf"><img src="assets/images/videoicon.png" alt=""></button>
                   </div>
                 </td>
                 <td>
@@ -181,4 +195,4 @@
   </div>
 </div>
 
-<!-- <app-case-actions [caseData]="currentCase" #caseActions ></app-case-actions> -->
+<!-- <app-case-actions [item]="item" #caseActions ></app-case-actions> -->

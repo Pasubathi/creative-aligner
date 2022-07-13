@@ -56,8 +56,13 @@ export class ListCasesComponent implements OnInit {
   showCase(item: ECases) {
     this.nav.navigate(['/case/newcase', { id: item.ID }]);
   }
-  reviewCase(item: ECases) {
-    this.nav.navigate(['/case/case-review', { id: item.ID }]);
+
+  editCase(ID: any) {
+    this.nav.navigate(['/case/newcase', { id: ID }]);
+  }
+
+  reviewCase(ID: any) {
+    this.nav.navigate(['/case/case-review', { id: ID }]);
   }
 
   doSearchCases() {

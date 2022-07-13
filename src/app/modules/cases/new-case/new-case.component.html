@@ -1,16 +1,16 @@
-<nav class="page-breadcrumb">
+<!-- <nav class="page-breadcrumb">
   <ol class="breadcrumb">
     <li class="breadcrumb-item"><a routerLink="/dashboard/cases">Cases</a></li>
     <li class="breadcrumb-item active" aria-current="page">Submit Case</li>
   </ol>
-</nav>
+</nav> -->
 
 <div class="row">
   <!-- <div class="col-md-6 grid-margin"> -->
   <div class="card">
     <div class="card-body">
       <h6 class="card-title">
-        Case Submission - <span *ngIf="api.case.Data.Number" class="small-text"> No.
+        Case Submission <span *ngIf="api.case.Data.Number" class="small-text"> - No.
           #{{api.case.Data.CaseNumber}}</span>
       </h6>
       <ngb-alert [dismissible]="true" [type]="'warning'"
