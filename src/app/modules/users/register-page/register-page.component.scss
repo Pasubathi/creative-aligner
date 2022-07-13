@@ -134,4 +134,13 @@
     
     }
   }
+  form.forms-sample.ng-submitted input.ng-invalid {
+    border-color: red !important;
+  }
+
+  form.forms-sample.ng-submitted ng-select.ng-invalid {
+    border-color: red !important;
+    border: 1px solid;
+    border-radius: 6px;
+  }
 }
