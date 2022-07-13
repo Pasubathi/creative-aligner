@@ -1,0 +1,24 @@
+@import './../../../../assets/scss/variables';
+.detail-tab-data-card{
+      .inner-title {
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 25px;
+        color:$blue-active;
+      }
+      p{
+        margin-bottom: 1rem;
+        color: $gray-1000;
+        font-weight: 600;
+        span.text-lights{
+            color: $gray-1100;
+            font-weight: 400;
+            font-size: 14px;
+          }
+         .custom-width {
+            display: inline-block;
+            min-width: 200px;
+        }
+      }
+      
+}

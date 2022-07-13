@@ -1,0 +1,39 @@
+@import './../../../../assets/scss/variables';
+
+.record-tab-data-card{
+
+    .inner-title{
+        font-weight: 600;
+        font-size: 18px;
+        line-height: 25px;
+        color:$blue-active;
+    }
+    .threed-scan-card{
+        box-shadow: inherit;
+     .card-body{
+        padding:0;
+        .small-title{
+            font-weight: 500;
+            font-size: 14px;
+        }
+        .btn.btn-outline-primary {
+            background: #FAFAFA;
+            border: 1px solid rgba(51, 51, 51, 0.1);
+            border-radius: 12px;
+            width: 100%;
+            padding: 32px 0;
+            color: $light-black;
+            font-weight: 600;
+            font-size: 15px;
+            @media (max-width:767px) {
+                margin-bottom: 1rem;
+                
+            }
+        }
+     }
+     
+    }
+    app-case-record-image {
+        width: 100%;
+    }
+}

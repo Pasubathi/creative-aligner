@@ -1,8 +1,9 @@
-<div id="content">
-    <ul class="timeline" *ngFor="let item of historyRecords">
+<div id="content" class="history-tab-data-card">
+    <!-- <ul class="timeline" *ngFor="let item of historyRecords">
         <li class="event" attr.data-date="{{item.ChangeDate | date: 'yyyy-MM-dd h:mm a' }}">
             <h3 class="title">{{ item.Stage }}</h3>
             <p *ngIf="item.Stage == 'Created'">Case has been created by Doctor</p>
+           
             <p *ngIf="item.Stage == 'Updated'">Case has been updated by Doctor</p>
             <p *ngIf="item.Stage == 'PendingCaseApproval'">Case has been submitted by Doctor</p>
             <p *ngIf="item.Stage == 'Accepted'">Case has been Accepted</p>
@@ -24,7 +25,54 @@
             <p *ngIf="item.Stage == 'RequestMidcourseAdjusment'">Doctor requested Midcourse Adjustment</p>
             <p *ngIf="item.Stage == 'RequestRetainer'">Doctor requested Retainer</p>
             <p *ngIf="item.Stage == 'Archived'">Case has been archived</p>
+            <p>{{item.ChangeDate | date: 'yyyy-MM-dd h:mm a' }}</p>
             
         </li>
+    </ul> -->
+    <ul class="timeline-data-card mt-5">
+        <li class="archived-one">
+            <div class="arch-icon">
+                <img src="assets/images/archived-case.png" alt="">
+            </div>
+            <div class="arch-text">
+                <h3 class="title">Archived</h3>
+                <p>Case has been created by Doctor.</p>
+                <p class="date-text">2022-06-20, 12:46 PM</p>
+            </div>
+      
+        </li>
+        <li class="Pending-one">
+            
+            <div class="arch-icon">
+                <img src="assets/images/pending-approval.png" alt="">
+            </div>
+            <div class="arch-text">
+                <h3 class="title">Pending Case Approval</h3>
+                <p>Case has been created by Doctor.</p>
+                <p class="date-text">2022-06-20, 12:46 PM</p>
+            </div>
+        </li>
+        <li class="Updated">
+           <div class="arch-icon">
+                <img src="assets/images/update-ap.png" alt="">
+            </div>
+            <div class="arch-text">
+                <h3 class="title">Updated</h3>
+                 <p>Case has been created by Doctor.</p>
+                <p class="date-text">2022-06-20, 12:46 PM</p>
+            </div>
+        </li>
+        <li class="created">
+           <div class="arch-icon">
+                <img src="assets/images/crated.png" alt="">
+            </div>
+            <div class="arch-text">
+                <h3 class="title">Created</h3>
+                 <p>Case has been created by Doctor.</p>
+                <p class="date-text">2022-06-20, 12:46 PM</p>
+            </div>
+        </li>
+       
     </ul>
+
 </div>

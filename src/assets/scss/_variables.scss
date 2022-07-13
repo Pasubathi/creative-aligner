@@ -13,7 +13,13 @@ $gray-600:     #7987a1 !default;
 $gray-700:     #495057 !default;
 $gray-800:     #212a3a !default;
 $gray-900:     #060c17 !default;
+$gray-1000:    #555555 !default;
+$gray-1100:   #85898D !default;
+$gray-1200:  #85898D !default;
 $black:        #000 !default;
+$light-black:  #333333 !default;
+
+$blue-active:  #0C78A7 !default;
 $text-muted:   $gray-600 !default;
 
 
@@ -41,6 +47,8 @@ $warning:         #fbbc06 !default;
 $danger:          #ff3366 !default;
 $light:           $gray-200 !default;
 $dark:            $gray-900 !default;
+$orange:           #ffa438 !default;
+$light-orange:      #FF7878  !default;
 //
 // --- Bootstrap Theme Colors --- //
 

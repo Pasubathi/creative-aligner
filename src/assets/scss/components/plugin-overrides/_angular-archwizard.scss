@@ -133,6 +133,25 @@ aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li .step-ind
 	background-image: url('/assets/images/blue-triangle.png');
 	background-repeat: no-repeat;
 	background-size: 100%;
+
+  @media (max-width:991px) {
+    background-image: none;
+  }
+	/* height: auto; */
+}
+.steps-5.steps-indicator li:first-child.current {
+	background-image: url('/assets/images/first-active--triangle.png');
+	border-radius: 20px 0 0 0;
+  
+  @media (max-width:991px) {
+    background-image: none;
+  }
+	/* height: auto; */
+}
+.steps-5.steps-indicator li:last-child.current {
+	background-image: url('/assets/images/last-active-childtriangle.png');
+	border-radius:0px 20px 0 0px;
+  
   @media (max-width:991px) {
     background-image: none;
   }
@@ -175,7 +194,7 @@ aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li .step-ind
     border: 1px solid #E0E0E0;
     box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.04), inset -6px -6px 4px rgba(255, 255, 255, 0.3), inset 6px 6px 20px rgba(0, 0, 0, 0.06);
     border-radius: 6px;
-    height: 40px;
+    
   }
   .btn.btn-link {
     font-weight: 600;

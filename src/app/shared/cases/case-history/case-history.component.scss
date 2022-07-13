@@ -1,0 +1,51 @@
+@import './../../../../assets/scss/variables';
+.history-tab-data-card{
+    .timeline-data-card li:last-child ::after {
+        display: none !important;
+    }
+    
+    .timeline-data-card  {
+        
+        li {
+            padding-bottom: 4rem;
+            display: flex;
+            position: relative;
+
+            .arch-icon {
+                margin-right: 1.5rem;
+                 img{
+                    background-color: #fff;
+                 }
+            }
+            .arch-text{
+                .title{
+                    font-weight: 700;
+                    font-size: 18px;
+                    color: $blue-active;
+                }
+                p{
+                    font-weight: 600;
+                    font-size: 14px;
+                    color: $gray-1000;
+                    margin:2px 0 0;
+                }
+                .date-text{
+                    color: $gray-1100; 
+                }
+            }
+        }:after{
+            content: "";
+            position: absolute;
+            background: rgba(12, 120, 167, 0.1);
+            width: 2px;
+            height: 56%;
+            left: 18px;
+            top: 47px;
+        } 
+        li:last-child::after {
+            display:none;
+        }
+      
+        
+    }
+}

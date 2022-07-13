@@ -1,9 +1,9 @@
 <div class="row chat-wrapper">
   <div class="col-md-12">
     <div class="row position-relative">
-      <div class="col-lg-2 chat-aside ">
-      </div>
-      <div class="col-lg-8 chat-content">
+      <!-- <div class="col-lg-2 chat-aside ">
+      </div> -->
+      <div class="col-lg-12 chat-content">
         <div class="chat-body" [perfectScrollbar]>
           <ul class="messages" *ngFor="let message of messagesList">
             <li [ngClass]="message.UserID === auth.user.ID ? 'message-item me' : 'message-item friend'">

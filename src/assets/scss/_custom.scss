@@ -92,33 +92,33 @@
 
   .tooth-top-style-center {
     vertical-align: bottom;
-    border-right-style: dashed;
-    border-right-color: $text-muted;
-    border-right-width: 2pt;
+    border-right-style: dotted;
+    border-right-color: #0C78A7;
+    border-right-width: 1pt;
     text-align: center;
   }
 
   .tooth-top-style-border {
     vertical-align: bottom;
     border-right-style: dotted;
-    border-right-color: lightblue;
-    border-right-width: 2pt;
+    border-right-color: #0C78A7;
+    border-right-width: 1pt;
     text-align: center;
   }
 
   .tooth-bottom-style-center {
     vertical-align: top;
-    border-right-style: dashed;
-    border-right-color: $text-muted;
-    border-right-width: 2pt;
+    border-right-style: dotted;
+    border-right-color: #0C78A7;
+    border-right-width: 1pt;
     text-align:center;
   }
 
   .tooth-bottom-style-border {
     vertical-align: top;
     border-right-style: dotted;
-    border-right-color: lightblue;
-    border-right-width: 2pt;
+    border-right-color: #0C78A7;
+    border-right-width: 1pt;
     text-align: center;
   }
 }

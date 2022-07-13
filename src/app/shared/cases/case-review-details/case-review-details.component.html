@@ -1,69 +1,72 @@
+<div class="detail-tab-data-card">
+
 <div class="row">
   <div class="col-lg-6">
 
-    <h4 class="fw-bold mt-4 mb-2"><span class="text-muted">INSTRUCTIONS</span></h4>
-    <p><span class="text-muted">Treat Arches: </span>{{caseData.Data.TreatArches}}</p>
-    <p><span class="text-muted">Upper Midline: </span>{{caseData.Data.InstUpperMidline}}</p>
-    <p><span class="text-muted">Lower Midline: </span>{{caseData.Data.InstLowerMidline}}</p>
-    <p><span class="text-muted">Overjet: </span>{{caseData.Data.Overjet}}</p>
-    <p><span class="text-muted">Overbite: </span>{{caseData.Data.Overbite}}</p>
-    <p><span class="text-muted">Canine Relationship: </span>{{caseData.Data.CanineRelationship}}</p>
-    <p><span class="text-muted">Molar Relationship: </span>{{caseData.Data.MolarRelationship}}</p>
-    <p><span class="text-muted">Posterior Crossbite: </span>{{caseData.Data.PosteriorCrossbite}}</p>
-    <p><span class="text-muted">IPR: </span>{{caseData.Data.Ipr}}</p>
-    <p><span class="text-muted">Attachments: </span>{{caseData.Data.Attachments}}</p>
-    <p><span class="text-muted">Procline: </span>{{caseData.Data.Procline}}</p>
-    <p><span class="text-muted">Expand: </span>{{caseData.Data.Expand}}</p>
-    <p><span class="text-muted">Distalize: </span>{{caseData.Data.Distalize}}</p>
+    <h4 class="inner-title mb-3">Instructions</h4>
+    <p><span class="text-lights custom-width">Treat Arches: </span>{{caseData.Data.TreatArches}}</p>
+    <p><span class="text-lights custom-width">Upper Midline: </span>{{caseData.Data.InstUpperMidline}}</p>
+    <p><span class="text-lights custom-width">Lower Midline: </span>{{caseData.Data.InstLowerMidline}}</p>
+    <p><span class="text-lights custom-width">Overjet: </span>{{caseData.Data.Overjet}}</p>
+    <p><span class="text-lights custom-width">Overbite: </span>{{caseData.Data.Overbite}}</p>
+    <p><span class="text-lights custom-width">Canine Relationship: </span>{{caseData.Data.CanineRelationship}}</p>
+    <p><span class="text-lights custom-width">Molar Relationship: </span>{{caseData.Data.MolarRelationship}}</p>
+    <p><span class="text-lights custom-width">Posterior Crossbite: </span>{{caseData.Data.PosteriorCrossbite}}</p>
+    <p><span class="text-lights custom-width">IPR: </span>{{caseData.Data.Ipr}}</p>
+    <p><span class="text-lights custom-width">Attachments: </span>{{caseData.Data.Attachments}}</p>
+    <p><span class="text-lights custom-width">Procline: </span>{{caseData.Data.Procline}}</p>
+    <p><span class="text-lights custom-width">Expand: </span>{{caseData.Data.Expand}}</p>
+    <p><span class="text-lights custom-width">Distalize: </span>{{caseData.Data.Distalize}}</p>
   </div>
 
   <div class="col-lg-6">
-    <h4 class="fw-bold mt-4 mb-2"><span class="text-muted">Canine Class Relationship</span></h4>
-    <p><span class="text-muted">Right: </span>{{caseData.Data.CanineClassRelationshipRight}}</p>
-    <p><span class="text-muted">Left: </span>{{caseData.Data.CanineClassRelationshipLeft}}</p>
+    <h4 class="inner-title mb-3">Canine Class Relationship</h4>
+    <p><span class="text-lights custom-width">Right: </span>{{caseData.Data.CanineClassRelationshipRight}}</p>
+    <p><span class="text-lights custom-width">Left: </span>{{caseData.Data.CanineClassRelationshipLeft}}</p>
 
-    <h4 class="fw-bold mt-4 mb-2"><span class="text-muted">Molar Class Relationship</span></h4>
-    <p><span class="text-muted">Right: </span>{{caseData.Data.MolarClassRelationshipRight}}</p>
-    <p><span class="text-muted">Left: </span>{{caseData.Data.MolarClassRelationshipLeft}}</p>
+    <h4 class="inner-title  mb-3">Molar Class Relationship</h4>
+    <p><span class="text-lights custom-width">Right: </span>{{caseData.Data.MolarClassRelationshipRight}}</p>
+    <p><span class="text-lights custom-width">Left: </span>{{caseData.Data.MolarClassRelationshipLeft}}</p>
 
-    <p><span class="text-muted">Upper Midline: </span>{{UpperMidline()}}</p>
-    <p><span class="text-muted">Lower Midline: </span>{{LowerMidline()}}</p>
+    <p><span class="text-lights custom-width">Upper Midline: </span>{{UpperMidline()}}</p>
+    <p><span class="text-lights custom-width">Lower Midline: </span>{{LowerMidline()}}</p>
   </div>
 </div>
 <div class="row" *ngIf="caseData.Data.ChiefComplaint || caseData.Data.AdditionalInformation">
   <div class="col-lg-6">
-    <h4 class="fw-bold mt-4 mb-2"><span class="text-muted">Chief Complaint</span></h4>
+    <h4 class="inner-title mb-3">Chief Complaint</h4>
     <p>{{caseData.Data.ChiefComplaint}}</p>
   </div>
   <div class="col-lg-6">
-    <h4 class="fw-bold mt-4 mb-2"><span class="text-muted">Additional Notes</span></h4>
+    <h4 class="inner-title mb-3">Additional Notes</h4>
     <p>{{caseData.Data.AdditionalInformation}}</p>
   </div>
 </div>
-
+<hr>
 <div class="row">
   <div class="col-lg-6">
-    <h4 class="fw-bold mt-4 mb-2"><span class="text-muted">Do not Move these Teeth</span></h4>
+    <h4 class="inner-title mb-3">Do not Move these Teeth</h4>
     <app-teeth [ControlKind]="'Move'" [IsReadOnly]="true" [HasBothLabel]="caseData.HasBothLabel"
       [UpperItems]="caseData.UpperItems" [LowerItems]="caseData.LowerItems"></app-teeth>
   </div>
   <div class="col-lg-6">
-    <h4 class="fw-bold mt-4 mb-2"><span class="text-muted">Avoid Attachments Teeth</span></h4>
+    <h4 class="inner-title mb-3">Avoid Attachments Teeth</h4>
     <app-teeth [ControlKind]="'Attachments'" [IsReadOnly]="true" [HasBothLabel]="caseData.HasBothLabel"
       [UpperItems]="caseData.UpperItems" [LowerItems]="caseData.LowerItems"></app-teeth>
   </div>
 </div>
-
+<hr>
 
 <div class="row">
   <div class="col-lg-6">
-    <h4 class="fw-bold mt-4 mb-2"><span class="text-muted">Extract Teeth</span></h4>
+    <h4 class="inner-title mb-3">Extract Teeth</h4>
     <app-teeth [ControlKind]="'Extract'" [IsReadOnly]="true" [HasBothLabel]="caseData.HasBothLabel"
       [UpperItems]="caseData.UpperItems" [LowerItems]="caseData.LowerItems"></app-teeth>
   </div>
   <div class="col-lg-6">
-    <h4 class="fw-bold mt-4 mb-2"><span class="text-muted">Keep spaces for these teeth</span></h4>
+    <h4 class="inner-title mb-3">Keep spaces for these teeth</h4>
     <app-spaces-teeth [IsReadOnly]="true" [HasBothLabel]="caseData.HasBothLabel" [UpperItems]="caseData.UpperItems"
       [LowerItems]="caseData.LowerItems"></app-spaces-teeth>
   </div>
+</div>
 </div>

@@ -1,0 +1,40 @@
+.chat-wrapper{
+  .chat-content{
+    .chat-footer{
+      .btn.border.btn-icon.rounded-circle.me-2 {
+        background: rgba(12, 120, 167, 0.08);
+        border: 1px solid rgba(56, 136, 255, 0.16) !important;
+        box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.06);
+        border-radius: 6px !important;
+        height: 40px;
+        width: 40px;
+      }
+      .search-form{
+        .input-group {
+          input[type="text"]{
+            background: #FBFBFB;
+            border: 1px solid #E0E0E0;
+            box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.04), inset -6px -6px 4px rgba(255, 255, 255, 0.3), inset 6px 6px 20px rgba(0, 0, 0, 0.06);
+            border-radius: 6px !important;
+            height:40px;
+          }
+        }
+      
+
+      }
+      button.btn.btn-primary {
+        background: #0C78A7;
+        border: 1px solid rgba(56, 136, 255, 0.16);
+        box-shadow: 0px 6px 16px rgba(0, 0, 0, 0.06);
+        border-radius: 6px !important;
+        height: 40px;
+        width: 40px;
+        opacity: 1;
+    } 
+
+    }
+   
+  }
+    
+}
+
