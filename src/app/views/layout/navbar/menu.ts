@@ -13,6 +13,12 @@ export const MENU: MenuItem[] = [
     link: '/case/newcase',
     Roles: []
   } ,
+  {
+    label: 'My Account',
+    icon: 'user',
+    link: '/dashboard/profile',
+    Roles: []
+  } ,
 //];
 
 //export const MENUAdmin: MenuItem[] = [

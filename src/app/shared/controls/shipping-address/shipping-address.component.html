@@ -1,6 +1,6 @@
 <ng-template #lgModal let-modal>
   <div class="modal-header">
-    <h5 class="modal-title" id="exampleModalLabel">Shipping Address</h5>
+    <h5 class="modal-title" id="exampleModalLabel">{{Current.ClinicName?"Edit Shipping Address":"Add New Shipping Address"}}</h5>
     <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>
   </div>
   <div class="modal-body">
