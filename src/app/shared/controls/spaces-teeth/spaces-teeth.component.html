@@ -8,15 +8,24 @@
         <tr>
           <ng-container *ngFor="let item of UpperItems; let i=index;">
             <td *ngIf="i != 15 && !IsReadOnly" class="tooth-top-style">
-              <p style="float:right;margin-right:-10px" (click)="item.KeepSpaces = !item.KeepSpaces" class="btn-link custom_btn_icon">
-                <i *ngIf="!item.KeepSpaces" class="feather icon-plus-circle"></i>
-                <i *ngIf="item.KeepSpaces" class="feather icon-check-circle text-success"></i>
-              </p>
+              <div class="form-input-check" *ngIf="!item.KeepSpaces" style="float:right;margin-right:-10px">
+                <input type="checkbox" class="common-check" (click)="item.KeepSpaces = !item.KeepSpaces">
+                <label class="checkbox-inner-label"></label>
+              </div>
+              <div class="form-input-check" *ngIf="item.KeepSpaces" style="float:right;margin-right:-10px">
+                <input type="checkbox" class="common-check" (click)="item.KeepSpaces = !item.KeepSpaces" checked>
+                <label class="checkbox-inner-label-checked"></label>
+              </div>
             </td>
             <td *ngIf="i != 15 && IsReadOnly" class="tooth-top-style">
-              <p *ngIf="item.KeepSpaces" style="float:right;margin-right:-10px" class="btn-link custom_btn_icon">
-                <i class="feather icon-check-circle text-success"></i>
-              </p>
+              <div class="form-input-check" *ngIf="!item.KeepSpaces" style="float:right;margin-right:-10px">
+                <input type="checkbox" class="common-check" disabled>
+                <label class="checkbox-inner-label"></label>
+              </div>
+              <div class="form-input-check" *ngIf="item.KeepSpaces" style="float:right;margin-right:-10px">
+                <input type="checkbox" class="common-check" checked disabled>
+                <label class="checkbox-inner-label-checked"></label>
+              </div>
             </td>
           </ng-container>
         </tr>
@@ -56,17 +65,26 @@
         <tr>
           <ng-container *ngFor="let item of LowerItems; let i=index;">
             <td *ngIf="i != 15 && IsReadOnly" class="tooth-top-style">
-              <p *ngIf="item.KeepSpaces" style="float:right;margin-right:-10px" class="btn-link custom_btn_icon">
-                <i  class="feather icon-check-circle text-success"></i>
-              </p>
+              <div class="form-input-check" *ngIf="item.KeepSpaces" style="float:right;margin-right:-10px">
+                <input type="checkbox" class="common-check" checked>
+                <label class="checkbox-inner-label-checked"></label>
+              </div>
+              <div class="form-input-check" *ngIf="!item.KeepSpaces" style="float:right;margin-right:-10px">
+                <input type="checkbox" class="common-check" disabled>
+                <label class="checkbox-inner-label"></label>
+              </div>
             </td>
 
 
             <td *ngIf="i != 15 && !IsReadOnly" class="tooth-top-style">
-              <p style="float:right;margin-right:-10px" (click)="item.KeepSpaces = !item.KeepSpaces" class="btn-link custom_btn_icon">
-                <i *ngIf="!item.KeepSpaces" class="feather icon-plus-circle"></i>
-                <i *ngIf="item.KeepSpaces" class="feather icon-check-circle text-success"></i>
-              </p>
+              <div class="form-input-check" *ngIf="!item.KeepSpaces" style="float:right;margin-right:-10px">
+                <input type="checkbox" class="common-check" (click)="item.KeepSpaces = !item.KeepSpaces">
+                <label class="checkbox-inner-label"></label>
+              </div>
+              <div class="form-input-check" *ngIf="item.KeepSpaces" style="float:right;margin-right:-10px">
+                <input type="checkbox" class="common-check" (click)="item.KeepSpaces = !item.KeepSpaces" checked>
+                <label class="checkbox-inner-label-checked"></label>
+              </div>
             </td>
           </ng-container>
         </tr>

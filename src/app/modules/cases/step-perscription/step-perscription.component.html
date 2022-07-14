@@ -693,7 +693,7 @@
       <!--<p>Avoid Attachments Teeth</p>-->
       <div class="form-group-category  mb-2">
         <input type="checkbox"  class="form-check-input">
-        <label>Do you have movement restrictions</label>
+        <label>Do you want to avoid attachment on specific teeth?</label>
       </div>
       <app-teeth [ControlKind]="'Attachments'" [HasBothLabel]="api.case.HasBothLabel" [UpperItems]="api.case.UpperItems" [LowerItems]="api.case.LowerItems"></app-teeth>
     </div>
@@ -701,15 +701,15 @@
       <!--<p>Extract Teeth</p>-->
       <div class="form-group-category mb-2">
         <input type="checkbox"  class="form-check-input">
-        <label>Do you have movement restrictions</label>
+        <label>Are you planning to extract any teeth?</label>
       </div>
       <app-teeth [ControlKind]="'Extract'" [HasBothLabel]="api.case.HasBothLabel" [UpperItems]="api.case.UpperItems" [LowerItems]="api.case.LowerItems"></app-teeth>
     </div>
     <div class="col-md-6">
       <!--<p class="mb-3">Keep spaces for these teeth</p>-->
       <div class="form-group-category mb-2">
-        <input type="checkbox " class="form-check-input">
-        <label>Do you have movement restrictions</label>
+        <input type="checkbox" class="form-check-input" id="keep-spaces">
+        <label for="keep-spaces">Do you want to keep any spaces?</label>
       </div>
       <app-spaces-teeth [HasBothLabel]="api.case.HasBothLabel" [UpperItems]="api.case.UpperItems" [LowerItems]="api.case.LowerItems"></app-spaces-teeth>
     </div>

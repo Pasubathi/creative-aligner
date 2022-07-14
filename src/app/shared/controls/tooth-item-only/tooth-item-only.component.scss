@@ -1,9 +1,9 @@
 @import './../../../../assets/scss/variables';
 .form-input-check{
-   input.common-check[type="checkbox"]{
-    opacity: 0;
-     position: absolute;
-   }
+    input.common-check[type="checkbox"]{
+        opacity: 0;
+        position: absolute;
+    }
     .checkbox-inner-label {
         height: 18px;
         width: 18px;
@@ -12,6 +12,15 @@
         border: 2px $blue-active solid;
     }
     input[type="checkbox"]:checked + .checkbox-inner-label {
+        background-image:url('/assets/images/check-image.png');
+        background-position: center;
+    }
+    .checkbox-inner-label-checked {
+        height: 18px;
+        width: 18px;
+        background: #fff;
+        border-radius: 100%;
+        border: 2px $blue-active solid;
         background-image:url('/assets/images/check-image.png');
         background-position: center;
     }
