@@ -6,7 +6,10 @@
     }
   }
   @media (max-width: 991px) {
-    margin-top: $navbar-height;
+    margin-top: 140px;
+  }
+  @media (max-width: 480px) {
+    margin-top: 130px;
   }
  .page-content {
     padding: 2rem 0;

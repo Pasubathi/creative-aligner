@@ -1,96 +1,94 @@
 <ng-template #lgModal let-modal>
   <div class="modal-header">
     <h5 class="modal-title" id="exampleModalLabel">{{Current.ClinicName?"Edit Shipping Address":"Add New Shipping Address"}}</h5>
-    <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close"></button>
+    <button type="button" class="btn-close" (click)="modal.close('by: close icon')" aria-label="Close">
+      <img src="assets/images/close-icons.png" alt="">
+    </button>
   </div>
-  <div class="modal-body">
+  <div class="modal-body row">
 
-    <div class="row mb-3">
-      <label for="address_clinic_id" class="col-sm-3 col-form-label text-muted">Clinic Name</label>
-      <div class="col-sm-6">
-        <input type="text" class="form-control" id="address_clinic_id" name="ExtraNo" [(ngModel)]="Current.ClinicName" placeholder="Clinic Name">
-      </div>
+    <div class="col-md-6 mb-3">
+      <label for="address_clinic_id" class="form-title">Clinic Name</label>
+       <input type="text" class="form-control" id="address_clinic_id" name="ExtraNo" [(ngModel)]="Current.ClinicName" placeholder="Clinic Name">
+      
     </div>
 
-    <div class="row mb-3">
-      <label for="dlg_country_id" class="col-sm-3 text-muted">Country</label>
-      <div class="col-sm-6">
+    <div class="col-md-6  mb-3">
+      <label for="dlg_country_id" class="form-title">Country</label>
+      
         <ng-select id="dlg_country_id" [items]="countries" name="Country" [(ngModel)]="Current.CountryID" placeholder="Country"
                    bindLabel="Country"
                    bindValue="ID"
                    [searchable]="false">
         </ng-select>
-      </div>
+      
 
       <!-- <label for="address_state_id" class="col-sm-2 col-form-label">State</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="address_state_id" name="State" [(ngModel)]="Current.State" placeholder="State Name">
       </div> -->
     </div>
-    <div class="row mb-3">
-      <label for="address_city_id" class="col-sm-3 col-form-label text-muted">City</label>
-      <div class="col-sm-6">
-        <input type="text" class="form-control" id="address_city_id" name="Ciy" [(ngModel)]="Current.City" placeholder="City Name">
-      </div>
-      <!-- <label for="address_district_id" class="col-sm-2 col-form-label">District</label>
+    <div class="col-md-6  mb-3">
+      <label for="address_city_id" class="form-title">City</label>
+       <input type="text" class="form-control" id="address_city_id" name="Ciy" [(ngModel)]="Current.City" placeholder="City Name">
+       <!-- <label for="address_district_id" class="col-sm-2 col-form-label">District</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="address_district_id" name="District" [(ngModel)]="Current.District" placeholder="District Name">
       </div> -->
     </div>
-    <div class="row mb-3">
-      <label for="address_street_id" class="col-sm-3 col-form-label text-muted">Street</label>
-      <div class="col-sm-6">
+    <div class="col-md-6  mb-3">
+      <label for="address_street_id" class="form-title">Street</label>
+      
         <input type="text" class="form-control" id="address_street_id" name="Street" [(ngModel)]="Current.Street" placeholder="Street Name">
-      </div>
+      
       <!-- <label for="address_unit_id" class="col-sm-2 col-form-label">Unit No</label>
       <div class="col-sm-2">
         <input type="text" class="form-control" id="address_unit_id" name="Street" [(ngModel)]="Current.UnitNo" placeholder="Unit No">
       </div> -->
     </div>
 
-    <div class="row mb-3">
-      <label for="address_buildno_id" class="col-sm-3 col-form-label text-muted">Building No</label>
-      <div class="col-sm-6">
+    <div class="col-md-6  mb-3">
+      <label for="address_buildno_id" class="form-title">Building No</label>
         <input type="text" class="form-control" id="address_buildno_id" name="BuildNo" [(ngModel)]="Current.Building" placeholder="Building No">
-      </div>
+      
 
       <!-- <label for="address_zipcode_id" class="col-sm-2 col-form-label">Zip Code</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="address_zipcode_id" name="ZipCode" [(ngModel)]="Current.ZipCode" placeholder="Zip Code">
       </div> -->
     </div>
-    <div class="row mb-3">
+    <div class="col-md-6  mb-3">
       <!-- <label for="address_extrano_id" class="col-sm-2 col-form-label">Extra No</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="address_extrano_id" name="ExtraNo" [(ngModel)]="Current.ExtraNo" placeholder="Extra No">
       </div> -->
 
-      <label for="address_phone_id" class="col-sm-3 col-form-label text-muted">Phone</label>
-      <div class="col-sm-6">
+      <label for="address_phone_id" class="form-title">Phone</label>
         <input type="text" class="form-control" id="address_phone_id" name="PhoneNo" [(ngModel)]="Current.Phone" placeholder="Phone">
-      </div>
+      
     </div>
    
   </div>
   <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="modal.close('by: close button')">Close</button>
+    <button type="button" class="btn btn-primary" *ngIf="!IsNew" [disabled]="savingAddress" (click)="edit_Address(modal)">
+      <span style="white-space:nowrap">
+        <span [style.visibility]="savingAddress && !isDelete ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+        confirm
+      </span>
+    </button>
+    <button type="button" class="btn btn-secondary border-button" (click)="modal.close('by: close button')">Cancel</button>
     <button type="button" class="btn btn-primary" *ngIf="IsNew" [disabled]="savingAddress" (click)="add_Address(modal)">
       <span style="white-space:nowrap">
         <span [style.visibility]="savingAddress ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
         Add
       </span>
     </button>
-    <button type="button" class="btn btn-danger" *ngIf="!IsNew" [disabled]="savingAddress" (click)="delete_Address(modal)">
+    <!-- <button type="button" class="btn btn-danger" *ngIf="!IsNew" [disabled]="savingAddress" (click)="delete_Address(modal)">
       <span style="white-space:nowrap">
         <span [style.visibility]="savingAddress && isDelete ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
         Delete
       </span>
-    </button>
-    <button type="button" class="btn btn-primary" *ngIf="!IsNew" [disabled]="savingAddress" (click)="edit_Address(modal)">
-      <span style="white-space:nowrap">
-        <span [style.visibility]="savingAddress && !isDelete ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-        Save
-      </span>
-    </button>
+    </button> -->
+    
   </div>
 </ng-template>

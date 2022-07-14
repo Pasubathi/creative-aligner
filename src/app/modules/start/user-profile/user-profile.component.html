@@ -1,102 +1,119 @@
 <div class="row">
-  <div class="col-md-6 grid-margin stretch-card">
-    <div class="card">
+  <div class="col-md-12">
+    <h6 class="card-title">Profile Settings</h6>
+  </div>
+</div>  
+  <div class="outer-card-setting">
+    <div class="row">
+  <div class="col-md-12 col-lg-6 grid-margin stretch-card equal-padd-right">
+   <div class="card">
       <div class="card-body">
-        <h6 class="card-title">Profile Settings</h6>
-        <form class="form-horizontal" (ngSubmit)="editUser()" #userform="ngForm">
-          <div class="row mb-3">
-            <label for="userNameID" class="col-sm-3 col-form-label">First Name</label>
-            <div class="col-sm-9">
+        <div class="form-header">
+           <h6 class="card-title">Personal information</h6>
+           </div>
+        <form class="form-horizontal row" (ngSubmit)="editUser()" #userform="ngForm">
+          <div class="form-title mb-3 col-md-6">
+               <label for="userNameID" class="form-label">First Name</label>
               <input type="text" class="form-control" name="Name" [(ngModel)]="user.Name" id="userNameID"
                 placeholder="First Name" #userNameID="ngModel" required minlength="4">
               <p class="text-danger mt-1" *ngIf="userNameID.invalid && (userNameID.touched || userNameID.dirty)">User
                 name is invalid</p>
-            </div>
+            
           </div>
-          <div class="row mb-3">
-            <label for="userLastNameID" class="col-sm-3 col-form-label">Last Name</label>
-            <div class="col-sm-9">
+          <div class="form-title mb-3 col-md-6">
+            <label for="userLastNameID" class="form-label">Last Name</label>
               <input type="text" class="form-control" name="LastName" [(ngModel)]="user.LastName" id="userLastNameID"
                 placeholder="Last Name" #userLastNameID="ngModel">
-            </div>
+            
           </div>
-          <div class="row mb-3">
-            <label for="userEmailID" class="col-sm-3 col-form-label">Email</label>
-            <div class="col-sm-9">
-              <input type="email" class="form-control" name="Email" [(ngModel)]="user.Email" id="userEmailID"
+          <div class="form-title mb-3 col-md-6">
+            <label for="userEmailID" class="form-label">Email</label>
+            <input type="email" class="form-control" name="Email" [(ngModel)]="user.Email" id="userEmailID"
                 disabled />
-            </div>
-          </div>
-          <div class="row mb-3">
-            <label for="userTelephoneID" class="col-sm-3 col-form-label">Telephone</label>
-            <div class="col-sm-9">
-              <input type="text" class="form-control" name="Telephone" [(ngModel)]="user.Telephone" id="userTelephoneID"
+           </div>
+          <div class="form-title mb-3 col-md-6">
+            <label for="userTelephoneID" class="form-label">Telephone</label>
+            <input type="text" class="form-control" name="Telephone" [(ngModel)]="user.Telephone" id="userTelephoneID"
                 placeholder="Telephone number">
-            </div>
-          </div>
-          <div class="row mb-3">
-            <label for="userSpecialityID" class="col-sm-3 col-form-label">Speciality</label>
-            <div class="col-sm-9 mb-3">
-              <ng-select id="userSpecialityID" name="Speciality" [items]="specialities" [(ngModel)]="user.Speciality"
+           </div>
+          <div class="form-title mb-3 col-md-6">
+            <label for="userSpecialityID" class="form-label">Speciality</label>
+             <ng-select id="userSpecialityID" name="Speciality" [items]="specialities" [(ngModel)]="user.Speciality"
                 placeholder="Speciality" bindLabel="name" bindValue="value" #userCountryID="ngModel"
                 [searchable]="false" required>
               </ng-select>
               <p class="text-danger mt-1" *ngIf="userCountryID.invalid">Speciality is required</p>
-            </div>
+          
           </div>
 
-          <div class="row mb-3">
-            <label for="userNotationSystemID" class="col-sm-3 col-form-label">Dental Notation</label>
-            <div class="col-sm-9 mb-3">
-              <ng-select id="userNotationSystemID" name="NotationSystem" [items]="notations"
+          <div class="form-title mb-3 col-md-6">
+            <label for="userNotationSystemID" class="form-labell">Dental Notation</label>
+             <ng-select id="userNotationSystemID" name="NotationSystem" [items]="notations"
                 [(ngModel)]="user.NotationSystem" placeholder="Notation" bindLabel="name" bindValue="value"
                 #userNotationSystemID="ngModel" required [searchable]="false">
               </ng-select>
               <p class="text-danger mt-1" *ngIf="userNotationSystemID.invalid">Notation system is required</p>
-            </div>
-          </div>
+           </div>
 
-          <div class="row mb-3">
-            <label for="userCountryID" class="col-sm-3 col-form-label">Country</label>
-            <div class="col-sm-9 mb-3">
-              <ng-select id="userCountryID" name="CountryID" [items]="countries" [(ngModel)]="user.CountryID"
+          <div class="form-title mb-3 col-md-6">
+            <label for="userCountryID" class="form-label">Country</label>
+            <ng-select id="userCountryID" name="CountryID" [items]="countries" [(ngModel)]="user.CountryID"
                 placeholder="Country" bindLabel="Country" bindValue="ID" #userCountryID="ngModel" [searchable]="false"
                 required>
               </ng-select>
               <p class="text-danger mt-1" *ngIf="userCountryID.invalid">Country is required</p>
             </div>
-          </div>
 
           <p class="text-success" *ngIf="savedSuccess == 1">You information submitted successfully</p>
           <p class="text-danger" *ngIf="savedSuccess == 2">Submitting your information failed</p>
           <br />
+          <div class="col-md-12 mt-2 d-flex">
           <button type="submit" [disabled]="userform.invalid || savedSuccess == 3" class="btn btn-primary me-2">
             <span [style.visibility]="savedSuccess == 3 ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm"
               role="status" aria-hidden="true"></span>
             Save
           </button>
-          <button type="button" class="btn btn-default me-2" (click)="changePassword()">
+          <button type="button" class="btn btn-default me-2 border-button" (click)="changePassword()">
             Change Password
           </button>
+          </div>
         </form>
       </div>
     </div>
   </div>
 
-  <div class="col-md-6 grid-margin stretch-card">
+  <div class="col-md-12 col-lg-6 grid-margin stretch-card equal-padd-left">
     <div class="card">
       <div class="card-body">
-        <h6 class="card-title">
-          Addresses
-          <button type="button" class="btn btn-link" (click)="newAddress()">+ New Address</button>
-        </h6>
-        <div *ngFor="let address of addresses">
-          <p>{{address.ClinicName}}</p>
+        <div class="form-header">
+          <h6 class="card-title">
+            Addresses
+          </h6>
+          <button type="button" class="btn btn-link" (click)="newAddress()"> <img src="assets/images/add-shipping.png" alt=""> New Address</button>
+
+        </div>
+        
+        <div class="addres-line-one" *ngFor="let address of addresses">
+          <div class="address-text">
+          <h6>{{address.ClinicName}}</h6>
           <p>{{address.Building}} {{address.Street}}</p>
           <p>{{address.City}}-{{auth.getCountry(address.CountryID)}}</p>
           <p>{{address.Phone}}</p>
+          </div>
           <button type="button" class="btn btn-link" (click)="editAddress(address)">
-            Edit
+           <img src="assets/images/edit-icon1.png" alt=""> 
+          </button>
+          <hr />
+        </div>
+        <div class="addres-line-one" *ngFor="let address of addresses">
+          <div class="address-text">
+          <h6>{{address.ClinicName}}</h6>
+          <p>{{address.Building}} {{address.Street}}</p>
+          <p>{{address.City}}-{{auth.getCountry(address.CountryID)}}</p>
+          <p>{{address.Phone}}</p>
+          </div>
+          <button type="button" class="btn btn-link" (click)="editAddress(address)">
+           <img src="assets/images/edit-icon1.png" alt=""> 
           </button>
           <hr />
         </div>
@@ -104,7 +121,7 @@
 
     </div>
   </div>
-
+</div>
 </div>
 
 <app-shipping-address #addressCtr (AddressesChanged)="onAddressesChanged($event)" [IsNew]="isNew" [Current]="Current">

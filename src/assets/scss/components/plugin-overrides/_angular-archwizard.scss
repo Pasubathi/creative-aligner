@@ -132,12 +132,11 @@ aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li .step-ind
 .steps-5.steps-indicator li.current {
 	background-image: url('/assets/images/blue-triangle.png');
 	background-repeat: no-repeat;
-	background-size: 100%;
-
+background-size: cover;
   @media (max-width:991px) {
     background-image: none;
   }
-	/* height: auto; */
+
 }
 .steps-5.steps-indicator li:first-child.current {
 	background-image: url('/assets/images/first-active--triangle.png');
@@ -155,7 +154,7 @@ aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li .step-ind
   @media (max-width:991px) {
     background-image: none;
   }
-	/* height: auto; */
+	
 }
 
 .card-body .steps-5.steps-indicator li.current a .label, .card-body .steps-5.steps-indicator li.current a .step-indicator{color: #fff;
@@ -174,9 +173,12 @@ aw-wizard-navigation-bar.horizontal.large-filled ul.steps-indicator li .step-ind
   box-shadow: 0px 10px 16px rgba(0, 0, 0, 0.06);
   border-radius: 20px;
   .card-title {
-    text-transform: uppercase;
+    text-transform:capitalize;
     font-size: 22px;
     font-weight: 700;
+    @media (max-width: 767px) {
+      font-size: 18px;
+    }
     .small-text {
   font-size: 14px !important;
   color: rgba(170, 170, 170, 1);

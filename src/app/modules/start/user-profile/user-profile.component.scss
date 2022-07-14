@@ -1,0 +1,102 @@
+@import './../../../../assets/scss/variables';  
+.card-title{
+    font-weight: 700;
+font-size: 22px;
+line-height: 30px;
+color: $light-black;
+@media (max-width:1390px) {
+    font-size:20px;
+}
+@media (max-width:767px) {
+    font-size:18px;
+}
+
+}
+.outer-card-setting{
+    background: #FFFFFF;
+    box-shadow: 0px 10px 16px rgba(0, 0, 0, 0.06);
+    border-radius: 20px;
+    padding: 20px 50px;
+    @media (max-width:1199px) {
+        padding: 20px 25px;
+    }
+    @media (max-width:767px) {
+        padding:15px;
+    }
+   .card{
+      box-shadow: inherit;
+      border-radius:0;
+      border: 0;
+      padding: 0;
+     .card-body{
+      padding:0;
+      .form-header{
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        padding-bottom:10px;
+        border-bottom: 1px solid rgba(51, 51, 51, 0.1);
+        margin-bottom: 30px;
+        .btn.btn-link{margin: 0;}
+        h6.card-title{
+            color: $blue-active;
+            font-weight: 600;
+            font-size: 18px;
+            line-height: 25px;
+        }
+      }
+      .form-horizontal  {
+        .mb-3{
+         margin-bottom: 1.3rem !important;
+        }
+        input{
+            background: #FBFBFB;
+            border: 1px solid #E0E0E0;
+            box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.04), inset -6px -6px 4px rgba(255, 255, 255, 0.3), inset 6px 6px 20px rgba(0, 0, 0, 0.06);
+            border-radius: 6px;
+            color: #666666;
+        }
+        .border-button{width:auto;height: 38px; border-radius: 6px; padding:0 20px;
+
+            @media (max-width:767px) {
+                font-size: 14px;
+                padding:0 15px;
+            }
+        }
+      
+    }
+
+     }
+
+    }
+  .stretch-card.equal-padd-left {
+        padding-left: 50px;
+        @media (max-width:767px) {
+            padding: 0px 15px;
+            margin-bottom: 0;
+        }
+
+        .addres-line-one {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            align-content: baseline;
+            align-items: baseline;
+            margin-bottom:20px;
+            .address-text {
+                width: 100%;
+                h6 {
+                    font-size: 16px;
+                    font-weight: 600;
+                    margin-bottom: 7px;
+                    color: #333333;
+                }
+                p{  font-size: 14px;
+                    font-weight: 400;
+                    color: #ADADAD;
+                }
+            }
+            .btn.btn-link{margin: 0;}
+        }
+    }
+}

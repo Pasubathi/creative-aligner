@@ -1,6 +1,12 @@
 
 @import '_variables.scss';
-
+@media (max-width: 991px) {
+  
+  .tooth-style-md-0 {
+    margin-bottom: 0;
+    margin: 0px;
+  }
+}
 @media (max-width: 576px) {
   .grid-margin-sm-0 {
     margin-bottom: 0;
@@ -68,6 +74,7 @@
   }
 }
 
+
 @media (min-width: 577px) {
   .grid-margin-sm-0 {
     margin-bottom: 0;
@@ -75,7 +82,7 @@
 
   .tooth-style-md-0 {
     margin-bottom: 0;
-    margin: 5px;
+    margin: 2px;
   }
 
   .tooth-top-style {

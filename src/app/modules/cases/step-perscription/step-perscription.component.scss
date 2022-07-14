@@ -8,6 +8,12 @@
         border: 1px solid #E0E0E0;
         box-shadow: 4px 4px 7px rgba(0, 0, 0, 0.04), inset -6px -6px 4px rgba(255, 255, 255, 0.3), inset 6px 6px 20px rgba(0, 0, 0, 0.06);
         border-radius: 6px;
+        @media (max-width:767px) {
+            height: auto !important;
+              margin-bottom: 20px;
+              
+              }
+        
     }
     .padding-right-card{
      
@@ -20,16 +26,17 @@
         padding-right: 10px;
         .form-check-label {
             display: inline-block;
-            width: 70px;
+           
             text-align: center;
-            height: 34px;
+         
             border-radius: 30px;
-            line-height: 34px;
+            line-height: 28px;
             font-weight: 500;
             font-size: 14px;
             color: #0C78A7;
             background: rgba(12, 120, 167, 0.06);
             border-radius: 30px;
+            padding:1px 20px;
 	
          }
          input[type="radio"]{
@@ -45,6 +52,14 @@
 
 }
 .Perscription-tab-seocnd-card{
+    .form-label{
+        @media (max-width:767px) {
+            padding: 9px 9px;
+            font-size: 12px;
+            
+        }
+    }
+   
   .treat-form-radio {
     .form-check-input {
         border: 1px #FF7878 solid;
@@ -56,14 +71,22 @@
       }
   }
   .maintain-radio-card{
+    @media (max-width:1300px) {
+        padding: 5px 0px;
+    }
     .form-check-label {
         background: rgba(12, 120, 167, 0.06);
         border-radius: 30px;
-        padding: 10px 29px;
+        padding: 8px 20px;
         font-weight: 600;
         font-size: 14px;
         line-height: 100%;
         color: #0C78A7;
+        @media (max-width:767px) {
+            padding: 9px 9px;
+            font-size: 12px;
+            
+        }
     }
     .form-check-input{
         display: none;

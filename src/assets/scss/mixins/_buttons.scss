@@ -23,12 +23,12 @@
 border: 1px solid $color;
 color: $color;
   &:hover {
-    background: $color;
+    background: $blue-active;
     color: $white;
   }
 }
 
-@mixin button-inverse-variant($color, $color-hover: $white) {
+@mixin button-inverse-variant($color, $blue-active: $white) {
   background-color: rgba($color, 0.2);
   background-image: none;
   border-color: rgba($color, 0);

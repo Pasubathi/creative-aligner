@@ -12,9 +12,11 @@
     z-index: 978;
     transition: width .1s ease, left .1s ease;
 
+
     @media(max-width: 991px) {
       width: 100%;
       left: 0;
+      height:55px;
       .navbar-content {
         width: 100%;
       }
@@ -174,7 +176,7 @@
     border-bottom: 1px solid rgba(51, 51, 51, 0.1);
 box-shadow: 0px 10px 16px rgba(196, 196, 196, 0.1);
     @include media-breakpoint-down(lg) {
-      display: none;
+      //display: none;
       &.header-toggled {
         display: flex;
         max-height: calc(100vh - #{$navbar-height});
@@ -202,9 +204,14 @@ box-shadow: 0px 10px 16px rgba(196, 196, 196, 0.1);
       > .nav-item {
         line-height: 1;
         text-align: left;
+        .menu-title {
+          @include media-breakpoint-down(md) {
+          display: none;
+          }
+        }
         @include media-breakpoint-down(md) {
-          display: block;
-          width: 100%;
+          display:inline-block;
+          width:auto;
           border-right: none;
         }
 
@@ -241,6 +248,9 @@ box-shadow: 0px 10px 16px rgba(196, 196, 196, 0.1);
           padding: 14px 10px;
           line-height: 1;
           font-weight: 400;
+          @include media-breakpoint-down(md) {
+            padding: 10px 5px;
+          }
           @extend .d-flex;
           @extend .align-items-center;
           .menu-title {
@@ -473,21 +483,37 @@ box-shadow: 0px 10px 16px rgba(196, 196, 196, 0.1);
 	display: flex;
 	justify-content: end;
 	align-content: center;
+  align-items: center;
   ul li a{
-    line-height: 35px;
+    //line-height: 35px;
   }
   .logout-link {
     margin-left: 15px !important;
-    span {
+    @include media-breakpoint-down(md) {margin-left:5px !important;}
+    .logout-icon{
+      @include media-breakpoint-down(md) {
+        display: none;
+      }
+    }
+   
+     span {
     color: rgb(255, 120, 120);
     font-weight: 600;
     line-height: 51px;
     margin-left: 10px;
+    @include media-breakpoint-down(md) {
+      margin-left: 3px;
+      line-height: 20px;
+    }
   }
+ 
 }
   #profileDropdown {
     color: #0C78A7;
     font-weight: 600;
+    @include media-breakpoint-down(md) {
+      font-size:13px;
+    }
   }::after{display: none;}
 
 }

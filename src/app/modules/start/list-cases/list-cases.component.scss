@@ -41,6 +41,9 @@
     .form-check-inline{
       padding:0;
       margin-bottom: 0;
+      @media (max-width:767px) {
+        margin-right:10px;
+      }
       input[type="radio"]{
         display: none;
       }:checked + .form-check-label {
