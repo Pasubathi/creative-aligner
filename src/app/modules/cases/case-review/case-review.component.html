@@ -12,16 +12,16 @@
     <div class="user-profile-data">
        <div class="user-profile-left">
           <div class="user-image">
-            <figure><img src="assets/images/user-image.png" alt=""></figure>
+            <figure><img [src]="imgUrl?imgUrl:'assets/images/placeholderimages/front_smiling.svg'" alt=""></figure>
           </div>
           <div class="user-details">
-             <h5 class="user-title">Akriti Gupta</h5>
+             <h5 class="user-title">{{api.case.Data.FirstName}} {{api.case.Data.LastName}}</h5>
              <div class="user-gender">
-              <span class="gender-span">Female  </span>
+              <span class="gender-span">{{api.case.Data.Gender}}  </span>
                <span class="dob-span">DOB : </span>
-               <span class="dtob-span">19-06-1996</span>
+               <span class="dtob-span">{{api.case.Data.DateOfBirth | date:'dd-MM-yyyy'}}</span>
              </div>
-             <span  class="st-badge status-pending">Pending Case Approval</span>
+             <span class="st-badge status-pending">{{api.case.Data.getCaseStage}}</span>
           </div>
        </div>
        <div class="user-profile-right">
