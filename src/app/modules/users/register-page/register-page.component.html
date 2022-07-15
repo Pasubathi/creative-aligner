@@ -10,17 +10,18 @@
           <div class="col-md-6 ps-md-0">
             <div class="auth-form-wrapper">
               <div class="center-grid"> 
-              <a routerLink="." class="creativealigner-logo d-block mb-2">Creative Aligner</a>
+              <a routerLink="." class="creativealigner-logo d-block mb-2 reg-title">BECOME A PROVIDER</a>
               <h5 class="sub-heading-text">Join our team</h5>
               <form class="forms-sample row" (ngSubmit)="registerClick()" #registerForm="ngForm">
                 <div class="mb-3 col-md-6 form-field">
                   <label for="exampleInputUsername1" class="form-label">First Name</label>
                   <input type="text" class="form-control" id="exampleInputUsername1" name="Name" #userName="ngModel" [(ngModel)]="user.Name" placeholder="First Name" minlength="3" required>
-                  <p class="text-danger mt-1" *ngIf="userName.invalid && isSubmitted">Your name is required to register</p>
+                  <p class="text-danger mt-1" *ngIf="userName.invalid && isSubmitted">Your first name is required to register</p>
                 </div>
                 <div class="mb-3 col-md-6 form-field">
                   <label for="userLastNameId" class="form-label">Last Name</label>
-                  <input type="text" class="form-control" id="userLastNameId" name="LastName" #userLastNameId="ngModel" [(ngModel)]="user.LastName" placeholder="Last Name">
+                  <input type="text" class="form-control" id="userLastNameId" name="LastName" #userLastNameId="ngModel" [(ngModel)]="user.LastName" minlength="1" placeholder="Last Name" required>
+                  <p class="text-danger mt-1" *ngIf="userLastNameId.invalid && isSubmitted">Your last name is required to register</p>
                 </div>
                 <div class="mb-3 col-md-6 form-field">
                   <label for="exampleInputEmail1" class="form-label">Email ID</label>

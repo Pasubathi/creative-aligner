@@ -27,19 +27,19 @@
             
           </div>
           <div class="form-title mb-3 col-md-6">
-            <label for="userEmailID" class="form-label">Email</label>
+            <label for="userEmailID" class="form-label">Email ID</label>
             <input type="email" class="form-control" name="Email" [(ngModel)]="user.Email" id="userEmailID"
                 disabled />
            </div>
           <div class="form-title mb-3 col-md-6">
-            <label for="userTelephoneID" class="form-label">Telephone</label>
+            <label for="userTelephoneID" class="form-label">Phone Number</label>
             <input type="text" class="form-control" name="Telephone" [(ngModel)]="user.Telephone" id="userTelephoneID"
                 placeholder="Telephone number">
            </div>
           <div class="form-title mb-3 col-md-6">
             <label for="userSpecialityID" class="form-label">Speciality</label>
              <ng-select id="userSpecialityID" name="Speciality" [items]="specialities" [(ngModel)]="user.Speciality"
-                placeholder="Speciality" bindLabel="name" bindValue="value" #userCountryID="ngModel"
+                placeholder="Select speciality" bindLabel="name" bindValue="value" #userCountryID="ngModel"
                 [searchable]="false" required>
               </ng-select>
               <p class="text-danger mt-1" *ngIf="userCountryID.invalid">Speciality is required</p>
@@ -47,22 +47,22 @@
           </div>
 
           <div class="form-title mb-3 col-md-6">
-            <label for="userNotationSystemID" class="form-labell">Dental Notation</label>
-             <ng-select id="userNotationSystemID" name="NotationSystem" [items]="notations"
-                [(ngModel)]="user.NotationSystem" placeholder="Notation" bindLabel="name" bindValue="value"
-                #userNotationSystemID="ngModel" required [searchable]="false">
-              </ng-select>
-              <p class="text-danger mt-1" *ngIf="userNotationSystemID.invalid">Notation system is required</p>
-           </div>
-
-          <div class="form-title mb-3 col-md-6">
             <label for="userCountryID" class="form-label">Country</label>
             <ng-select id="userCountryID" name="CountryID" [items]="countries" [(ngModel)]="user.CountryID"
-                placeholder="Country" bindLabel="Country" bindValue="ID" #userCountryID="ngModel" [searchable]="false"
+                placeholder="Select country" bindLabel="Country" bindValue="ID" #userCountryID="ngModel" [searchable]="false"
                 required>
               </ng-select>
               <p class="text-danger mt-1" *ngIf="userCountryID.invalid">Country is required</p>
             </div>
+
+          <div class="form-title mb-3 col-md-6">
+            <label for="userNotationSystemID" class="form-labell">Dental Notation</label>
+             <ng-select id="userNotationSystemID" name="NotationSystem" [items]="notations"
+                [(ngModel)]="user.NotationSystem" placeholder="Select notation" bindLabel="name" bindValue="value"
+                #userNotationSystemID="ngModel" required [searchable]="false">
+              </ng-select>
+              <p class="text-danger mt-1" *ngIf="userNotationSystemID.invalid">Notation system is required</p>
+           </div>
 
           <p class="text-success" *ngIf="savedSuccess == 1">You information submitted successfully</p>
           <p class="text-danger" *ngIf="savedSuccess == 2">Submitting your information failed</p>

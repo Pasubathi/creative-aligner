@@ -9,14 +9,43 @@
 
     <div class="col-md-6 mb-3">
       <label for="address_clinic_id" class="form-title">Clinic Name</label>
-       <input type="text" class="form-control" id="address_clinic_id" name="ExtraNo" [(ngModel)]="Current.ClinicName" placeholder="Clinic Name">
+       <input type="text" class="form-control" id="address_clinic_id" name="ExtraNo" [(ngModel)]="Current.ClinicName" placeholder="Enter clinic name">
       
+    </div>
+
+    <div class="col-md-6  mb-3">
+      <label for="address_buildno_id" class="form-title">Building No</label>
+        <input type="text" class="form-control" id="address_buildno_id" name="BuildNo" [(ngModel)]="Current.Building" placeholder="Enter building no">
+      
+
+      <!-- <label for="address_zipcode_id" class="col-sm-2 col-form-label">Zip Code</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="address_zipcode_id" name="ZipCode" [(ngModel)]="Current.ZipCode" placeholder="Zip Code">
+      </div> -->
+    </div>
+    <div class="col-md-6  mb-3">
+      <label for="address_street_id" class="form-title">Street</label>
+      
+        <input type="text" class="form-control" id="address_street_id" name="Street" [(ngModel)]="Current.Street" placeholder="Enter street name">
+      
+      <!-- <label for="address_unit_id" class="col-sm-2 col-form-label">Unit No</label>
+      <div class="col-sm-2">
+        <input type="text" class="form-control" id="address_unit_id" name="Street" [(ngModel)]="Current.UnitNo" placeholder="Unit No">
+      </div> -->
+    </div>
+    <div class="col-md-6  mb-3">
+      <label for="address_city_id" class="form-title">City</label>
+       <input type="text" class="form-control" id="address_city_id" name="Ciy" [(ngModel)]="Current.City" placeholder="Enter city">
+       <!-- <label for="address_district_id" class="col-sm-2 col-form-label">District</label>
+      <div class="col-sm-4">
+        <input type="text" class="form-control" id="address_district_id" name="District" [(ngModel)]="Current.District" placeholder="District Name">
+      </div> -->
     </div>
 
     <div class="col-md-6  mb-3">
       <label for="dlg_country_id" class="form-title">Country</label>
       
-        <ng-select id="dlg_country_id" [items]="countries" name="Country" [(ngModel)]="Current.CountryID" placeholder="Country"
+        <ng-select id="dlg_country_id" [items]="countries" name="Country" [(ngModel)]="Current.CountryID" placeholder="Select country"
                    bindLabel="Country"
                    bindValue="ID"
                    [searchable]="false">
@@ -29,42 +58,13 @@
       </div> -->
     </div>
     <div class="col-md-6  mb-3">
-      <label for="address_city_id" class="form-title">City</label>
-       <input type="text" class="form-control" id="address_city_id" name="Ciy" [(ngModel)]="Current.City" placeholder="City Name">
-       <!-- <label for="address_district_id" class="col-sm-2 col-form-label">District</label>
-      <div class="col-sm-4">
-        <input type="text" class="form-control" id="address_district_id" name="District" [(ngModel)]="Current.District" placeholder="District Name">
-      </div> -->
-    </div>
-    <div class="col-md-6  mb-3">
-      <label for="address_street_id" class="form-title">Street</label>
-      
-        <input type="text" class="form-control" id="address_street_id" name="Street" [(ngModel)]="Current.Street" placeholder="Street Name">
-      
-      <!-- <label for="address_unit_id" class="col-sm-2 col-form-label">Unit No</label>
-      <div class="col-sm-2">
-        <input type="text" class="form-control" id="address_unit_id" name="Street" [(ngModel)]="Current.UnitNo" placeholder="Unit No">
-      </div> -->
-    </div>
-
-    <div class="col-md-6  mb-3">
-      <label for="address_buildno_id" class="form-title">Building No</label>
-        <input type="text" class="form-control" id="address_buildno_id" name="BuildNo" [(ngModel)]="Current.Building" placeholder="Building No">
-      
-
-      <!-- <label for="address_zipcode_id" class="col-sm-2 col-form-label">Zip Code</label>
-      <div class="col-sm-4">
-        <input type="text" class="form-control" id="address_zipcode_id" name="ZipCode" [(ngModel)]="Current.ZipCode" placeholder="Zip Code">
-      </div> -->
-    </div>
-    <div class="col-md-6  mb-3">
       <!-- <label for="address_extrano_id" class="col-sm-2 col-form-label">Extra No</label>
       <div class="col-sm-4">
         <input type="text" class="form-control" id="address_extrano_id" name="ExtraNo" [(ngModel)]="Current.ExtraNo" placeholder="Extra No">
       </div> -->
 
-      <label for="address_phone_id" class="form-title">Phone</label>
-        <input type="text" class="form-control" id="address_phone_id" name="PhoneNo" [(ngModel)]="Current.Phone" placeholder="Phone">
+      <label for="address_phone_id" class="form-title">Phone No.</label>
+        <input type="text" class="form-control" id="address_phone_id" name="PhoneNo" [(ngModel)]="Current.Phone" placeholder="Enter phone no">
       
     </div>
    
@@ -76,13 +76,13 @@
         confirm
       </span>
     </button>
-    <button type="button" class="btn btn-secondary border-button" (click)="modal.close('by: close button')">Cancel</button>
     <button type="button" class="btn btn-primary" *ngIf="IsNew" [disabled]="savingAddress" (click)="add_Address(modal)">
       <span style="white-space:nowrap">
         <span [style.visibility]="savingAddress ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-        Add
+        Submit
       </span>
     </button>
+    <button type="button" class="btn btn-secondary border-button" (click)="modal.close('by: close button')">Cancel</button>
     <!-- <button type="button" class="btn btn-danger" *ngIf="!IsNew" [disabled]="savingAddress" (click)="delete_Address(modal)">
       <span style="white-space:nowrap">
         <span [style.visibility]="savingAddress && isDelete ? 'visible' : 'hidden'" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
