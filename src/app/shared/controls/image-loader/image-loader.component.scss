@@ -48,5 +48,37 @@
   }
 
 }
+.upload-sucess-active {
+	border: 2px solid rgba(12, 120, 167, 0.36);
+	background: rgba(12, 120, 167, 0.06);
+  h6.card-title{color: #0C78A7 !important;}
+  .upload-icon-text {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    width: 100%;
+    
+    h6 {
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 100%;
+      text-align: center;
+      color: #FFFFFF;
+      margin: 8px 0 2px;
+    }
+    p{
+      font-weight: 600;
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.6);
+      margin: 2px 0 2px;
+    }
+
+  }
+  .hide-whnen-pload{
+    display: none;
+
+  }
+
+}
 
 

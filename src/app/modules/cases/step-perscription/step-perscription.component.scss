@@ -18,7 +18,7 @@
     .padding-right-card{
      
         @media (min-width:992px) {
-            padding-right: 30px;
+            padding-right: 50px;
         }
     }
     .form-check-inline {
@@ -71,6 +71,7 @@
       }
   }
   .maintain-radio-card{
+    position: relative;
     @media (max-width:1300px) {
         padding: 5px 0px;
     }
@@ -89,7 +90,11 @@
         }
     }
     .form-check-input{
-        display: none;
+        position: absolute;
+        left: 50%;
+        opacity: 0;
+        width: 88px;
+        height: 27px;
     }:checked + .form-check-label{
         background: #0C78A7;
         color: #fff;
@@ -104,6 +109,8 @@
     {
         border:2px  #0c78a7 solid !important;
         border-radius: 3px;
+        height: 16px;
+        width: 16px;
     }
     .form-check-input:checked,  input[type="checkbox"]:checked{border-color: #0c78a7;}
  
