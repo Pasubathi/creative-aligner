@@ -63,7 +63,7 @@
             </div>
             <div class="col-sm-5"></div>
           </div> -->
-          <div class="row" style="padding: 10px">
+          <!-- <div class="row" style="padding: 10px">
             <div class="col-sm-12">
                 <h6 class="inner-title">Digital Setups</h6>
                 <div class="table-responsive mt-5">
@@ -122,34 +122,174 @@
         
                 </div>
             </div>
-          </div>  
+          </div> -->  
 
           <app-case-revisions-list [case]="api.case" [isOrthodontist]="false" [isAdmin]="false" [isDoctor]="auth.isDoctor()"></app-case-revisions-list>
           <app-case-shipping [case]="api.case"></app-case-shipping>
+          
+      <div class="footer-bottom">
+        <div class="row">
+          <div class="col-sm-12">
+            <div class="d-flex justify-content-center mt-2">
+              <button *ngIf="api.case.Data.CaseStage=='Active' && api.case.Package.Package == 'Unlimited'" type="button" class="btn btn-primary me-2" (click)="doRequestNextShipment()"
+                      aria-controls="nextShipment">
+                <i class="feather icon-command icon-xs me-2"></i>
+                <span style="white-space:nowrap">
+                  Request Next Shipment
+                </span>
+              </button>
+              <button *ngIf="api.case.Data.CaseStage=='Active' && api.case.Package.Package == 'Unlimited'" type="button" class="btn btn-primary me-2" (click)="doRequestMidcourseAdjusment()"
+                      aria-controls="midcourse">
+                <i class="feather icon-command icon-xs me-2"></i>
+                <span style="white-space:nowrap">
+                  Request Midcourse Adjusment
+                </span>
+              </button>
+              <button *ngIf="api.case.Data.CaseStage=='Active'" type="button" class="btn btn-primary me-2" (click)="doReplaceMissing()"
+                      aria-controls="replaceMissing">
+                <i class="feather icon-command icon-xs me-2"></i>
+                <span style="white-space:nowrap">
+                  Request Replace Missing
+                </span>
+              </button>
+              <button *ngIf="api.case.Data.CaseStage=='Active'" type="button" class="btn btn-primary me-2" (click)="doRequestRefinments()"
+                      aria-controls="requestRefinments">
+                <i class="feather icon-command icon-xs me-2"></i>
+                <span style="white-space:nowrap">
+                  Request Refinements
+                </span>
+              </button>
+              <button *ngIf="api.case.Data.CaseStage=='Active'" type="button" class="btn btn-primary me-2" (click)="doRequestRetainer()"
+                      aria-controls="requestRetainer">
+                <i class="feather icon-command icon-xs me-2"></i>
+                <span style="white-space:nowrap">
+                  Request Retainer
+                </span>
+              </button>
+            </div>
+            <div class="footer-buttons">
+              <div class="left-buttons-card">
+                <button type="button" class="btn-border"  >
+                 <img src="assets/images/Missing.png" alt="">
+                <span style="white-space:nowrap">
+                  Missing Aligner
+                </span>
+              </button>
+              <button type="button" class="btn-border"  >
+                <img src="assets/images/Midcourse.png" alt="">
+               <span style="white-space:nowrap">
+                Midcourse adjustment
+               </span>
+             </button>
+              </div>
+             <button type="button" class="btn btn-primary me-2" (click)="doArchived()"
+                      aria-controls="requestArchive">
+                <!-- <i class="feather icon-archive icon-xs me-2"></i> -->
+                <img src="assets/images/archive-icon.png" alt="">
+                <span style="white-space:nowrap">
+                  Archive
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+        </div>
         </ng-template>
       </li>
       <li [ngbNavItem]="2">
         <a ngbNavLink>Details</a>
         <ng-template ngbNavContent>
           <app-case-review-details [caseData]="api.case"></app-case-review-details>
+          <div class="footer-bottom">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="footer-buttons">
+                  <div class="left-buttons-card">
+                  </div>
+                 <button type="button" class="btn btn-primary me-2" (click)="doArchived()"
+                          aria-controls="requestArchive">
+                    <!-- <i class="feather icon-archive icon-xs me-2"></i> -->
+                    <img src="assets/images/archive-icon.png" alt="">
+                    <span style="white-space:nowrap">
+                      Archive
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </ng-template>
       </li>
       <li [ngbNavItem]="3">
         <a ngbNavLink>Records</a>
         <ng-template ngbNavContent>
           <app-case-records [case]="api.case.Data"></app-case-records>
+          <div class="footer-bottom">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="footer-buttons">
+                  <div class="left-buttons-card">
+                  </div>
+                 <button type="button" class="btn btn-primary me-2" (click)="doArchived()"
+                          aria-controls="requestArchive">
+                    <!-- <i class="feather icon-archive icon-xs me-2"></i> -->
+                    <img src="assets/images/archive-icon.png" alt="">
+                    <span style="white-space:nowrap">
+                      Archive
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </ng-template>
       </li>
       <li [ngbNavItem]="4">
         <a ngbNavLink>Chat</a>
         <ng-template ngbNavContent>
           <app-chat></app-chat>
+          <div class="footer-bottom">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="footer-buttons">
+                  <div class="left-buttons-card">
+                  </div>
+                 <button type="button" class="btn btn-primary me-2" (click)="doArchived()"
+                          aria-controls="requestArchive">
+                    <!-- <i class="feather icon-archive icon-xs me-2"></i> -->
+                    <img src="assets/images/archive-icon.png" alt="">
+                    <span style="white-space:nowrap">
+                      Archive
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </ng-template>
       </li>
       <li [ngbNavItem]="5">
         <a ngbNavLink>History</a>
         <ng-template ngbNavContent>
           <app-case-history [historyRecords]="api.case.HistoryRecords"></app-case-history>
+          <div class="footer-bottom">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="footer-buttons">
+                  <div class="left-buttons-card">
+                  </div>
+                 <button type="button" class="btn btn-primary me-2" (click)="doArchived()"
+                          aria-controls="requestArchive">
+                    <!-- <i class="feather icon-archive icon-xs me-2"></i> -->
+                    <img src="assets/images/archive-icon.png" alt="">
+                    <span style="white-space:nowrap">
+                      Archive
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </ng-template>
       </li>
       <li [ngbNavItem]="6">
@@ -198,6 +338,36 @@
                 </div>
             </div>
           </div>  
+          <div class="footer-bottom">
+            <div class="row">
+              <div class="col-sm-12">
+                <div class="footer-buttons">
+                  <div class="left-buttons-card">
+                    <button type="button" class="btn-border"  >
+                      <img src="assets/images/Missing.png" alt="">
+                      <span style="white-space:nowrap">
+                        Missing Aligner
+                      </span>
+                    </button>
+                    <button type="button" class="btn-border"  >
+                      <img src="assets/images/Midcourse.png" alt="">
+                      <span style="white-space:nowrap">
+                        Midcourse adjustment
+                      </span>
+                    </button>
+                  </div>
+                  <button type="button" class="btn btn-primary me-2" (click)="doArchived()"
+                          aria-controls="requestArchive">
+                    <!-- <i class="feather icon-archive icon-xs me-2"></i> -->
+                    <img src="assets/images/archive-icon.png" alt="">
+                    <span style="white-space:nowrap">
+                      Archive
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
         </ng-template>
       </li>
     </ul>
@@ -234,7 +404,7 @@
         </div>
       </div>
     </div>
-    <div>
+    <div><!-- 
       <div class="footer-bottom">
       <div class="row">
         <div class="col-sm-12">
@@ -292,7 +462,7 @@
             </div>
            <button type="button" class="btn btn-primary me-2" (click)="doArchived()"
                     aria-controls="requestArchive">
-              <!-- <i class="feather icon-archive icon-xs me-2"></i> -->
+             <i class="feather icon-archive icon-xs me-2"></i> 
               <img src="assets/images/archive-icon.png" alt="">
               <span style="white-space:nowrap">
                 Archive
@@ -301,7 +471,7 @@
           </div>
         </div>
       </div>
-      </div>
+      </div> -->
     </div>
   </div>
 </div>

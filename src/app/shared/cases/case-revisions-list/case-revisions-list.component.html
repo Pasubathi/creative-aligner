@@ -1,9 +1,9 @@
-<div *ngIf="case.Revisions && case.Revisions.length > 0" class="row">
+<div *ngIf="case.Revisions && case.Revisions.length > 0" class="row" style="padding: 10px">
   <div class="col-lg-12">
     <h4 class="fw-bold mt-4 mb-2"><span class="text-muted">Digital Setups</span></h4>
     <div class="table-responsive">
       <table class="table table-hover">
-        <thead>
+       <!--  <thead>
           <tr>
             <th style="width: 10%">#</th>
             <th style="width: 20%">Version</th>
@@ -13,8 +13,14 @@
             <th style="width: 20%"></th>
             <th style="width: 10%"></th>
           </tr>
-        </thead>
-        <tbody>
+        </thead> -->
+        <thead>
+          <tr>
+            <th style="width: 70%">Version</th>
+            <th style="width: 30%">Actions</th>
+          </tr>
+        </thead> 
+        <!-- <tbody>
           <tr *ngFor="let item of case.Revisions; let i = index" [id]="item.RevisionID">
             <th style="width: 10%"><span class="mb-2 text-muted"><b>{{item.RevisionNumber}}</b></span></th>
             <td style="width: 20%">
@@ -32,7 +38,7 @@
             </td>
 
             <td style="width: 20%">
-              <!--<app-view-revision #RevisionID [IsActive]="i == 0" [Revision]="item"></app-view-revision>-->
+             <app-view-revision #RevisionID [IsActive]="i == 0" [Revision]="item"></app-view-revision>
               <button class="btn btn-outline-primary" (click)="viewItem(item)">
                 <i class="feather icon-eye"></i>
                 View Digital Setup
@@ -46,7 +52,20 @@
             </td>
           </tr>
         </tbody>
-      </table>
+      </table> -->
+      <tbody>
+        <tr *ngFor="let item of case.Revisions; let i = index" [id]="item.RevisionID">
+          <td style="width: 70%">
+            <span class="item-date">{{item.RevisionTitle}}</span>
+          </td>
+          <td style="width: 20%">
+            <div class="flex-button">
+              <button class="download-pdf" (click)="viewItem(item)"><img src="assets/images/view.png" alt=""></button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
     </div>
   </div>
 </div>

@@ -52,7 +52,7 @@
         font-weight: 700;
       }
       .form-check-label{
-        padding:0 15px 7px 15px;
+        padding:25px 15px 7px 15px;
         @media (max-width:991px){
           padding:0 0px 7px 0px;
           font-size: 12px;
@@ -149,5 +149,9 @@
     color: rgba(12, 120, 167, 1);
   }
 
+ }
+
+ .cursor-point{
+  cursor: pointer;
  }
  

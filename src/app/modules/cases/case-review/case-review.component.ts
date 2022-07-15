@@ -51,8 +51,10 @@ export class CaseReviewComponent implements OnInit {
           this.api.readCase(a, this.auth.user.NotationSystem);
           console.debug(this.api.case);
           this.isLoading = false;
-          this.imgUrl = this.api.getUrl('DataApi', 'GetFile') + '?file=' + this.api.case.Data.ImageFrontSmiling;
-          
+          if(this.api.case.Data.ImageFrontSmiling)
+          {
+            this.imgUrl = this.api.getUrl('DataApi', 'GetFile') + '?file=' + this.api.case.Data.ImageFrontSmiling;
+          }
         }
         else {
           alert('No data: ' + a.Message);

@@ -1,7 +1,7 @@
 
   <div class="flex-card-top-inline">
     <h4 class="card-title">
-      Cases Preview
+      Cases List
     </h4>
     <div class="top-search-bar-item">
         <div class="input-group">
@@ -16,49 +16,48 @@
 <div class="card">
   <div class="row">
     <div class="col-md-12">
-      
      <form (ngSubmit)="filterChanged()" class="radio-form-card-inline">
         <div class="row">
           <div class="col-lg-8">
             <div class="form-check form-check-inline">
               <input type="radio" class="form-check-input" (change)="filterChanged()" value="1"
                 [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerAll">
-              <label class="form-check-label" for="casesFilerAll">
+              <label class="form-check-label cursor-point" for="casesFilerAll">
                 All
               </label>
             </div>
             <div class="form-check form-check-inline">
               <input type="radio" class="form-check-input" (change)="filterChanged()" value="2"
                 [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerPending">
-              <label class="form-check-label" for="casesFilerPending">
+              <label class="form-check-label cursor-point" for="casesFilerPending">
                 Pending
               </label>
             </div>
             <div class="form-check form-check-inline">
               <input type="radio" class="form-check-input" (change)="filterChanged()" value="3"
                 [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerActive">
-              <label class="form-check-label" for="casesFilerActive">
+              <label class="form-check-label cursor-point" for="casesFilerActive">
                 Active
               </label>
             </div>
             <div class="form-check form-check-inline">
               <input type="radio" class="form-check-input" (change)="filterChanged()" value="4"
                 [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerCompleted">
-              <label class="form-check-label" for="casesFilerCompleted">
+              <label class="form-check-label cursor-point" for="casesFilerCompleted">
                 Completed
               </label>
             </div>
             <div class="form-check form-check-inline">
               <input type="radio" class="form-check-input" (change)="filterChanged()" value="5"
                 [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerRejected">
-              <label class="form-check-label" for="casesFilerRejected">
+              <label class="form-check-label cursor-point" for="casesFilerRejected">
                 Rejected
               </label>
             </div>
             <div class="form-check form-check-inline">
               <input type="radio" class="form-check-input" (change)="filterChanged()" value="6"
                 [(ngModel)]="SearchModel.States" name="casesFiler" id="casesFilerArchived">
-              <label class="form-check-label" for="casesFilerArchived">
+              <label class="form-check-label cursor-point" for="casesFilerArchived">
                 Archived
               </label>
             </div>
@@ -89,7 +88,7 @@
                 <th class="pt-0">Case No</th>
                 <th class="pt-0">Last Activity</th>
                 <th class="pt-0">Status</th>
-                <th class="pt-0">Package</th>
+                <!-- <th class="pt-0">Package</th> -->
                 <th class="pt-0">Actions</th>
                 <th class="pt-0"> </th>
               </tr>
@@ -132,9 +131,9 @@
                   <span *ngIf="item.Case.CaseStage == 'Archived'" style="background-color:#66d1d1;color: #ffff;border-radius: 34px;" class="st-badge status-archived">{{ item.CaseStage
                     }}</span>
                 </td>
-                <td>
+                <!-- <td>
                   {{item.PackageName()}}
-                </td>
+                </td> -->
                 <td>
                   <!-- <app-actions-menu [item]="item" [api]="api"></app-actions-menu> -->
                   <div class="flex-button">
