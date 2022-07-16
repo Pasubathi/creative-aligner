@@ -20,6 +20,7 @@ export class ImageLoaderComponent implements OnInit {
   public uploading: boolean = false;
   public hasImage: boolean = false;
   public showLabelImage: boolean = false;
+  public isUploded: boolean = false;
   public selectedImage: string = '';
   progress = { loaded: 0, total: 0 };
 
@@ -46,6 +47,7 @@ export class ImageLoaderComponent implements OnInit {
   }
 
   onSelect(event: any): void {
+    this.isUploded = false;
     console.debug(event);
     this.files = [];
     if (event.addedFiles && event.addedFiles.length > 0) {
@@ -208,6 +210,7 @@ export class ImageLoaderComponent implements OnInit {
           this.setPropertyValue(data.body.FilePath);
           this.hasImage = false;
           this.showLabelImage = false;
+          this.isUploded = true;
           this.loadFile(file);
           console.debug("Data Uploaded");
           console.debug(data.body);
@@ -216,6 +219,7 @@ export class ImageLoaderComponent implements OnInit {
       },
       error => {
         this.uploading = false;
+        this.isUploded = false;
         console.debug(error);
       });
       
